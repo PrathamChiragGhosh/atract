@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.add-service-job-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.add-service-job-modal-content {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.add-service-job-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+
+.add-service-job-modal-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.add-service-job-modal-close {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #9ca3af;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.add-service-job-modal-close:hover {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.add-service-job-modal-form {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-service-job-form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.add-service-job-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.add-service-job-form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.required {
+    color: #ef4444;
+}
+
+.add-service-job-form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Roboto Flex", sans-serif;
+    color: #1f2937;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.add-service-job-form-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.add-service-job-form-input.error {
+    border-color: #ef4444;
+}
+
+.add-service-job-form-input:disabled {
+    background: #f9fafb;
+    cursor: not-allowed;
+}
+
+.add-service-job-form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.add-service-job-form-error {
+    font-size: 12px;
+    color: #ef4444;
+    margin-top: -4px;
+}
+
+.add-service-job-form-hint {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.add-service-job-shift-section {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.add-service-job-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 16px 0;
+}
+
+.add-service-job-shift-display {
+    margin-top: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    color: #374151;
+}
+
+.add-service-job-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.add-service-job-modal-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.add-service-job-modal-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.add-service-job-modal-btn-cancel {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.add-service-job-modal-btn-cancel:hover:not(:disabled) {
+    background: #e5e7eb;
+}
+
+.add-service-job-modal-btn-submit {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+}
+
+.add-service-job-modal-btn-submit:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.add-service-job-shift-section {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.add-service-job-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 16px 0;
+}
+
+.add-service-job-shift-display {
+    margin-top: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #1f2937;
+}
+
+.add-service-job-skills-input-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.add-service-job-skills-input-wrapper .add-service-job-form-input {
+    flex: 1;
+}
+
+.add-service-job-skill-add-btn {
+    padding: 12px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.add-service-job-skill-add-btn:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.add-service-job-skill-add-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.add-service-job-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.add-service-job-skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.add-service-job-skill-remove {
+    background: none;
+    border: none;
+    color: #2563eb;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.add-service-job-skill-remove:hover:not(:disabled) {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.add-service-job-skill-remove:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .add-service-job-modal-content {
+        max-width: 100%;
+        max-height: 95vh;
+    }
+
+    .add-service-job-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .add-service-job-skills-input-wrapper {
+        flex-direction: column;
+    }
+
+    .add-service-job-skill-add-btn {
+        width: 100%;
+    }
+}
+

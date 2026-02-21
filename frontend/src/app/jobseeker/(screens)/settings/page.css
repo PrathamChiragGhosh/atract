@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&display=swap');
+
+.js-settings-page,
+.js-settings-page * {
+    font-family: "Roboto Flex", sans-serif;
+    box-sizing: border-box;
+}
+
+.js-settings-page {
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.js-settings-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 16px;
+}
+
+.js-settings-loading p {
+    color: #6b7280;
+    font-size: 15px;
+    margin: 0;
+}
+
+.js-settings-warning {
+    background: #fef3c7;
+    border: 1px solid #fbbf24;
+    color: #92400e;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+.js-settings-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+.js-settings-card-header {
+    margin-bottom: 32px;
+}
+
+.js-settings-card-eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 8px 0;
+}
+
+.js-settings-card-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+}
+
+.js-settings-subtitle {
+    font-size: 15px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.js-settings-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.js-settings-preference-block {
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.js-settings-preference {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.js-settings-preference-content {
+    flex: 1;
+}
+
+.js-settings-preference-content h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+}
+
+.js-settings-preference-content p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.js-settings-toggle {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    background: #cbd5e1;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.js-settings-toggle:hover:not(:disabled) {
+    background: #94a3b8;
+}
+
+.js-settings-toggle:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.js-settings-toggle.on {
+    background: #2563eb;
+}
+
+.js-settings-toggle.on:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.js-settings-toggle-thumb {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    transform: translateX(3px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.js-settings-toggle.on .js-settings-toggle-thumb {
+    transform: translateX(27px);
+}
+
+/* OTP Modal */
+.js-settings-otp-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.js-settings-otp-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 480px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 3001;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.js-settings-otp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.js-settings-otp-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.js-settings-otp-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #64748b;
+    font-size: 20px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.js-settings-otp-close:hover:not(:disabled) {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.js-settings-otp-close:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.js-settings-otp-body {
+    padding: 24px;
+}
+
+.js-settings-otp-text {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+}
+
+.js-settings-otp-text strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.js-settings-otp-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.js-settings-otp-inputs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.js-settings-otp-input {
+    width: 56px;
+    height: 56px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #0f172a;
+    transition: all 0.2s;
+}
+
+.js-settings-otp-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.js-settings-otp-input:disabled {
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.js-settings-otp-input.error {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.js-settings-otp-input.error:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.js-settings-otp-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.js-settings-otp-btn-secondary,
+.js-settings-otp-btn-primary {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.js-settings-otp-btn-secondary {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.js-settings-otp-btn-secondary:hover:not(:disabled) {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.js-settings-otp-btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.js-settings-otp-btn-primary:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.js-settings-otp-btn-secondary:disabled,
+.js-settings-otp-btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .js-settings-page {
+        padding: 20px 16px;
+    }
+
+    .js-settings-card {
+        padding: 24px 20px;
+    }
+
+    .js-settings-card-header h2 {
+        font-size: 20px;
+    }
+
+    .js-settings-preference {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .js-settings-otp-modal {
+        width: 95%;
+        max-width: none;
+    }
+
+    .js-settings-otp-inputs {
+        gap: 8px;
+    }
+
+    .js-settings-otp-input {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+
+    .js-settings-otp-actions {
+        flex-direction: column;
+    }
+
+    .js-settings-otp-btn-secondary,
+    .js-settings-otp-btn-primary {
+        width: 100%;
+    }
+}
+

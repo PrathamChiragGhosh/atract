@@ -1,0 +1,1219 @@
+/* Global box-sizing for all elements in create page */
+.resumebuilder-create-container,
+.resumebuilder-create-container *,
+.resumebuilder-create-container *::before,
+.resumebuilder-create-container *::after {
+    box-sizing: border-box;
+}
+
+.resumebuilder-create-container {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    color: #162335;
+    background: #f7fbff;
+    padding: 24px;
+    min-height: 100vh;
+    /* No overflow on container to allow sticky positioning */
+    position: relative;
+    overflow: visible;
+    /* Prevent horizontal scroll at container level without breaking sticky */
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .resumebuilder-create-container {
+        padding: 16px;
+    }
+}
+
+.resumebuilder-create-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    gap: 24px;
+}
+
+.resumebuilder-create-loading h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.resumebuilder-create-loading p {
+    font-size: 15px;
+    color: #6186a9;
+    margin-bottom: 34px;
+}
+
+.resumebuilder-create-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(24, 64, 164, 0.1);
+    padding: 40px 48px;
+    width: 450px;
+    max-width: 90vw;
+}
+
+.resumebuilder-create-step {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.resumebuilder-create-step-icon {
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-check {
+    font-size: 22px;
+    color: #10b981;
+}
+
+.icon-spinner {
+    font-size: 22px;
+    color: #2563eb;
+    animation: spin 1s linear infinite;
+}
+
+.step-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #e9ecef;
+    border-radius: 50%;
+}
+
+.resumebuilder-create-step-label {
+    color: #374151;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.resumebuilder-create-step.complete .resumebuilder-create-step-label {
+    color: #10b981;
+}
+
+.resumebuilder-create-step.current .resumebuilder-create-step-label {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.resumebuilder-create-form {
+    display: flex;
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: flex-start; /* Align items to top */
+    /* Ensure form container doesn't break sticky positioning */
+    overflow: visible;
+    position: relative;
+}
+
+.resumebuilder-create-sidebar {
+    width: 320px;
+    min-width: 0;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    height: fit-content;
+    position: -webkit-sticky; /* Safari support */
+    position: sticky;
+    top: 89px !important; /* 64px navbar height + 20px gap + 5px extra */
+    box-sizing: border-box;
+    flex-shrink: 0;
+    max-height: calc(100vh - 114px) !important; /* Prevent sidebar from exceeding viewport (reduced by 25px) */
+    overflow-y: auto; /* Allow scrolling if content is too tall */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    z-index: 10; /* Ensure sidebar stays above other content */
+    align-self: flex-start; /* Align to top of flex container */
+    will-change: transform; /* Optimize for sticky positioning */
+}
+
+/* Custom scrollbar for sidebar */
+.resumebuilder-create-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.resumebuilder-create-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.resumebuilder-create-sidebar::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
+}
+
+.resumebuilder-create-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+.resumebuilder-create-sidebar-header {
+    margin-bottom: 16px;
+}
+
+.resumebuilder-create-sidebar-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+}
+
+.resumebuilder-create-sidebar-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.resumebuilder-create-credits {
+    text-align: center;
+    padding: 10px 16px;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #2563eb;
+}
+
+.resumebuilder-create-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 16px 0;
+}
+
+.resumebuilder-create-role-info {
+    margin-bottom: 16px;
+}
+
+.resumebuilder-create-role-sub {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.resumebuilder-create-role-main {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.resumebuilder-create-role-change {
+    font-size: 14px;
+    color: #2563eb;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.resumebuilder-create-role-change:hover {
+    text-decoration: underline;
+}
+
+.resumebuilder-create-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.resumebuilder-create-section-item {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.resumebuilder-create-section-item:hover {
+    background: #f9fafb;
+}
+
+.resumebuilder-create-section-item.active {
+    background: #eff6ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.resumebuilder-create-content {
+    flex: 1;
+    min-width: 0;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.resumebuilder-create-placeholder {
+    text-align: center;
+    padding: 48px;
+    color: #9ca3af;
+    font-size: 16px;
+}
+
+.resumebuilder-create-section-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: flex-start;
+}
+
+.resumebuilder-create-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 16px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.resumebuilder-create-section-header-mobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.resumebuilder-create-section-header-mobile h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.resumebuilder-create-back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Hide back button on desktop (in section header) */
+@media (min-width: 769px) {
+    .resumebuilder-create-back-btn {
+        display: none;
+    }
+}
+
+.resumebuilder-create-back-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.resumebuilder-create-add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.resumebuilder-create-add-btn:hover {
+    background: #dbeafe;
+}
+
+.resumebuilder-create-fields-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.resumebuilder-create-entry {
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.resumebuilder-create-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.resumebuilder-create-entry-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.resumebuilder-create-delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    background: #fee2e2;
+    color: #b91c1c;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.resumebuilder-create-delete-btn:hover {
+    background: #fecaca;
+}
+
+.resumebuilder-create-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.resumebuilder-create-field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.required-asterisk {
+    color: #ef4444;
+    margin-left: 4px;
+}
+
+.resumebuilder-create-field input,
+.resumebuilder-create-field textarea,
+.resumebuilder-create-field select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.resumebuilder-create-field input:focus,
+.resumebuilder-create-field textarea:focus,
+.resumebuilder-create-field select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.resumebuilder-create-field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.resumebuilder-create-field input.disabled {
+    background: #f3f4f6;
+    cursor: not-allowed;
+}
+
+.resumebuilder-create-date-field {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.resumebuilder-create-present-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+}
+
+.resumebuilder-create-present-checkbox input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+}
+
+.resumebuilder-create-next-btn {
+    width: auto;
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 24px;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.resumebuilder-create-next-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+.resumebuilder-create-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.resumebuilder-create-summary h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.resumebuilder-create-empty-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    gap: 16px;
+    color: #9ca3af;
+}
+
+.resumebuilder-create-empty-summary svg {
+    font-size: 48px;
+}
+
+.resumebuilder-create-summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.resumebuilder-create-summary-section {
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.resumebuilder-create-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.resumebuilder-create-summary-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.resumebuilder-create-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: white;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.resumebuilder-create-edit-btn:hover {
+    background: #eff6ff;
+}
+
+.resumebuilder-create-summary-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.resumebuilder-create-summary-field {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+.resumebuilder-create-summary-field strong {
+    color: #111827;
+    margin-right: 8px;
+}
+
+.resumebuilder-create-generate-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    margin-top: 24px;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.resumebuilder-create-generate-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+.resumebuilder-create-generate-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.resumebuilder-create-validation-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #fef3c7;
+    border: 1px solid #fbbf24;
+    border-radius: 8px;
+    color: #92400e;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.resumebuilder-create-role-container {
+    padding: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.resumebuilder-create-role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.resumebuilder-create-role-header-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.resumebuilder-create-role-header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.resumebuilder-create-role-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 8px;
+}
+
+.resumebuilder-create-role-subtitle {
+    font-size: 15px;
+    color: #6b7280;
+}
+
+.resumebuilder-create-role-search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.resumebuilder-create-role-search-icon {
+    position: absolute;
+    left: 12px;
+    color: #9ca3af;
+    font-size: 18px;
+}
+
+.resumebuilder-create-role-search-input {
+    padding: 10px 12px 10px 40px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 300px;
+    max-width: 100%;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.resumebuilder-create-role-search-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.resumebuilder-create-drafts-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.resumebuilder-create-drafts-toggle-btn:hover {
+    background: #f3f4f6;
+}
+
+.resumebuilder-create-drafts-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1011;
+    animation: backdropFade 0.3s ease-out forwards;
+    backdrop-filter: blur(4px);
+}
+
+.resumebuilder-create-drafts-backdrop.closing {
+    animation: backdropFadeOut 0.3s ease-in forwards;
+}
+
+@keyframes backdropFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes backdropFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.resumebuilder-create-drafts-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    max-width: 90vw;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+    z-index: 1012; /* Above navbar (1010) and backdrop (1011) */
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease-out forwards;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.resumebuilder-create-drafts-panel.closing {
+    animation: slideOut 0.3s ease-in forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.resumebuilder-create-drafts-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.resumebuilder-create-drafts-panel-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.resumebuilder-create-drafts-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    background: #f3f4f6;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.resumebuilder-create-drafts-close-btn:hover {
+    background: #e5e7eb;
+}
+
+.resumebuilder-create-drafts-panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.resumebuilder-create-drafts-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    gap: 16px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+.resumebuilder-create-drafts-empty svg {
+    font-size: 48px;
+}
+
+.resumebuilder-create-drafts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resumebuilder-create-draft-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.2s;
+    position: relative;
+    display: flex;
+}
+
+.resumebuilder-create-draft-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resumebuilder-create-draft-item-content {
+    padding: 16px;
+    cursor: pointer;
+    flex: 1;
+}
+
+.resumebuilder-create-draft-delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.resumebuilder-create-draft-delete-btn:hover {
+    background: #fecaca;
+    color: #991b1b;
+}
+
+.resumebuilder-create-drafts-clear-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.resumebuilder-create-drafts-clear-all-btn:hover {
+    background: #fecaca;
+    border-color: #fca5a5;
+}
+
+.resumebuilder-create-draft-item-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.resumebuilder-create-draft-item-header svg {
+    font-size: 24px;
+    color: #2563eb;
+}
+
+.resumebuilder-create-draft-item-info h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.resumebuilder-create-draft-item-info p {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.resumebuilder-create-draft-item-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.resumebuilder-create-role-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.resumebuilder-create-role-category {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.resumebuilder-create-role-category-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 16px;
+}
+
+.resumebuilder-create-role-subgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.resumebuilder-create-role-card {
+    padding: 16px;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.resumebuilder-create-role-card:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.resumebuilder-create-role-card.active {
+    background: #eff6ff;
+    border-color: #2563eb;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.resumebuilder-create-role-next-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.resumebuilder-create-role-next-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.resumebuilder-create-role-next-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .resumebuilder-create-container {
+        padding: 16px;
+    }
+
+    .resumebuilder-create-form {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .resumebuilder-create-sidebar {
+        width: 100%;
+        position: static;
+        padding: 20px;
+    }
+
+    .resumebuilder-create-sidebar.mobile-hidden {
+        display: none;
+    }
+
+    .resumebuilder-create-content {
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .resumebuilder-create-section-fields {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .resumebuilder-create-role-container {
+        padding: 16px;
+    }
+
+    .resumebuilder-create-role-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .resumebuilder-create-role-header-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .resumebuilder-create-role-search-input {
+        width: 100%;
+    }
+
+    .resumebuilder-create-role-subgrid {
+        grid-template-columns: 1fr;
+    }
+
+    .resumebuilder-create-role-next-btn {
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Delete Confirmation Modal Backdrop */
+.resumebuilder-create-delete-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1013; /* Above drafts panel (1012) */
+    animation: backdropFade 0.3s ease-out;
+    backdrop-filter: blur(4px);
+}
+
+/* Delete Confirmation Modal */
+.resumebuilder-create-delete-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1014; /* Above backdrop (1013) */
+    pointer-events: none;
+}
+
+.resumebuilder-create-delete-modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.resumebuilder-create-delete-modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 12px 0;
+}
+
+.resumebuilder-create-delete-modal-message {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+}
+
+.resumebuilder-create-delete-modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.resumebuilder-create-delete-modal-cancel,
+.resumebuilder-create-delete-modal-confirm {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.resumebuilder-create-delete-modal-cancel {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.resumebuilder-create-delete-modal-cancel:hover {
+    background: #e5e7eb;
+}
+
+.resumebuilder-create-delete-modal-confirm {
+    background: #dc2626;
+    color: white;
+}
+
+.resumebuilder-create-delete-modal-confirm:hover {
+    background: #b91c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+

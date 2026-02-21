@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.blogagent-container {
+  min-height: 100vh;
+  padding: 32px;
+  background: #f3f4f6;
+  box-sizing: border-box;
+  font-family: "Roboto Flex", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.blogagent-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 15px 45px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e9eef5;
+  width: 100%;
+  max-width: 900px;
+}
+
+.blogagent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.blogagent-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5b6b7a;
+  font-size: 0.8rem;
+  margin: 0 0 0.35rem 0;
+}
+
+.blogagent-title {
+  margin: 0;
+  font-size: 2rem;
+  color: #0f172a;
+}
+
+.blogagent-subtitle {
+  margin: 0.25rem 0 0 0;
+  color: #5b6b7a;
+}
+
+.blogagent-loading,
+.blogagent-error {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.blogagent-loading {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.blogagent-error {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+.blogagent-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.blogagent-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.blogagent-rowColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.blogagent-label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.blogagent-input {
+  width: 180px;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.blogagent-textarea {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  min-height: 96px;
+}
+
+.blogagent-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.blogagent-primaryButton {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 0.85rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.25);
+}
+
+.blogagent-primaryButton:hover {
+  background: #0284c7;
+  transform: translateY(-1px);
+}
+
+.blogagent-primaryButton:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.blogagent-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.blogagent-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.blogagent-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: 0.2s;
+  border-radius: 26px;
+}
+
+.blogagent-slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.blogagent-switch input:checked + .blogagent-slider {
+  background-color: #0ea5e9;
+}
+
+.blogagent-switch input:checked + .blogagent-slider:before {
+  transform: translateX(22px);
+}
+
+.blogagent-linkButton {
+  background: none;
+  border: none;
+  color: #0ea5e9;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 0;
+}
+
+.blogagent-keywordPanel {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.blogagent-panelTitle {
+  margin: 0 0 0.5rem 0;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.blogagent-keywordGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.blogagent-keywordChip {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.blogagent-emailList {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.blogagent-emailInfo {
+  margin: 0 0 0.75rem 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.blogagent-emailChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.blogagent-emailChip {
+  background: #dbeafe;
+  color: #1e40af;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .blogagent-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blogagent-input {
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,142 @@
+.payment-success-container {
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #f8fbff 0%, #e9eef6 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.payment-success-box {
+    background: #fff;
+    border-radius: 22px;
+    padding: 54px 40px 44px 40px;
+    box-shadow: 0 10px 36px #32a0fa13, 0 2px 12px #7dedf43a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+}
+
+.payment-success-tick-mark {
+    font-size: 70px;
+    color: #28c76f;
+    margin-bottom: 18px;
+    text-shadow: 0 3px 18px #23be7d43;
+}
+
+.payment-success-tick-mark-fail {
+    color: #fc424a;
+}
+
+.payment-success-box h1 {
+    font-size: 29px;
+    font-weight: bold;
+    color: #173a54;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+}
+
+.payment-success-amount-paid {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0160A4;
+    margin-bottom: 11px;
+}
+
+.payment-success-message,
+.payment-success-loading-msg {
+    color: #5c7fa7;
+    font-size: 16px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.payment-success-box-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0;
+    font-size: 18px;
+    color: #0160A4;
+    gap: 20px;
+}
+
+.payment-success-btn-row {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.payment-success-home-btn,
+.payment-success-dashboard-btn {
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 13px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 8px;
+    cursor: pointer;
+    box-shadow: 0 1px 9px #c8dafb1a;
+    transition: background 0.15s, color 0.15s;
+    flex: 1;
+    min-width: 140px;
+}
+
+.payment-success-home-btn {
+    background: linear-gradient(90deg, #0160A4 70%, #25a8f6 100%);
+    color: #fff;
+}
+
+.payment-success-home-btn:hover {
+    background: linear-gradient(90deg, #28c76f 60%, #23be7d 100%);
+    color: #fff;
+}
+
+.payment-success-dashboard-btn {
+    background: #fff;
+    border: 2px solid #28c76f;
+    color: #28c76f;
+}
+
+.payment-success-dashboard-btn:hover {
+    background: #28c76f;
+    color: #fff;
+}
+
+@media (max-width: 520px) {
+    .payment-success-box {
+        padding: 26px 4vw 22px 4vw;
+    }
+
+    .payment-success-box h1 {
+        font-size: 19px;
+    }
+
+    .payment-success-amount-paid {
+        font-size: 21px;
+    }
+
+    .payment-success-tick-mark {
+        font-size: 45px;
+    }
+
+    .payment-success-btn-row {
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .payment-success-home-btn,
+    .payment-success-dashboard-btn {
+        width: 100%;
+    }
+}
+

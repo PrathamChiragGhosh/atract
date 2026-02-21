@@ -1,0 +1,483 @@
+.ai-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ai-modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-modal-content {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ai-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+    border-bottom: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.ai-modal-title-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ai-modal-title-section .ai-icon {
+    font-size: 24px;
+    color: white;
+}
+
+.ai-modal-title-section h2 {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.ai-modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+
+.ai-modal-close:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ai-modal-close:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ai-modal-body {
+    padding: 28px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.ai-modal-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.ai-form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.ai-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ai-form-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.ai-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ai-form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.ai-form-group input,
+.ai-form-group textarea {
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.ai-form-group input:focus,
+.ai-form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.ai-form-group input:disabled,
+.ai-form-group textarea:disabled {
+    background: #f3f4f6;
+    cursor: not-allowed;
+}
+
+.ai-form-group .skill-selector {
+    width: 100%;
+}
+
+.ai-form-group-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.custom-dropdown {
+    position: relative;
+}
+
+.custom-dropdown-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    transition: all 0.2s;
+}
+
+.custom-dropdown-select:hover:not(:disabled) {
+    border-color: #667eea;
+}
+
+.custom-dropdown-select:disabled {
+    background: #f3f4f6;
+    cursor: not-allowed;
+}
+
+.custom-dropdown-select span {
+    color: #374151;
+    font-size: 14px;
+}
+
+.custom-dropdown-select span:empty::before {
+    content: "Select...";
+    color: #9ca3af;
+}
+
+.dropdown-icon {
+    font-size: 20px;
+    color: #6b7280;
+    transition: transform 0.2s;
+}
+
+.dropdown-icon.open {
+    transform: rotate(180deg);
+}
+
+.custom-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 900; /* Above inputs but below modal overlay (10000) and modal content (10001) */
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.custom-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #374151;
+    transition: background 0.2s;
+}
+
+.custom-dropdown-item:hover {
+    background: #f3f4f6;
+}
+
+.custom-dropdown-item.custom-location {
+    border-top: 1px solid #e5e7eb;
+    color: #667eea;
+    font-weight: 500;
+}
+
+.check-icon {
+    color: #667eea;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.required {
+    color: #ef4444;
+}
+
+.ai-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 28px;
+    border-top: 1px solid #e5e7eb;
+    background: #f9fafb;
+    position: relative;
+    z-index: 1000 !important; /* Above dropdowns (900) but below modal overlay (10000) and content (10001) */
+}
+
+.ai-modal-footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ai-modal-cancel-btn {
+    padding: 12px 24px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ai-modal-cancel-btn:hover:not(:disabled) {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.ai-modal-cancel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ai-modal-background-btn {
+    padding: 12px 20px;
+    border: 1px solid #667eea;
+    border-radius: 8px;
+    background: white;
+    color: #667eea;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.ai-modal-background-btn:hover:not(:disabled) {
+    background: #f0f4ff;
+    border-color: #764ba2;
+    color: #764ba2;
+    transform: translateY(-1px);
+}
+
+.ai-modal-background-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ai-modal-generate-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.ai-modal-generate-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.ai-modal-generate-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ai-form-group .mt-2 {
+    margin-top: 8px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .ai-modal-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .ai-modal-content {
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .ai-modal-header {
+        padding: 20px;
+    }
+
+    .ai-modal-title-section h2 {
+        font-size: 20px;
+    }
+
+    .ai-modal-body {
+        padding: 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .ai-form-grid {
+        overflow-x: hidden;
+    }
+
+    .ai-form-section {
+        overflow: visible;
+    }
+
+    .ai-form-group-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Mobile dropdown positioning - ensure dropdowns appear above inputs but below footer */
+    .ai-form-group label {
+        position: relative;
+        z-index: auto;
+    }
+
+    .ai-form-group input,
+    .ai-form-group textarea {
+        position: relative;
+        z-index: 1 !important;
+    }
+
+    .custom-dropdown {
+        position: relative;
+        z-index: 900;
+        isolation: isolate;
+    }
+
+    .custom-dropdown-select {
+        position: relative;
+        z-index: 901;
+    }
+
+    .custom-dropdown-menu {
+        max-height: 250px;
+        z-index: 900 !important; /* Above inputs (1) but below footer (1000) and navbar (1010) */
+        position: fixed !important;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        border-top: none !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .ai-form-group.dropdown-open {
+        z-index: 902 !important; /* Above normal form group */
+        position: relative;
+        overflow: visible !important;
+    }
+
+    .custom-dropdown.dropdown-open {
+        z-index: 903 !important; /* Above normal dropdown */
+    }
+
+    .ai-form-group {
+        overflow: visible !important;
+        position: relative;
+    }
+
+    .ai-form-section {
+        overflow: visible !important;
+        position: relative;
+    }
+
+    .ai-form-grid {
+        overflow: visible !important;
+        position: relative;
+    }
+
+    .ai-modal-footer {
+        padding: 16px 20px;
+        flex-direction: column-reverse;
+        gap: 10px;
+        z-index: 1000 !important; /* Above dropdowns (900) but below modal overlay (10000) and content (10001) */
+    }
+
+    .ai-modal-footer-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .ai-modal-cancel-btn,
+    .ai-modal-generate-btn,
+    .ai-modal-background-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+

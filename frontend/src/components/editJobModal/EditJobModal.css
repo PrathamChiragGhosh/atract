@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.employer-editjob-model-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    animation: employer-editjob-model-fadeIn 0.2s ease-in-out;
+    overflow: hidden;
+    overscroll-behavior: contain;
+}
+
+@keyframes employer-editjob-model-fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes employer-editjob-model-slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.employer-editjob-model {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 90%;
+    max-width: 1000px;
+    background: white;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    animation: employer-editjob-model-slideInRight 0.3s ease-out;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.employer-editjob-model-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 2px solid #e5e7eb;
+    background: linear-gradient(135deg, #f0f5ff 0%, #e8f0ff 100%);
+    flex-shrink: 0;
+}
+
+.employer-editjob-model-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    font-family: "Roboto Flex", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.employer-editjob-model-icon {
+    color: #2563eb;
+    font-size: 22px;
+}
+
+.employer-editjob-model-close {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6b7280;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.employer-editjob-model-close:hover {
+    background: #fee2e2;
+    color: #dc2626;
+    transform: rotate(90deg);
+}
+
+.employer-editjob-model-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-gutter: auto;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Override post-job-container styles for edit mode */
+.employer-editjob-model .employee-postjob-container.edit-mode {
+    padding: 20px 30px 0;
+    background: white;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Ensure all form elements are constrained */
+.employer-editjob-model .employee-postjob-container.edit-mode * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix dropdown z-index in edit mode - only override what's needed */
+.employer-editjob-model .employee-postjob-container.edit-mode .custom-dropdown-menu {
+    z-index: 10004 !important; /* Above edit modal (1050) and SkillSelector (10002) */
+}
+
+/* Fix AI modal width when inside edit modal - desktop only */
+@media (min-width: 769px) {
+    .employer-editjob-model .employee-postjob-container.edit-mode .ai-modal-container {
+        max-width: 900px !important;
+        width: 90% !important;
+    }
+
+    .employer-editjob-model .employee-postjob-container.edit-mode .ai-modal-content {
+        max-width: 900px !important;
+        width: 100% !important;
+    }
+}
+
+.employer-editjob-model .employee-postjob-container.edit-mode input,
+.employer-editjob-model .employee-postjob-container.edit-mode textarea,
+.employer-editjob-model .employee-postjob-container.edit-mode select,
+.employer-editjob-model .employee-postjob-container.edit-mode .form-group,
+.employer-editjob-model .employee-postjob-container.edit-mode .form-row {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-title {
+    font-size: 24px;
+}
+
+.employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-form-grid {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure footer is fixed at bottom with full width */
+.employer-editjob-model-content {
+    position: relative;
+    padding-bottom: 80px; /* Space for footer */
+}
+
+/* Footer positioning in edit mode - fixed at bottom right of drawer */
+.employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 90% !important;
+    max-width: 1000px !important;
+    margin: 0 !important;
+    padding: 16px 30px !important;
+    border-top: 2px solid #e5e7eb;
+    background: white;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    z-index: 1051;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    left: auto !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .employer-editjob-model {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .employer-editjob-model-header {
+        padding: 16px 20px;
+    }
+
+    .employer-editjob-model-header h2 {
+        font-size: 20px;
+    }
+
+    .employer-editjob-model-icon {
+        font-size: 18px;
+    }
+
+    .employer-editjob-model .employee-postjob-container.edit-mode {
+        padding: 16px 20px 80px 20px;
+    }
+
+    .employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-form {
+        padding-bottom: 30px;
+    }
+
+    .employer-editjob-model .employee-postjob-container.edit-mode .employee-postjob-footer {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 14px 20px !important;
+        z-index: 1001;
+    }
+}
+
+/* Scrollbar styling - overlay style (only shows when scrolling or hovering) */
+.employer-editjob-model-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.employer-editjob-model-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.employer-editjob-model-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show scrollbar on hover, focus, or when scrolling */
+.employer-editjob-model-content:hover::-webkit-scrollbar-thumb,
+.employer-editjob-model-content:focus::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
+
+.employer-editjob-model-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Show scrollbar when content is scrolling */
+.employer-editjob-model-content.employer-editjob-model-scrolling::-webkit-scrollbar-thumb,
+.employer-editjob-model-content:active::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
+

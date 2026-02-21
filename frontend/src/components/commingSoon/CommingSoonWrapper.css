@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+
+.comingsoon-wrapper {
+    height: calc(100vh - 110px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+    font-family: "Roboto Flex", sans-serif !important;
+}
+
+/* Card container */
+.comingsoon-card {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    padding: 40px 32px;
+    border-radius: 22px;
+    background: white;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 rgba(255,255,255,0.6);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Glow effect */
+.comingsoon-glow {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(124,77,255,0.35), transparent 70%);
+    filter: blur(40px);
+    z-index: 0;
+}
+
+/* Title */
+.comingsoon-title {
+    position: relative;
+    z-index: 2;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #4f46e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.comingsoon-title-icon {
+    font-size: 32px;
+    color: #764ba2;
+}
+
+/* Subtitle text */
+.comingsoon-text {
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Icon row */
+.comingsoon-icons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.soon-icon {
+    font-size: 30px;
+    color: #6d67e4;
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+.soon-icon:hover {
+    transform: scale(1.15);
+    color: #5b54d9;
+}
+
+/* Subtext */
+.comingsoon-subtext {
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .comingsoon-title {
+        font-size: 28px;
+    }
+    .comingsoon-title-icon {
+        font-size: 26px;
+    }
+    .comingsoon-card {
+        padding: 32px 24px;
+    }
+}

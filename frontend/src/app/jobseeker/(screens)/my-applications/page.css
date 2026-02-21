@@ -1,0 +1,872 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&display=swap');
+
+.myapplications-page,
+.myapplications-page * {
+    font-family: "Roboto Flex", sans-serif;
+    box-sizing: border-box;
+}
+
+.myapplications-page {
+    background: #f5f7fb;
+    min-height: 100vh;
+    padding: 32px 20px 60px;
+}
+
+.myapplications-page-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.myapplications-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.myapplications-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 12px;
+    color: #6366f1;
+    margin-bottom: 6px;
+}
+
+.myapplications-header h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+    color: #0f172a;
+}
+
+.myapplications-header p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.myapplications-reset-btn {
+    border: 1px solid #cbd5f5;
+    background: #fff;
+    border-radius: 999px;
+    padding: 10px 18px;
+    color: #4c1d95;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.myapplications-reset-btn:hover {
+    border-color: #4c1d95;
+    color: #2e1065;
+}
+
+.myapplications-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.myapplications-summary-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 122px;
+}
+
+.myapplications-summary-card span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.myapplications-summary-card strong {
+    font-size: 32px;
+    color: #0f172a;
+}
+
+.myapplications-summary-card.myapplications-summary-card-status {
+    gap: 12px;
+}
+
+.myapplications-status-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.myapplications-status-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    background: #eef2ff;
+    color: #3730a3;
+}
+
+.myapplications-status-chip.myapplications-status-chip-pending {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.myapplications-status-chip.myapplications-status-chip-reviewed {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.myapplications-status-chip.myapplications-status-chip-shortlisted {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.myapplications-status-chip.myapplications-status-chip-rejected {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.myapplications-status-chip.myapplications-status-chip-muted {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.myapplications-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.myapplications-search {
+    position: relative;
+    width: 100%;
+}
+
+.myapplications-search-icon {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+.myapplications-search-input {
+    width: 100%;
+    padding: 14px 16px 14px 44px;
+    border-radius: 16px;
+    border: 1px solid #d0d7ec;
+    font-size: 15px;
+    background: #fff;
+    color: #0f172a;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.myapplications-search-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.myapplications-toolbar-controls {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.myapplications-toolbar-controls > .myapplications-filter-dropdown:last-child {
+    min-width: 180px;
+}
+
+.myapplications-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    flex: 1;
+}
+
+.myapplications-filters-mobile {
+    grid-template-columns: 1fr;
+}
+
+.myapplications-filter-badge {
+    min-width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: #4c1d95;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+}
+
+.myapplications-filter-dropdown {
+    position: relative;
+}
+
+.myapplications-filter-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: 1px solid #d0d7ec;
+    background: #fff;
+    cursor: pointer;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.myapplications-filter-dropdown-sort .myapplications-filter-trigger {
+    background: #0f172a;
+    color: #fff;
+    border-color: #0f172a;
+}
+
+.myapplications-filter-trigger:hover {
+    border-color: #6366f1;
+}
+
+.myapplications-filter-trigger-text span {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    letter-spacing: 0.08em;
+    text-align: left;
+}
+
+.myapplications-filter-trigger-text strong {
+    font-size: 14px;
+    color: inherit;
+}
+
+.myapplications-filter-trigger-icon {
+    font-size: 14px;
+    color: inherit;
+}
+
+.myapplications-filter-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    z-index: 20;
+    padding: 8px;
+}
+
+.myapplications-filters-mobile .myapplications-filter-dropdown {
+    position: relative;
+}
+
+.myapplications-filters-mobile .myapplications-filter-menu {
+    z-index: 30;
+}
+
+.myapplications-filter-menu-item {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #0f172a;
+    cursor: pointer;
+}
+
+.myapplications-filter-menu-item:hover,
+.myapplications-filter-menu-item.active {
+    background: #eef2ff;
+    color: #4c1d95;
+}
+
+.myapplications-error {
+    border-radius: 16px;
+    padding: 14px 18px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    margin-bottom: 16px;
+}
+
+.myapplications-list-section {
+    min-height: 200px;
+}
+
+.myapplications-skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+.myapplications-card-skeleton {
+    height: 240px;
+    background: linear-gradient(120deg, #f1f5f9 25%, #e2e8f0 37%, #f1f5f9 63%);
+    background-size: 400% 100%;
+    animation: myapplications-shimmer 1.4s ease infinite;
+}
+
+@keyframes myapplications-shimmer {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.myapplications-empty-state {
+    background: #fff;
+    border: 1px dashed #cbd5f5;
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+}
+
+.myapplications-empty-state h3 {
+    margin: 0 0 8px;
+    color: #0f172a;
+}
+
+.myapplications-empty-state p {
+    margin: 0;
+    color: #475569;
+}
+
+.myapplications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 18px;
+}
+
+.myapplications-card {
+    background: #fff;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.myapplications-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.myapplications-company {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.myapplications-company-logo,
+.myapplications-company-placeholder {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    object-fit: cover;
+    background: #eef2ff;
+    color: #3730a3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.myapplications-company-name {
+    margin: 0;
+    font-size: 15px;
+    color: #475569;
+}
+
+.myapplications-job-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.myapplications-status-badge {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+.myapplications-status-badge.myapplications-status-badge-pending {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.myapplications-status-badge.myapplications-status-badge-reviewed {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.myapplications-status-badge.myapplications-status-badge-shortlisted {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.myapplications-status-badge.myapplications-status-badge-rejected {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.myapplications-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.myapplications-card-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.myapplications-card-meta svg {
+    color: #6366f1;
+}
+
+.myapplications-card-meta.myapplications-card-meta-secondary {
+    color: #64748b;
+}
+
+.myapplications-timeline {
+    border-radius: 18px;
+    background: #f8fafc;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.myapplications-timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.myapplications-timeline-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 180px;
+}
+
+.myapplications-timeline-date {
+    font-weight: 600;
+    color: #0f172a;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.myapplications-timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    background: #6366f1;
+}
+
+.myapplications-timeline-dot.myapplications-timeline-dot-employer {
+    background: #0f172a;
+}
+
+.myapplications-timeline-dot.myapplications-timeline-dot-jobseeker {
+    background: #22c55e;
+}
+
+.myapplications-timeline-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.myapplications-timeline-right p {
+    margin: 0;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.myapplications-timeline-right small {
+    color: #94a3b8;
+}
+
+.myapplications-employer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.myapplications-employer-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 13px;
+    border: 1px dashed #cbd5f5;
+    color: #312e81;
+    background: #edf2ff;
+}
+
+.myapplications-employer-chip svg {
+    font-size: 13px;
+}
+
+.myapplications-employer-chip.myapplications-employer-chip-muted {
+    background: #f1f5f9;
+    color: #94a3b8;
+    border-color: #e2e8f0;
+}
+
+.myapplications-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.myapplications-card-footer-text {
+    font-size: 13px;
+    color: #475569;
+}
+
+.myapplications-card-footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.myapplications-save-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: white;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.myapplications-save-btn:hover:not(:disabled) {
+    background: #eff6ff;
+    transform: translateY(-1px);
+}
+
+.myapplications-save-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.myapplications-save-btn.saved {
+    background: #2563eb;
+    color: white;
+}
+
+.myapplications-save-btn.saved:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.myapplications-save-btn.saving {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.myapplications-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #4338ca;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 8px 14px;
+    background: rgba(76, 29, 149, 0.08);
+}
+
+.myapplications-pagination {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.myapplications-pagination-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 18px;
+    background: #111827;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.myapplications-pagination-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.myapplications-pagination-info {
+    font-size: 14px;
+    color: #475569;
+}
+
+.myapplications-mobile-bar {
+    display: none;
+    width: 100%;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.myapplications-mobile-filter-btn {
+    width: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 16px;
+    border: 1px solid #d0d7ec;
+    background: #fff;
+    padding: 12px;
+    font-weight: 600;
+    color: #0f172a;
+    cursor: pointer;
+}
+
+.myapplications-mobile-sort {
+    position: relative;
+    width: 50%;
+}
+
+.myapplications-mobile-sort-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 16px;
+    border: 1px solid #d0d7ec;
+    background: #fff;
+    padding: 12px;
+    font-weight: 600;
+    color: #0f172a;
+    cursor: pointer;
+}
+
+.myapplications-mobile-sort-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 200px;
+    max-width: calc(100vw - 32px);
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+}
+
+.myapplications-mobile-sort-option {
+    padding: 12px 14px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.myapplications-mobile-sort-option.active {
+    font-weight: 600;
+    color: #4c1d95;
+    background: #f4f4ff;
+}
+
+.myapplications-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    z-index: 3000;
+}
+
+.myapplications-mobile-drawer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    padding: 20px;
+    z-index: 3001;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 -20px 50px rgba(15, 23, 42, 0.25);
+}
+
+.myapplications-mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.myapplications-mobile-drawer-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #0f172a;
+}
+
+.myapplications-mobile-drawer-header button {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+}
+
+.myapplications-mobile-drawer-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.myapplications-mobile-drawer-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.myapplications-mobile-drawer-actions button {
+    flex: 1;
+    border: none;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: 600;
+}
+
+.myapplications-mobile-drawer-actions button.secondary {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.myapplications-mobile-drawer-actions button:not(.secondary) {
+    background: #111827;
+    color: #fff;
+}
+
+@media (max-width: 1024px) {
+    .myapplications-summary-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .myapplications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .myapplications-page {
+        padding: 20px 16px 40px;
+    }
+
+    .myapplications-header {
+        flex-direction: column;
+    }
+
+    .myapplications-filters:not(.myapplications-filters-mobile) {
+        display: none;
+    }
+    
+    .myapplications-filters-mobile {
+        display: grid;
+    }
+
+    .myapplications-mobile-bar {
+        display: flex;
+    }
+
+    .myapplications-card-meta,
+    .myapplications-card-meta.secondary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .myapplications-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .myapplications-card-footer-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .myapplications-pagination {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+    .myapplications-timeline-item {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .myapplications-timeline-left {
+        min-width: 0;
+        justify-content: flex-start;
+    }
+
+    .myapplications-timeline-date {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 520px) {
+    .myapplications-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    
+    .myapplications-summary-card.myapplications-summary-card-status {
+        grid-column: 1 / -1;
+    }
+}
+

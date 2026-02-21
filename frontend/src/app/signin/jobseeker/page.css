@@ -1,0 +1,601 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+/* BASE */
+* {
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.auth-full-wrapper {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: aliceblue;
+    overflow: hidden;
+}
+
+
+/* ===========================
+   LEFT SIDE (IMAGE BLOCK)
+=========================== */
+.auth-left {
+    position: relative;
+    min-width: 50%;
+    flex: 1;
+    overflow: hidden;
+}
+
+.auth-left-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- DESKTOP OVERLAY --- */
+.auth-left-overlay {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    max-width: 360px;
+}
+
+.overlay-bg {
+    background: rgba(255, 255, 255, 0.55);
+    padding: 18px 22px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+}
+
+.overlay-bg h1 {
+    font-size: 34px;
+    font-weight: 900;
+    color: #111;
+}
+
+.overlay-bg p {
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.45;
+}
+
+
+/* ===========================
+   RIGHT SIDE FORM
+=========================== */
+.auth-right {
+    flex: 1;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 50px;
+    position: relative;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 480px;
+}
+
+.auth-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #111827;
+}
+
+.auth-subtitle {
+    font-size: 15px;
+    color: #6b7280;
+    margin-bottom: 26px;
+}
+
+
+/* ===========================
+   FORM
+=========================== */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.auth-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.auth-input-wrapper {
+    position: relative;
+}
+
+.auth-input {
+    width: 100%;
+    height: 44px;
+    padding-left: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.auth-input:focus {
+    border-color: #2563eb;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.auth-error {
+    font-size: 12px;
+    color: #dc2626;
+    margin-top: -4px;
+}
+
+/* TERMS CHECKBOX */
+.auth-terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.auth-terms-checkbox-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #2563eb;
+    flex-shrink: 0;
+}
+
+.auth-terms-checkbox-label {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+}
+
+.auth-terms-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.auth-terms-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* SUBMIT BUTTON */
+.auth-btn {
+    background: #2563eb;
+    color: white;
+    font-weight: 700;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 6px;
+}
+
+.auth-btn.disabled {
+    background: #93c5fd;
+    cursor: not-allowed;
+}
+
+
+/* BOTTOM LINKS */
+.auth-bottom-links {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.forgot-link {
+    font-size: 14px;
+    color: #2563eb;
+    cursor: pointer;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ===========================
+   REGISTER SECTION
+=========================== */
+.auth-register-box {
+    position: absolute;
+    right: 40px;
+    bottom: 32px;
+    text-align: right;
+}
+
+.auth-register-box p {
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.auth-register-btn {
+    background: aliceblue;
+    border: 1px solid #2563eb;
+    padding: 10px 17px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #2563eb;
+    transition: 0.2s ease;
+}
+
+.auth-register-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+
+/* OTP TEXT */
+.otp-info-text {
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+/* OTP BOXES */
+.otp-container {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.otp-input {
+    width: 52px;
+    height: 52px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+}
+
+.otp-input:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+
+/* Change email button */
+.change-email-btn {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.change-email-btn:hover {
+    text-decoration: underline;
+}
+
+
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+    .auth-full-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+
+    /* IMAGE HEIGHT MOBILE */
+    .auth-left {
+        width: 100%;
+        height: 300px;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .auth-left-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    /* === MOBILE OVERLAY CHANGES === */
+    .auth-left-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        text-align: center;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .overlay-bg {
+        padding: 14px 18px;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    .overlay-bg h1 {
+        font-size: 22px;
+    }
+
+    .overlay-bg p {
+        font-size: 13px;
+    }
+
+    /* FORM OVERLAP HIGHER */
+    .auth-right {
+        width: 100%;
+        margin-top: -90px;
+        flex-direction: column;
+        /* moved UP more */
+        padding: 32px 22px;
+        box-sizing: border-box;
+        border-radius: 26px 26px 0 0;
+        box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    /* REGISTER SECTION MOBILE */
+    .auth-register-box {
+        position: static;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+    .auth-register-btn{
+        background: none;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        color: #2563eb;
+    }
+}
+
+@media (max-width: 520px) {
+    .auth-title {
+        font-size: 26px;
+    }
+
+    .overlay-bg h1 {
+        font-size: 22px;
+    }
+}
+
+/* ===========================
+   FORGOT PASSWORD MODAL
+=========================== */
+.forgot-password-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.forgot-password-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    z-index: 3001;
+    width: 90%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.forgot-password-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.forgot-password-header h2 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #111827;
+    margin: 0;
+}
+
+.forgot-password-close {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.forgot-password-close:hover:not(:disabled) {
+    background: #f3f4f6;
+}
+
+.forgot-password-close:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.forgot-password-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.forgot-password-info {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.forgot-password-body .auth-label {
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+
+.forgot-password-body .auth-input {
+    margin-bottom: 0;
+}
+
+.forgot-password-body .auth-error {
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.forgot-password-body .auth-btn {
+    margin-top: 8px;
+}
+
+.forgot-password-body .otp-container {
+    margin: 8px 0;
+}
+
+.forgot-password-body .otp-info-text {
+    margin-bottom: 16px;
+}
+
+.forgot-password-body .change-email-btn {
+    margin-top: 12px;
+}
+
+/* Close Confirmation Modal */
+.forgot-password-confirmation-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    z-index: 3002;
+    width: 90%;
+    max-width: 400px;
+    animation: slideUp 0.3s ease;
+}
+
+.forgot-password-confirmation-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.forgot-password-confirmation-header h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #111827;
+    margin: 0;
+}
+
+.forgot-password-confirmation-body {
+    padding: 24px;
+}
+
+.forgot-password-confirmation-body p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.forgot-password-confirmation-actions {
+    display: flex;
+    gap: 12px;
+    padding: 16px 24px 24px;
+    justify-content: flex-end;
+}
+
+.forgot-password-confirmation-cancel,
+.forgot-password-confirmation-confirm {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.forgot-password-confirmation-cancel {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.forgot-password-confirmation-cancel:hover {
+    background: #e5e7eb;
+}
+
+.forgot-password-confirmation-confirm {
+    background: #dc2626;
+    color: white;
+}
+
+.forgot-password-confirmation-confirm:hover {
+    background: #b91c1c;
+}

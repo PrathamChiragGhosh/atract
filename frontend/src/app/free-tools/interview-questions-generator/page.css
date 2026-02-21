@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+html body .interview-questions-page {
+    min-height: 100vh;
+    background: #ffffff !important;
+    font-family: "Roboto Flex", sans-serif;
+    padding: 24px 16px;
+}
+
+.interview-questions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+.interview-questions-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.interview-questions-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border: 1px solid #ffffff;
+    border-radius: 12px;
+    color: #374151;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: none;
+}
+
+.interview-questions-back-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: none;
+}
+
+.interview-questions-main-header,
+.interview-questions-tech-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.interview-questions-main-icon {
+    color: #374151;
+    display: block;
+}
+
+.interview-questions-main-title,
+.interview-questions-tech-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #374151;
+    margin: 0;
+}
+
+.interview-questions-main-description,
+.interview-questions-tech-description {
+    font-size: 16px;
+    color: #374151;
+    margin: 4px 0 0 0;
+}
+
+.interview-questions-tech-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Search Bar */
+.interview-questions-search-wrapper {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto 32px auto;
+}
+
+.interview-questions-search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 18px;
+}
+
+.interview-questions-search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #ffffff;
+    color: #374151;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.interview-questions-search-input:focus {
+    outline: none;
+    border-color: #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.interview-questions-search-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Grid Layout */
+.interview-questions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+/* Technology Cards */
+.interview-questions-page .interview-questions-container .interview-questions-grid .interview-questions-card {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.interview-questions-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    border-color: #d1d5db !important;
+}
+
+.interview-questions-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.interview-questions-card-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+}
+
+.interview-questions-card-arrow {
+    color: #374151;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.interview-questions-card:hover .interview-questions-card-arrow {
+    color: #374151;
+    transform: translateX(4px);
+}
+
+.interview-questions-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 8px 0;
+}
+
+.interview-questions-card-description {
+    font-size: 14px;
+    color: #374151;
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+}
+
+.interview-questions-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.interview-questions-card-count {
+    background: #ffffff;
+    color: #374151;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #ffffff;
+}
+
+/* Content Section */
+.interview-questions-page .interview-questions-container .interview-questions-content {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 16px !important;
+    padding: 32px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.interview-questions-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 24px 0;
+    text-align: center;
+}
+
+/* Questions List */
+.interview-questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.interview-questions-page .interview-questions-container .interview-questions-content .interview-questions-list .interview-questions-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding: 20px !important;
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+.interview-questions-item:hover {
+    background: #ffffff !important;
+    border-color: #d1d5db !important;
+    transform: translateX(2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.interview-questions-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    color: #374151;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: none;
+}
+
+.interview-questions-text {
+    font-size: 16px;
+    color: #374151;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+
+/* Empty State */
+.interview-questions-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.interview-questions-empty-icon {
+    color: #d1d5db;
+    margin-bottom: 16px;
+}
+
+.interview-questions-empty-text {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .interview-questions-page {
+        padding: 16px 12px;
+    }
+
+    .interview-questions-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .interview-questions-search-wrapper {
+        max-width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .interview-questions-search-input {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .interview-questions-main-title,
+    .interview-questions-tech-title {
+        font-size: 24px;
+    }
+
+    .interview-questions-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .interview-questions-card {
+        padding: 20px;
+    }
+
+    .interview-questions-content {
+        padding: 24px 16px;
+    }
+
+    .interview-questions-section-title {
+        font-size: 20px;
+    }
+
+    .interview-questions-item {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .interview-questions-text {
+        font-size: 15px;
+    }
+
+    .interview-questions-empty {
+        padding: 40px 20px;
+    }
+
+    .interview-questions-empty-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .interview-questions-main-title,
+    .interview-questions-tech-title {
+        font-size: 20px;
+    }
+
+    .interview-questions-card-title {
+        font-size: 18px;
+    }
+
+    .interview-questions-section-title {
+        font-size: 18px;
+    }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    .interview-questions-page {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    }
+
+    .interview-questions-card,
+    .interview-questions-content {
+        background: #1f2937;
+        border-color: #374151;
+        color: #f9fafb;
+    }
+
+    .interview-questions-card:hover {
+        border-color: #4b5563;
+    }
+
+    .interview-questions-item {
+        background: #374151;
+        border-color: #4b5563;
+    }
+
+    .interview-questions-item:hover {
+        background: #4b5563;
+        border-color: #6b7280;
+    }
+
+    .interview-questions-text {
+        color: #e5e7eb;
+    }
+}

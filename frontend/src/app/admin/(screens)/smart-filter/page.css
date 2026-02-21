@@ -1,0 +1,808 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.smart-filter-page {
+    min-height: calc(100vh - 64px);
+    background: #f9fafb;
+    padding: 32px;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.smart-filter-header {
+    margin-bottom: 32px;
+}
+
+.smart-filter-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+}
+
+.smart-filter-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.smart-filter-section {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.smart-filter-section-header {
+    margin-bottom: 20px;
+}
+
+.smart-filter-section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+/* Upload Mode Toggle */
+.smart-filter-upload-mode-toggle {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 12px;
+}
+
+.smart-filter-mode-btn {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -14px;
+    transition: all 0.3s ease;
+}
+
+.smart-filter-mode-btn:hover:not(:disabled) {
+    color: #2563eb;
+}
+
+.smart-filter-mode-btn.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
+
+.smart-filter-mode-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* File Upload Section */
+.smart-filter-upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.smart-filter-upload-area {
+    position: relative;
+}
+
+.smart-filter-file-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.smart-filter-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-height: 200px;
+}
+
+.smart-filter-upload-label:hover:not(.disabled) {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.smart-filter-upload-label.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.smart-filter-upload-icon {
+    font-size: 48px;
+    color: #9ca3af;
+    margin-bottom: 12px;
+}
+
+.smart-filter-upload-label span:first-of-type {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.smart-filter-upload-hint {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.smart-filter-file-preview {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f9fafb;
+}
+
+.smart-filter-file-icon {
+    font-size: 32px;
+    color: #2563eb;
+}
+
+.smart-filter-file-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.smart-filter-file-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.smart-filter-file-size {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.smart-filter-file-remove {
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.smart-filter-file-remove:hover:not(:disabled) {
+    background: #dc2626;
+    color: white;
+}
+
+.smart-filter-file-remove:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Upload Mode Toggle */
+.smart-filter-upload-mode-toggle {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 12px;
+}
+
+.smart-filter-mode-btn {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -14px;
+    transition: all 0.3s ease;
+}
+
+.smart-filter-mode-btn:hover:not(:disabled) {
+    color: #2563eb;
+}
+
+.smart-filter-mode-btn.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
+
+.smart-filter-mode-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Drive Link Section */
+.smart-filter-drive-link-area {
+    padding: 24px;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+}
+
+.smart-filter-drive-link-input-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.smart-filter-drive-link-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    transition: all 0.2s ease;
+}
+
+.smart-filter-drive-link-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.smart-filter-drive-link-input:disabled {
+    background: #f3f4f6;
+    cursor: not-allowed;
+}
+
+.smart-filter-drive-link-submit {
+    padding: 12px 24px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.smart-filter-drive-link-submit:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.smart-filter-drive-link-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.smart-filter-drive-link-hint {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Folder Upload Section */
+.smart-filter-folder-upload-area {
+    position: relative;
+}
+
+.smart-filter-folder-preview {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f9fafb;
+    padding: 16px;
+}
+
+.smart-filter-folder-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.smart-filter-folder-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.smart-filter-files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.smart-filter-file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.smart-filter-file-item-name {
+    color: #374151;
+    font-weight: 500;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.smart-filter-file-item-size {
+    color: #6b7280;
+    font-size: 12px;
+    margin-left: 12px;
+}
+
+.smart-filter-file-type-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.smart-filter-file-type-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.smart-filter-file-type-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.smart-filter-file-type-btn {
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.smart-filter-file-type-btn:hover:not(:disabled) {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.smart-filter-file-type-btn.active {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border-color: transparent;
+}
+
+.smart-filter-file-type-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Job Selection */
+.smart-filter-job-select {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.smart-filter-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.smart-filter-select {
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Roboto Flex", sans-serif;
+    color: #1f2937;
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+    cursor: pointer;
+}
+
+.smart-filter-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.smart-filter-select:disabled {
+    background: #f9fafb;
+    cursor: not-allowed;
+}
+
+.smart-filter-hint {
+    font-size: 12px;
+    color: #f59e0b;
+    margin-top: 4px;
+}
+
+/* Filter Section */
+.smart-filter-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.smart-filter-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.smart-filter-radio-group {
+    display: flex;
+    gap: 24px;
+}
+
+.smart-filter-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.smart-filter-radio input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.smart-filter-radio span {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.smart-filter-percentage-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.smart-filter-percentage-btn {
+    padding: 10px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.smart-filter-percentage-btn:hover:not(:disabled) {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.smart-filter-percentage-btn.active {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border-color: transparent;
+}
+
+.smart-filter-percentage-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.smart-filter-custom-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.smart-filter-custom-input span:first-child {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.smart-filter-input {
+    padding: 10px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Roboto Flex", sans-serif;
+    color: #1f2937;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 120px;
+}
+
+.smart-filter-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.smart-filter-input:disabled {
+    background: #f9fafb;
+    cursor: not-allowed;
+}
+
+/* Analyze Button */
+.smart-filter-analyze-section {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+.smart-filter-analyze-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 48px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.smart-filter-analyze-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.smart-filter-analyze-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Results Section */
+.smart-filter-results {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.smart-filter-results-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.smart-filter-stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.smart-filter-stat-label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.smart-filter-stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.smart-filter-stat-value-small {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    word-break: break-word;
+}
+
+.smart-filter-results-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.smart-filter-download-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.smart-filter-download-btn:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.smart-filter-candidates-preview {
+    margin-top: 24px;
+}
+
+.smart-filter-candidates-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 16px 0;
+}
+
+.smart-filter-candidates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.smart-filter-candidate-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.smart-filter-candidate-rank {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.smart-filter-candidate-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.smart-filter-candidate-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.smart-filter-candidate-details {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.smart-filter-candidate-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    min-width: 80px;
+}
+
+.smart-filter-score-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.smart-filter-score-label {
+    font-size: 11px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.smart-filter-more-candidates {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.smart-filter-more-candidates-link {
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 0;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+}
+
+.smart-filter-more-candidates-link:hover {
+    color: #1d4ed8;
+    background: #eff6ff;
+    border-color: #2563eb;
+    text-decoration: underline;
+}
+
+.smart-filter-more-candidates-link:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .smart-filter-page {
+        padding: 20px;
+    }
+
+    .smart-filter-upload-container {
+        flex-direction: column;
+    }
+
+    .smart-filter-results-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .smart-filter-radio-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .smart-filter-percentage-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+

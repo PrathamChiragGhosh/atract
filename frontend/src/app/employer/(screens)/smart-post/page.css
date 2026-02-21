@@ -1,0 +1,1125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.smart-post-page {
+    width: 100%;
+    min-height: calc(100vh - 65px);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: "Roboto Flex", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Section */
+.smart-post-header {
+    position: sticky;
+    /* Calculate top so that button line aligns with equal spacing above and below */
+    /* When not scrolled: padding-top (30px) + title (~40px) + subtitle (~28px with 4px margin) = ~102px to button line */
+    /* When scrolled: padding-top (30px) = ~30px to button line (title/subtitle hidden) */
+    /* padding-bottom is 20px, so position button line at 64px + 20px = 84px from top */
+    /* When scrolled, top should be: 84px - 30px = 54px */
+    /* When not scrolled, top should be: 84px - 102px = -18px */
+    top: calc(84px - 102px); /* Default position (not scrolled) */
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    z-index: 100;
+    margin-bottom: 0;
+    margin-top: -30px;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding: 30px 30px 20px 30px;
+    border-bottom: 2px solid #e5e7eb;
+    transition: top 0.3s ease;
+}
+
+.smart-post-page.scrolled .smart-post-header {
+    top: calc(84px - 30px); /* Adjusted position when scrolled (title/subtitle hidden) */
+}
+
+/* Ensure scrolled behavior works when drawer is open too */
+.smart-post-page.drawer-open.scrolled .smart-post-header {
+    top: calc(84px - 30px); /* Same position when scrolled, even with drawer open */
+}
+
+.smart-post-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.smart-post-header-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.smart-post-header-title-row.scrolled {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.smart-post-page-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.smart-post-title-icon {
+    color: #2563eb;
+    font-size: 28px;
+}
+
+.smart-post-page-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0 0 4px 0;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.smart-post-count-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.smart-post-count-item {
+    font-size: 14px;
+    color: #6b7280;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.smart-post-count-item strong {
+    color: #1f2937;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.smart-post-add-jd-header-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    white-space: nowrap;
+    height: fit-content;
+}
+
+.smart-post-add-jd-header-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.smart-post-add-jd-header-btn:active {
+    transform: translateY(0);
+}
+
+.smart-post-add-jd-header-btn svg {
+    font-size: 16px;
+}
+
+.smart-post-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    min-height: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Adjust container when drawer is open - prevent cards from going under drawer */
+.smart-post-page.drawer-open .smart-post-container {
+    max-width: calc(100% - 500px);
+    width: calc(100% - 500px);
+    margin-left: 0;
+    margin-right: 500px;
+    overflow: visible;
+}
+
+.smart-post-content {
+    display: none;
+}
+
+.smart-post-results {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 24px;
+    overflow: visible;
+    padding-right: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    min-width: 0;
+    min-height: calc(100vh - 300px);
+    align-content: start;
+    justify-items: start;
+    transition: none; /* Remove transition to prevent blinking */
+    width: 100%;
+    max-width: 100%;
+    justify-content: start;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* When drawer is open, use smaller cards */
+.smart-post-page.drawer-open .smart-post-results {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.smart-post-results > * {
+    transition: opacity 0.2s ease;
+    will-change: auto;
+}
+
+/* Adjust results grid when drawer is open - prevent cards from going under drawer */
+.smart-post-page.drawer-open .smart-post-results {
+    max-width: 100%;
+    padding-right: 20px;
+    padding-bottom: 100px;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.smart-post-results > * {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.smart-post-content {
+    width: 650px;
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.smart-post-content:not(:has(.smart-post-right-card.open)) {
+    width: auto;
+    min-width: 0;
+}
+
+
+.smart-post-add-jd-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.smart-post-add-jd-icon {
+    font-size: 16px;
+}
+
+.smart-post-right-card {
+    width: 100%;
+    max-width: 650px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+}
+
+.smart-post-right-card.closed {
+    display: none;
+}
+
+.smart-post-card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.smart-post-card-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.smart-post-close-btn {
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+}
+
+.smart-post-close-btn:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.smart-post-card-body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.smart-post-textarea-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.smart-post-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.smart-post-extra-prompt-wrapper {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid #fbbf24;
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.2);
+}
+
+.smart-post-extra-prompt-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #92400e;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.smart-post-label-icon {
+    font-size: 16px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    color: #f59e0b;
+}
+
+.smart-post-extra-prompt-textarea {
+    height: 120px !important;
+    background: #ffffff;
+    border: 2px solid #fbbf24;
+    border-radius: 8px;
+    font-size: 13px;
+    padding: 12px;
+}
+
+.smart-post-extra-prompt-textarea:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+    background: #fffbeb;
+}
+
+.smart-post-extra-prompt-textarea::placeholder {
+    color: #a16207;
+    font-style: italic;
+}
+
+.smart-post-textarea {
+    width: 100%;
+    height: 300px;
+    padding: 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Roboto Flex", sans-serif;
+    color: #1f2937;
+    background: #ffffff;
+    resize: none;
+    outline: none;
+    transition: all 0.3s ease;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.smart-post-textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.smart-post-textarea::placeholder {
+    color: #9ca3af;
+}
+
+.smart-post-divider {
+    position: relative;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.smart-post-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+.smart-post-divider-text {
+    position: relative;
+    background: #ffffff;
+    padding: 0 12px;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.smart-post-upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.smart-post-dropzone {
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+    flex-shrink: 0;
+}
+
+.smart-post-dropzone:hover {
+    border-color: #2563eb;
+    background: #f0f4ff;
+}
+
+.smart-post-dropzone:active {
+    transform: scale(0.98);
+}
+
+.smart-post-dropzone-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.smart-post-upload-icon {
+    font-size: 32px;
+    color: #6b7280;
+}
+
+.smart-post-dropzone:hover .smart-post-upload-icon {
+    color: #2563eb;
+}
+
+.smart-post-dropzone-text {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.smart-post-dropzone-text strong {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.smart-post-dropzone-hint {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.smart-post-files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.smart-post-file-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.smart-post-file-item:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.smart-post-file-icon {
+    font-size: 16px;
+    color: #dc2626;
+    flex-shrink: 0;
+}
+
+.smart-post-file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.smart-post-file-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1f2937;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.smart-post-file-remove {
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.smart-post-file-remove:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.smart-post-card-footer {
+    padding: 20px 24px;
+    border-top: 1px solid #e5e7eb;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.smart-post-start-btn {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.smart-post-start-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.smart-post-start-btn:active {
+    transform: translateY(0);
+}
+
+/* Scrollbar styling */
+.smart-post-textarea::-webkit-scrollbar,
+.smart-post-files-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.smart-post-textarea::-webkit-scrollbar-track,
+.smart-post-files-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.smart-post-textarea::-webkit-scrollbar-thumb,
+.smart-post-files-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.smart-post-textarea::-webkit-scrollbar-thumb:hover,
+.smart-post-files-list::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.smart-post-result-card {
+    width: 100%;
+}
+
+@keyframes smart-post-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.smart-post-completed-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    animation: smart-post-fade-in 0.3s ease;
+}
+
+.smart-post-completed-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.smart-post-completed-icon {
+    font-size: 24px;
+    color: #10b981;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.smart-post-completed-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.smart-post-completed-header p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.smart-post-completed-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.smart-post-verify-btn {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.smart-post-verify-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.smart-post-error-card {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.smart-post-error-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.smart-post-error-message {
+    flex: 1;
+}
+
+.smart-post-error-message strong {
+    display: block;
+    font-size: 16px;
+    color: #dc2626;
+    margin-bottom: 4px;
+}
+
+.smart-post-error-message p {
+    margin: 0;
+    font-size: 14px;
+    color: #991b1b;
+}
+
+.smart-post-start-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Scrollbar for results */
+.smart-post-results::-webkit-scrollbar {
+    width: 6px;
+}
+
+.smart-post-results::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.smart-post-results::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.smart-post-results::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Empty State */
+.smart-post-page-loading-state {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    z-index: 1;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.smart-post-page-loading-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.smart-post-page-loading-text {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.smart-post-empty-state {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 20px;
+    bottom: 40px;
+    min-height: calc(100vh - 300px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.smart-post-empty-content {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 2px dashed #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Decrease empty container width when drawer is open to create gap - only from right side */
+.smart-post-page.drawer-open .smart-post-empty-state {
+    right: 40px; /* Slightly reduced gap */
+    justify-content: flex-start; /* Align content to left instead of center */
+}
+
+.smart-post-page.drawer-open .smart-post-empty-content {
+    width: calc(100% - 20px); /* Slightly reduced width reduction */
+    max-width: calc(100% - 20px);
+    margin-left: 0; /* Keep aligned to left */
+    margin-right: 0; /* No margin on right - gap will be visible */
+}
+
+.smart-post-empty-icon {
+    font-size: 64px;
+    color: #d1d5db;
+    margin-bottom: 20px;
+    stroke-width: 1;
+}
+
+.smart-post-empty-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 12px 0;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.smart-post-empty-description {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0 0 28px 0;
+    line-height: 1.6;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.smart-post-empty-btn {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.smart-post-empty-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b21a8 100%);
+}
+
+.smart-post-empty-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .smart-post-page {
+        padding: 20px 16px;
+        min-height: calc(100vh - 64px);
+    }
+
+    .smart-post-header {
+        margin-top: -20px;
+        margin-left: -16px;
+        margin-right: -16px;
+        padding: 0 16px 20px 16px;
+        margin-bottom: 30px;
+        top: calc(64px - 70px); /* Adjusted for mobile navbar */
+        border-bottom: 2px solid #e5e7eb;
+    }
+
+    .smart-post-page.scrolled .smart-post-header {
+        top: calc(64px - 28px); /* Adjusted for mobile when scrolled */
+        margin-bottom: 0;
+        padding-bottom: 20px;
+    }
+
+    .smart-post-header-content {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 0;
+    }
+
+    .smart-post-header-title-row {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 0;
+    }
+
+    .smart-post-page-title {
+        font-size: 24px;
+        margin: 0 0 8px 0;
+        gap: 12px;
+    }
+
+    .smart-post-title-icon {
+        font-size: 28px;
+    }
+
+    .smart-post-page-subtitle {
+        font-size: 16px;
+        margin: 0 0 12px 0;
+    }
+
+    .smart-post-count-info {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 12px;
+        width: 100%;
+    }
+
+    .smart-post-count-item {
+        font-size: 13px;
+        line-height: 1.4;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .smart-post-count-item strong {
+        font-size: 15px;
+        display: inline-block;
+        color: #1f2937;
+        font-weight: 700;
+    }
+
+    .smart-post-add-jd-header-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .smart-post-add-jd-header-btn svg {
+        font-size: 16px;
+    }
+
+    .smart-post-container {
+        max-width: 100%;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Drawer open adjustments for mobile */
+    .smart-post-page.drawer-open .smart-post-container {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .smart-post-results {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 12px;
+        padding-right: 0;
+        padding-top: 12px;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+
+    /* Drawer open - still single column on mobile */
+    .smart-post-page.drawer-open .smart-post-results {
+        grid-template-columns: 1fr;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .smart-post-page-loading-state {
+        padding: 60px 16px;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .smart-post-page-loading-content {
+        gap: 20px;
+        width: 100%;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .smart-post-page-loading-text {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .smart-post-empty-state {
+        padding: 40px 16px;
+        min-height: auto;
+    }
+
+    .smart-post-empty-content {
+        padding: 40px 24px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .smart-post-empty-icon {
+        font-size: 56px;
+        margin-bottom: 20px;
+    }
+
+    .smart-post-empty-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .smart-post-empty-description {
+        font-size: 14px;
+        margin-bottom: 28px;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .smart-post-empty-btn {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 14px;
+        font-weight: 600;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .smart-post-page {
+        padding: 10px;
+    }
+
+    .smart-post-header {
+        margin-top: -10px;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding: 14px 10px 12px 10px;
+    }
+
+    .smart-post-page-title {
+        font-size: 18px;
+        gap: 6px;
+        margin-bottom: 6px;
+    }
+
+    .smart-post-title-icon {
+        font-size: 18px;
+    }
+
+    .smart-post-page-subtitle {
+        font-size: 12px;
+    }
+
+    .smart-post-count-info {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .smart-post-count-item {
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .smart-post-count-item strong {
+        font-size: 14px;
+    }
+
+    .smart-post-add-jd-header-btn {
+        width: 100%;
+        min-width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
+        justify-content: center;
+    }
+
+    .smart-post-results {
+        gap: 10px;
+        padding-top: 10px;
+        padding-bottom: 16px;
+    }
+
+    .smart-post-page-loading-state {
+        padding: 50px 12px;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .smart-post-page-loading-content {
+        gap: 16px;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .smart-post-page-loading-text {
+        font-size: 13px;
+    }
+
+    .smart-post-empty-state {
+        padding: 30px 12px;
+    }
+
+    .smart-post-empty-content {
+        padding: 32px 20px;
+    }
+
+    .smart-post-empty-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+    }
+
+    .smart-post-empty-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .smart-post-empty-description {
+        font-size: 13px;
+        margin-bottom: 24px;
+    }
+
+    .smart-post-empty-btn {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+}
+

@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: atract-backend
+    ports:
+      - "${PORT:-5001}:5001"
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - PORT=${PORT:-5001}
+      - HOST=${HOST:-0.0.0.0}
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - PYTHON_COMMAND=${PYTHON_COMMAND:-python3}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-all-MiniLM-L6-v2}
+      # Add other environment variables as needed
+    env_file:
+      - .env
+    volumes:
+      # Mount uploads directory for persistence
+      - ./uploads:/app/uploads
+      - ./compressed:/app/compressed
+      - ./temp:/app/temp
+    restart: unless-stopped
+    networks:
+      - atract-network
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7.0
+    container_name: atract-mongo
+    ports:
+      - "${MONGO_PORT:-27017}:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME:-admin}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+    networks:
+      - atract-network
+
+networks:
+  atract-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+

@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+/* MAIN NAVBAR */
+.navBar-root {
+    background-color: white;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    font-family: "Roboto Flex", sans-serif;
+    box-shadow: 0 2px 14px rgba(37, 99, 235, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1010 !important;
+    box-sizing: border-box;
+}
+
+/* INNER */
+.navBar-inner {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.navBar-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.navBar-logo-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.navBar-brand-name {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.navBar-atract-logo-inline {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.navBar-logo-text {
+    color: #3170f7;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.navBar-logo-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.navBar-core-logo-small {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.navBar-logo-subtitle-text {
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+/* RIGHT SIDE WRAPPER */
+.navBar-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* BETA TAG */
+.navBar-beta-tag {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.navBar-beta-tag-mobile {
+    font-size: 9px;
+    padding: 3px 6px;
+}
+
+/* GUEST BUTTONS */
+.navBar-btn {
+    background-color: #f0f5ff;
+    color: #3170f7;
+    border: 1px solid #3170f7;
+    height: 40px;
+    width: 130px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.navBar-btn:hover {
+    background-color: #3170f7;
+    color: white;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+}
+
+/* USERNAME + ROLE MENU WRAPPER */
+.navBar-roleMenu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* USERNAME */
+.navBar-username {
+    font-weight: 700;
+    color: #3170f7;
+    cursor: pointer;
+}
+
+/* ROLE NAV LINKS (DESKTOP) */
+.navBar-roleLinks {
+    display: flex;
+    gap: 16px;
+}
+
+.navBar-roleItem {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #4b5563;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: 0.15s;
+}
+
+.navBar-roleItem:hover {
+    background-color: #eef3ff;
+    color: #3170f7;
+}
+
+/* Store/external link as role item (no underline) */
+.navBar-roleLinks a.navBar-roleItem {
+    text-decoration: none;
+}
+
+/* LOGOUT BUTTON */
+.navBar-logoutBtn {
+    background-color: #fff1f1;
+    color: #e63946;
+    border: 1px solid #e63946;
+    height: 40px;
+    width: 90px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.navBar-logoutBtn:hover {
+    background-color: #e63946;
+    color: white;
+}
+
+/* MOBILE MENU WRAPPER */
+.navBar-mobileMenuWrapper {
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+/* MOBILE MENU ICON */
+.navBar-mobileMenuIcon {
+    display: none;
+    color: #3170f7;
+    cursor: pointer;
+}
+
+/* MOBILE BACKDROP */
+.navBar-mobileBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1009;
+    animation: backdropFade 0.3s ease-out;
+    backdrop-filter: blur(4px);
+}
+
+@keyframes backdropFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* MOBILE DROPDOWN (for non-employer roles) */
+.navBar-mobileDropdown {
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid #e4e9f2;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    padding: 16px 0;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    z-index: 1010;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    animation: dropdownFade 0.25s ease-out;
+}
+
+/* MOBILE DRAWER (for employer) */
+.navBar-mobileDrawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    z-index: 1010;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: drawerSlideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+.navBar-mobileDrawer-employer {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.navBar-mobileDrawer-jobseeker {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+}
+
+.navBar-mobileDrawer-guest {
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+}
+
+@keyframes drawerSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navBar-mobileDrawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navBar-mobileDrawer-jobseeker .navBar-mobileDrawer-header {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.navBar-mobileDrawer-guest .navBar-mobileDrawer-header {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.navBar-mobileDrawer-username {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    cursor: pointer;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navBar-mobileDrawer-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navBar-mobileDrawer-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #ffffff;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navBar-mobileDrawer-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.navBar-mobileDrawer-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.navBar-mobileDrawer-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.navBar-mobileDrawer-item:hover {
+    background: linear-gradient(135deg, #f0f5ff 0%, #e0e7ff 100%);
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.navBar-mobileDrawer-item.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.navBar-mobileDrawer-item.active:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+    transform: translateX(4px);
+}
+
+.navBar-mobileDrawer-item-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+/* Store link in drawer (anchor styled as button) */
+.navBar-mobileDrawer-content a.navBar-mobileDrawer-item {
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+.navBar-mobileDrawer-item-logout {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-color: #ef4444;
+    color: #dc2626;
+    margin-top: 8px;
+}
+
+.navBar-mobileDrawer-item-logout:hover {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #ffffff;
+    border-color: #dc2626;
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+}
+
+/* MOBILE GREETING */
+.navBar-mobileUsername {
+    font-size: 17px;
+    font-weight: 700;
+    color: #3170f7;
+    margin-bottom: 4px;
+}
+
+/* MOBILE NAV ITEMS */
+.navBar-mobileItem {
+    width: 86%;
+    background: #f0f5ff;
+    color: #3170f7;
+    border: 1px solid #3170f7;
+    padding: 10px 0;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.navBar-mobileItem:hover {
+    background-color: #3170f7;
+    color: white;
+}
+
+/* SPECIAL: MOBILE LOGOUT */
+.navBar-mobileItem.navBar-mobileItemLogout {
+    background-color: #fff1f1;
+    border-color: #e63946;
+    color: #e63946;
+}
+
+.navBar-mobileItem.navBar-mobileItemLogout:hover {
+    background-color: #e63946;
+    color: white;
+}
+
+/* ANIMATION */
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE BEHAVIOR */
+.navBar-desktopOnly {
+    display: flex;
+}
+
+.navBar-mobileOnly {
+    display: none;
+}
+
+/* MOBILE RULES */
+@media (max-width: 768px) {
+    .navBar-desktopOnly {
+        display: none !important;
+    }
+
+    .navBar-mobileOnly {
+        display: flex;
+    }
+
+    .navBar-mobileMenuWrapper {
+        display: flex;
+    }
+
+    .navBar-mobileMenuIcon {
+        display: flex;
+    }
+
+    /* Hide desktop role menu on mobile */
+    .navBar-roleLinks {
+        display: none;
+    }
+
+    /* Mobile drawer adjustments */
+    .navBar-mobileDrawer {
+        max-height: 85vh;
+    }
+
+    .navBar-mobileDrawer-header {
+        padding: 18px 20px;
+    }
+
+    .navBar-mobileDrawer-content {
+        padding: 12px;
+    }
+
+    .navBar-mobileDrawer-item {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+}

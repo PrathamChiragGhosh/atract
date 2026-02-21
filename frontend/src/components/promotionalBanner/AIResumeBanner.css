@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.airesume-banner {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.airesume-banner-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border-radius: 12px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.airesume-banner-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    animation: airesume-rotate 20s linear infinite;
+}
+
+.airesume-banner-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+@keyframes airesume-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.airesume-banner-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 48px rgba(102, 126, 234, 0.5);
+}
+
+.airesume-icon-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.airesume-icon {
+    font-size: 36px;
+    color: white;
+    z-index: 3;
+    position: relative;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    animation: airesume-float 3s ease-in-out infinite;
+}
+
+@keyframes airesume-float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.airesume-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: airesume-pulse 2s ease-in-out infinite;
+    filter: blur(15px);
+}
+
+@keyframes airesume-pulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+.airesume-text {
+    z-index: 2;
+    position: relative;
+    text-align: center;
+}
+
+.airesume-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    margin: 0 0 6px 0;
+    font-family: "Roboto Flex", sans-serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    line-height: 1.3;
+}
+
+.airesume-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 16px 0;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.airesume-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.airesume-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.airesume-feature:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(4px);
+}
+
+.airesume-feature-icon {
+    font-size: 14px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.airesume-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.airesume-cta:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.airesume-cta:active {
+    transform: translateY(0);
+}
+
+.airesume-cta-arrow {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.airesume-cta:hover .airesume-cta-arrow {
+    transform: translateX(4px);
+}
+
+/* Mobile - Hide banner */
+@media (max-width: 768px) {
+    .airesume-banner {
+        display: none;
+    }
+}
+

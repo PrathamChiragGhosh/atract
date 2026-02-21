@@ -1,0 +1,1164 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.smart-select-transaction-history-container {
+    min-height: calc(100vh - 112px);
+    background: #f7fbff;
+    padding: 24px;
+    font-family: "Roboto Flex", "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* Header */
+.smart-select-transaction-history-header {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.smart-select-transaction-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.smart-select-transaction-back-btn:hover {
+    background: #e5e7eb;
+    color: #2563eb;
+    border-color: #2563eb;
+}
+
+.smart-select-transaction-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.smart-select-transaction-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.smart-select-transaction-header-icon {
+    font-size: 20px;
+    color: #2563eb;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.smart-select-transaction-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.smart-select-transaction-type-badge {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    color: #2563eb;
+    border-radius: 6px;
+    text-transform: capitalize;
+}
+
+.smart-select-transaction-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+}
+
+.smart-select-transaction-header-stats {
+    display: flex;
+    gap: 24px;
+}
+
+.smart-select-transaction-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.smart-select-transaction-stat-label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.smart-select-transaction-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+/* Loading State - Skeleton */
+.smart-select-transaction-skeleton {
+    pointer-events: none;
+    cursor: default;
+}
+
+.smart-select-transaction-skeleton-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: smart-select-transaction-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.smart-select-transaction-skeleton-title {
+    width: 180px;
+    height: 20px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: smart-select-transaction-skeleton-loading 1.5s ease-in-out infinite;
+    margin-bottom: 12px;
+}
+
+.smart-select-transaction-skeleton-meta {
+    display: flex;
+    gap: 16px;
+}
+
+.smart-select-transaction-skeleton-meta-item {
+    width: 120px;
+    height: 14px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: smart-select-transaction-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.smart-select-transaction-skeleton-amount {
+    width: 80px;
+    height: 24px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: smart-select-transaction-skeleton-loading 1.5s ease-in-out infinite;
+    margin-bottom: 8px;
+}
+
+.smart-select-transaction-skeleton-badge {
+    width: 60px;
+    height: 24px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: smart-select-transaction-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes smart-select-transaction-skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Controls */
+.smart-select-transaction-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.smart-select-transaction-search-bar {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.smart-select-transaction-search-icon {
+    position: absolute;
+    left: 16px;
+    color: #9ca3af;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.smart-select-transaction-search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.smart-select-transaction-search-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.smart-select-transaction-search-input:disabled {
+    background: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.smart-select-transaction-clear-search {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.smart-select-transaction-clear-search:hover {
+    color: #dc2626;
+}
+
+.smart-select-transaction-filter-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.smart-select-transaction-filter-toggle:hover {
+    background: #f9fafb;
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.smart-select-transaction-filter-toggle.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.smart-select-transaction-filter-toggle:disabled {
+    background: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.smart-select-transaction-filter-toggle:disabled:hover {
+    background: #f9fafb;
+    border-color: #e5e7eb;
+    color: #9ca3af;
+}
+
+.smart-select-transaction-filter-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    background: #dc2626;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Filter Panel */
+.smart-select-transaction-filter-panel {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.smart-select-transaction-filter-group {
+    margin-bottom: 20px;
+}
+
+.smart-select-transaction-filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.smart-select-transaction-filter-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.smart-select-transaction-filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.smart-select-transaction-filter-option {
+    padding: 8px 16px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.smart-select-transaction-filter-option:hover {
+    background: #f3f4f6;
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.smart-select-transaction-filter-option.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.smart-select-transaction-clear-filters {
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.smart-select-transaction-clear-filters:hover {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+/* Content */
+.smart-select-transaction-content {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.smart-select-transaction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.smart-select-transaction-card {
+    padding: 20px 24px 16px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.smart-select-transaction-card:last-child {
+    border-bottom: none;
+}
+
+.smart-select-transaction-card:hover {
+    background: #f9fafb;
+}
+
+@media (hover: none) {
+    .smart-select-transaction-card:active {
+        background: #f3f4f6;
+    }
+}
+
+.smart-select-transaction-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.smart-select-transaction-card-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.smart-select-transaction-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.smart-select-transaction-status-icon {
+    font-size: 24px;
+}
+
+.smart-select-transaction-status-icon.smart-select-transaction-status-success {
+    color: #10b981;
+}
+
+.smart-select-transaction-status-icon.smart-select-transaction-status-pending {
+    color: #f59e0b;
+}
+
+.smart-select-transaction-status-icon.smart-select-transaction-status-failed {
+    color: #ef4444;
+}
+
+.smart-select-transaction-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.smart-select-transaction-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 0 0 8px 0;
+}
+
+.smart-select-transaction-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.smart-select-transaction-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.smart-select-transaction-meta-item svg {
+    font-size: 12px;
+    color: #2563eb;
+}
+
+.smart-select-transaction-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.smart-select-transaction-amount {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.smart-select-transaction-amount-icon {
+    font-size: 16px;
+    color: #10b981;
+}
+
+.smart-select-transaction-status-badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.smart-select-transaction-status-badge.smart-select-transaction-status-success {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #15803d;
+}
+
+.smart-select-transaction-status-badge.smart-select-transaction-status-pending {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #854d0e;
+}
+
+.smart-select-transaction-status-badge.smart-select-transaction-status-failed {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #b91c1c;
+}
+
+.smart-select-transaction-card-footer {
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 12px;
+}
+
+.smart-select-transaction-product-type {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Empty State */
+.smart-select-transaction-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.smart-select-transaction-empty-icon {
+    font-size: 64px;
+    color: #d1d5db;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.smart-select-transaction-empty-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 12px 0;
+}
+
+.smart-select-transaction-empty-description {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+    max-width: 400px;
+}
+
+.smart-select-transaction-empty-btn {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.smart-select-transaction-empty-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Error Screen */
+.smart-select-transaction-error-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 40px 20px;
+}
+
+.smart-select-transaction-error-content {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.smart-select-transaction-error-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smart-select-transaction-error-icon {
+    font-size: 40px;
+    color: #dc2626;
+}
+
+.smart-select-transaction-error-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 16px 0;
+}
+
+.smart-select-transaction-error-description {
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 32px 0;
+}
+
+.smart-select-transaction-error-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.smart-select-transaction-error-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.smart-select-transaction-error-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+.smart-select-transaction-error-btn.secondary {
+    background: #ffffff;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    box-shadow: none;
+}
+
+.smart-select-transaction-error-btn.secondary:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+}
+
+.smart-select-transaction-error-btn svg {
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .smart-select-transaction-history-container {
+        padding: 12px;
+    }
+
+    .smart-select-transaction-history-header {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .smart-select-transaction-back-btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 16px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .smart-select-transaction-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .smart-select-transaction-header-left {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .smart-select-transaction-header-icon {
+        font-size: 18px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .smart-select-transaction-header-stats {
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .smart-select-transaction-stat-item {
+        flex: 1;
+        align-items: center;
+        text-align: center;
+        padding: 12px;
+        background: #f9fafb;
+        border-radius: 8px;
+    }
+
+    .smart-select-transaction-stat-value {
+        font-size: 20px;
+    }
+
+    .smart-select-transaction-stat-label {
+        font-size: 11px;
+    }
+
+    .smart-select-transaction-title {
+        font-size: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .smart-select-transaction-type-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+        align-self: flex-start;
+    }
+
+    .smart-select-transaction-subtitle {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .smart-select-transaction-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .smart-select-transaction-search-bar {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .smart-select-transaction-search-input {
+        padding: 14px 16px 14px 44px;
+        font-size: 15px;
+    }
+
+    .smart-select-transaction-filter-toggle {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    .smart-select-transaction-filter-panel {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .smart-select-transaction-filter-group {
+        margin-bottom: 20px;
+    }
+
+    .smart-select-transaction-filter-label {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .smart-select-transaction-filter-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .smart-select-transaction-filter-option {
+        width: 100%;
+        text-align: center;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .smart-select-transaction-clear-filters {
+        width: 100%;
+        margin-top: 12px;
+        padding: 12px;
+    }
+
+    .smart-select-transaction-card {
+        padding: 16px 16px 12px 16px;
+        border-radius: 8px;
+    }
+
+    .smart-select-transaction-card-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .smart-select-transaction-card-left {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .smart-select-transaction-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+    }
+
+    .smart-select-transaction-status-icon {
+        font-size: 20px;
+    }
+
+    .smart-select-transaction-card-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .smart-select-transaction-card-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .smart-select-transaction-card-meta {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 12px;
+    }
+
+    .smart-select-transaction-card-right {
+        align-items: flex-start;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 12px;
+        border-top: 1px solid #f3f4f6;
+    }
+
+    .smart-select-transaction-amount {
+        font-size: 18px;
+    }
+
+    .smart-select-transaction-status-badge {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .smart-select-transaction-card-footer {
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+
+    .smart-select-transaction-product-type {
+        font-size: 11px;
+    }
+
+    .smart-select-transaction-error-content {
+        padding: 32px 20px;
+        margin: 20px;
+    }
+
+    .smart-select-transaction-error-icon-wrapper {
+        width: 64px;
+        height: 64px;
+    }
+
+    .smart-select-transaction-error-icon {
+        font-size: 32px;
+    }
+
+    .smart-select-transaction-error-title {
+        font-size: 18px;
+    }
+
+    .smart-select-transaction-error-description {
+        font-size: 14px;
+    }
+
+    .smart-select-transaction-error-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .smart-select-transaction-error-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .smart-select-transaction-history-container {
+        padding: 8px;
+    }
+
+    .smart-select-transaction-history-header {
+        padding: 12px;
+        margin-bottom: 16px;
+    }
+
+    .smart-select-transaction-back-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .smart-select-transaction-header-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .smart-select-transaction-title {
+        font-size: 18px;
+    }
+
+    .smart-select-transaction-type-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+
+    .smart-select-transaction-subtitle {
+        font-size: 12px;
+    }
+
+    .smart-select-transaction-header-stats {
+        gap: 8px;
+    }
+
+    .smart-select-transaction-stat-item {
+        padding: 10px 8px;
+    }
+
+    .smart-select-transaction-stat-value {
+        font-size: 18px;
+    }
+
+    .smart-select-transaction-stat-label {
+        font-size: 10px;
+    }
+
+    .smart-select-transaction-controls {
+        gap: 8px;
+    }
+
+    .smart-select-transaction-search-input {
+        padding: 12px 14px 12px 40px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .smart-select-transaction-search-icon {
+        left: 12px;
+        font-size: 14px;
+    }
+
+    .smart-select-transaction-filter-toggle {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .smart-select-transaction-filter-panel {
+        padding: 12px;
+    }
+
+    .smart-select-transaction-filter-options {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .smart-select-transaction-filter-option {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .smart-select-transaction-card {
+        padding: 12px 12px 10px 12px;
+    }
+
+    .smart-select-transaction-card-header {
+        gap: 12px;
+    }
+
+    .smart-select-transaction-icon-wrapper {
+        width: 36px;
+        height: 36px;
+    }
+
+    .smart-select-transaction-status-icon {
+        font-size: 18px;
+    }
+
+    .smart-select-transaction-card-title {
+        font-size: 15px;
+    }
+
+    .smart-select-transaction-card-meta {
+        font-size: 11px;
+        gap: 4px;
+    }
+
+    .smart-select-transaction-card-right {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .smart-select-transaction-amount {
+        font-size: 16px;
+    }
+
+    .smart-select-transaction-status-badge {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    .smart-select-transaction-empty-state {
+        padding: 40px 20px;
+    }
+
+    .smart-select-transaction-empty-icon {
+        font-size: 48px;
+    }
+
+    .smart-select-transaction-empty-title {
+        font-size: 18px;
+    }
+
+    .smart-select-transaction-empty-description {
+        font-size: 13px;
+    }
+
+    .smart-select-transaction-empty-btn {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    .smart-select-transaction-error-content {
+        padding: 24px 16px;
+        margin: 12px;
+    }
+
+    .smart-select-transaction-error-icon-wrapper {
+        width: 56px;
+        height: 56px;
+    }
+
+    .smart-select-transaction-error-icon {
+        font-size: 28px;
+    }
+
+    .smart-select-transaction-error-title {
+        font-size: 16px;
+    }
+
+    .smart-select-transaction-error-description {
+        font-size: 13px;
+    }
+
+    /* Touch-friendly improvements */
+    .smart-select-transaction-list {
+        gap: 12px;
+    }
+
+    .smart-select-transaction-card {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e7eb;
+        margin-bottom: 0;
+    }
+
+    .smart-select-transaction-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        background: #f3f4f6;
+    }
+
+    .smart-select-transaction-back-btn:active,
+    .smart-select-transaction-filter-toggle:active,
+    .smart-select-transaction-filter-option:active,
+    .smart-select-transaction-error-btn:active {
+        transform: scale(0.97);
+    }
+}
+
+/* Loading State */
+.smart-select-transaction-loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    min-height: 400px;
+    gap: 20px;
+}
+
+.smart-select-transaction-loading-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .smart-select-transaction-loading-state {
+        padding: 60px 20px;
+        min-height: 300px;
+    }
+
+    .smart-select-transaction-loading-text {
+        font-size: 14px;
+    }
+}
+

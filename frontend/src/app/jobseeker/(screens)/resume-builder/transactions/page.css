@@ -1,0 +1,1164 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.resumebuilder-transaction-history-container {
+    min-height: calc(100vh - 112px);
+    background: #f7fbff;
+    padding: 24px;
+    font-family: "Roboto Flex", "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* Header */
+.resumebuilder-transaction-history-header {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.resumebuilder-transaction-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.resumebuilder-transaction-back-btn:hover {
+    background: #e5e7eb;
+    color: #2563eb;
+    border-color: #2563eb;
+}
+
+.resumebuilder-transaction-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.resumebuilder-transaction-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.resumebuilder-transaction-header-icon {
+    font-size: 20px;
+    color: #2563eb;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.resumebuilder-transaction-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.resumebuilder-transaction-type-badge {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    color: #2563eb;
+    border-radius: 6px;
+    text-transform: capitalize;
+}
+
+.resumebuilder-transaction-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+}
+
+.resumebuilder-transaction-header-stats {
+    display: flex;
+    gap: 24px;
+}
+
+.resumebuilder-transaction-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.resumebuilder-transaction-stat-label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resumebuilder-transaction-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+/* Loading State - Skeleton */
+.resumebuilder-transaction-skeleton {
+    pointer-events: none;
+    cursor: default;
+}
+
+.resumebuilder-transaction-skeleton-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: resumebuilder-transaction-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.resumebuilder-transaction-skeleton-title {
+    width: 180px;
+    height: 20px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: resumebuilder-transaction-skeleton-loading 1.5s ease-in-out infinite;
+    margin-bottom: 12px;
+}
+
+.resumebuilder-transaction-skeleton-meta {
+    display: flex;
+    gap: 16px;
+}
+
+.resumebuilder-transaction-skeleton-meta-item {
+    width: 120px;
+    height: 14px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: resumebuilder-transaction-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.resumebuilder-transaction-skeleton-amount {
+    width: 80px;
+    height: 24px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: resumebuilder-transaction-skeleton-loading 1.5s ease-in-out infinite;
+    margin-bottom: 8px;
+}
+
+.resumebuilder-transaction-skeleton-badge {
+    width: 60px;
+    height: 24px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: resumebuilder-transaction-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes resumebuilder-transaction-skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Controls */
+.resumebuilder-transaction-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.resumebuilder-transaction-search-bar {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.resumebuilder-transaction-search-icon {
+    position: absolute;
+    left: 16px;
+    color: #9ca3af;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.resumebuilder-transaction-search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.resumebuilder-transaction-search-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.resumebuilder-transaction-search-input:disabled {
+    background: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.resumebuilder-transaction-clear-search {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.resumebuilder-transaction-clear-search:hover {
+    color: #dc2626;
+}
+
+.resumebuilder-transaction-filter-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.resumebuilder-transaction-filter-toggle:hover {
+    background: #f9fafb;
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.resumebuilder-transaction-filter-toggle.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.resumebuilder-transaction-filter-toggle:disabled {
+    background: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.resumebuilder-transaction-filter-toggle:disabled:hover {
+    background: #f9fafb;
+    border-color: #e5e7eb;
+    color: #9ca3af;
+}
+
+.resumebuilder-transaction-filter-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    background: #dc2626;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Filter Panel */
+.resumebuilder-transaction-filter-panel {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.resumebuilder-transaction-filter-group {
+    margin-bottom: 20px;
+}
+
+.resumebuilder-transaction-filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.resumebuilder-transaction-filter-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resumebuilder-transaction-filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.resumebuilder-transaction-filter-option {
+    padding: 8px 16px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resumebuilder-transaction-filter-option:hover {
+    background: #f3f4f6;
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.resumebuilder-transaction-filter-option.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.resumebuilder-transaction-clear-filters {
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resumebuilder-transaction-clear-filters:hover {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+/* Content */
+.resumebuilder-transaction-content {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.resumebuilder-transaction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.resumebuilder-transaction-card {
+    padding: 20px 24px 16px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.resumebuilder-transaction-card:last-child {
+    border-bottom: none;
+}
+
+.resumebuilder-transaction-card:hover {
+    background: #f9fafb;
+}
+
+@media (hover: none) {
+    .resumebuilder-transaction-card:active {
+        background: #f3f4f6;
+    }
+}
+
+.resumebuilder-transaction-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.resumebuilder-transaction-card-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.resumebuilder-transaction-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.resumebuilder-transaction-status-icon {
+    font-size: 24px;
+}
+
+.resumebuilder-transaction-status-icon.resumebuilder-transaction-status-success {
+    color: #10b981;
+}
+
+.resumebuilder-transaction-status-icon.resumebuilder-transaction-status-pending {
+    color: #f59e0b;
+}
+
+.resumebuilder-transaction-status-icon.resumebuilder-transaction-status-failed {
+    color: #ef4444;
+}
+
+.resumebuilder-transaction-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.resumebuilder-transaction-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 0 0 8px 0;
+}
+
+.resumebuilder-transaction-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.resumebuilder-transaction-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.resumebuilder-transaction-meta-item svg {
+    font-size: 12px;
+    color: #2563eb;
+}
+
+.resumebuilder-transaction-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.resumebuilder-transaction-amount {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.resumebuilder-transaction-amount-icon {
+    font-size: 16px;
+    color: #10b981;
+}
+
+.resumebuilder-transaction-status-badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resumebuilder-transaction-status-badge.resumebuilder-transaction-status-success {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #15803d;
+}
+
+.resumebuilder-transaction-status-badge.resumebuilder-transaction-status-pending {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #854d0e;
+}
+
+.resumebuilder-transaction-status-badge.resumebuilder-transaction-status-failed {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #b91c1c;
+}
+
+.resumebuilder-transaction-card-footer {
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 12px;
+}
+
+.resumebuilder-transaction-product-type {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Empty State */
+.resumebuilder-transaction-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.resumebuilder-transaction-empty-icon {
+    font-size: 64px;
+    color: #d1d5db;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.resumebuilder-transaction-empty-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 12px 0;
+}
+
+.resumebuilder-transaction-empty-description {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+    max-width: 400px;
+}
+
+.resumebuilder-transaction-empty-btn {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.resumebuilder-transaction-empty-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Error Screen */
+.resumebuilder-transaction-error-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 40px 20px;
+}
+
+.resumebuilder-transaction-error-content {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.resumebuilder-transaction-error-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resumebuilder-transaction-error-icon {
+    font-size: 40px;
+    color: #dc2626;
+}
+
+.resumebuilder-transaction-error-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 16px 0;
+}
+
+.resumebuilder-transaction-error-description {
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 32px 0;
+}
+
+.resumebuilder-transaction-error-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.resumebuilder-transaction-error-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.resumebuilder-transaction-error-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+.resumebuilder-transaction-error-btn.secondary {
+    background: #ffffff;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    box-shadow: none;
+}
+
+.resumebuilder-transaction-error-btn.secondary:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+}
+
+.resumebuilder-transaction-error-btn svg {
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .resumebuilder-transaction-history-container {
+        padding: 12px;
+    }
+
+    .resumebuilder-transaction-history-header {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .resumebuilder-transaction-back-btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 16px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .resumebuilder-transaction-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .resumebuilder-transaction-header-left {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .resumebuilder-transaction-header-icon {
+        font-size: 18px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .resumebuilder-transaction-header-stats {
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .resumebuilder-transaction-stat-item {
+        flex: 1;
+        align-items: center;
+        text-align: center;
+        padding: 12px;
+        background: #f9fafb;
+        border-radius: 8px;
+    }
+
+    .resumebuilder-transaction-stat-value {
+        font-size: 20px;
+    }
+
+    .resumebuilder-transaction-stat-label {
+        font-size: 11px;
+    }
+
+    .resumebuilder-transaction-title {
+        font-size: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .resumebuilder-transaction-type-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+        align-self: flex-start;
+    }
+
+    .resumebuilder-transaction-subtitle {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .resumebuilder-transaction-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .resumebuilder-transaction-search-bar {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .resumebuilder-transaction-search-input {
+        padding: 14px 16px 14px 44px;
+        font-size: 15px;
+    }
+
+    .resumebuilder-transaction-filter-toggle {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    .resumebuilder-transaction-filter-panel {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .resumebuilder-transaction-filter-group {
+        margin-bottom: 20px;
+    }
+
+    .resumebuilder-transaction-filter-label {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .resumebuilder-transaction-filter-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .resumebuilder-transaction-filter-option {
+        width: 100%;
+        text-align: center;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .resumebuilder-transaction-clear-filters {
+        width: 100%;
+        margin-top: 12px;
+        padding: 12px;
+    }
+
+    .resumebuilder-transaction-card {
+        padding: 16px 16px 12px 16px;
+        border-radius: 8px;
+    }
+
+    .resumebuilder-transaction-card-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .resumebuilder-transaction-card-left {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .resumebuilder-transaction-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+    }
+
+    .resumebuilder-transaction-status-icon {
+        font-size: 20px;
+    }
+
+    .resumebuilder-transaction-card-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .resumebuilder-transaction-card-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .resumebuilder-transaction-card-meta {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 12px;
+    }
+
+    .resumebuilder-transaction-card-right {
+        align-items: flex-start;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 12px;
+        border-top: 1px solid #f3f4f6;
+    }
+
+    .resumebuilder-transaction-amount {
+        font-size: 18px;
+    }
+
+    .resumebuilder-transaction-status-badge {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .resumebuilder-transaction-card-footer {
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+
+    .resumebuilder-transaction-product-type {
+        font-size: 11px;
+    }
+
+    .resumebuilder-transaction-error-content {
+        padding: 32px 20px;
+        margin: 20px;
+    }
+
+    .resumebuilder-transaction-error-icon-wrapper {
+        width: 64px;
+        height: 64px;
+    }
+
+    .resumebuilder-transaction-error-icon {
+        font-size: 32px;
+    }
+
+    .resumebuilder-transaction-error-title {
+        font-size: 18px;
+    }
+
+    .resumebuilder-transaction-error-description {
+        font-size: 14px;
+    }
+
+    .resumebuilder-transaction-error-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .resumebuilder-transaction-error-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resumebuilder-transaction-history-container {
+        padding: 8px;
+    }
+
+    .resumebuilder-transaction-history-header {
+        padding: 12px;
+        margin-bottom: 16px;
+    }
+
+    .resumebuilder-transaction-back-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .resumebuilder-transaction-header-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .resumebuilder-transaction-title {
+        font-size: 18px;
+    }
+
+    .resumebuilder-transaction-type-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+
+    .resumebuilder-transaction-subtitle {
+        font-size: 12px;
+    }
+
+    .resumebuilder-transaction-header-stats {
+        gap: 8px;
+    }
+
+    .resumebuilder-transaction-stat-item {
+        padding: 10px 8px;
+    }
+
+    .resumebuilder-transaction-stat-value {
+        font-size: 18px;
+    }
+
+    .resumebuilder-transaction-stat-label {
+        font-size: 10px;
+    }
+
+    .resumebuilder-transaction-controls {
+        gap: 8px;
+    }
+
+    .resumebuilder-transaction-search-input {
+        padding: 12px 14px 12px 40px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .resumebuilder-transaction-search-icon {
+        left: 12px;
+        font-size: 14px;
+    }
+
+    .resumebuilder-transaction-filter-toggle {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .resumebuilder-transaction-filter-panel {
+        padding: 12px;
+    }
+
+    .resumebuilder-transaction-filter-options {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .resumebuilder-transaction-filter-option {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .resumebuilder-transaction-card {
+        padding: 12px 12px 10px 12px;
+    }
+
+    .resumebuilder-transaction-card-header {
+        gap: 12px;
+    }
+
+    .resumebuilder-transaction-icon-wrapper {
+        width: 36px;
+        height: 36px;
+    }
+
+    .resumebuilder-transaction-status-icon {
+        font-size: 18px;
+    }
+
+    .resumebuilder-transaction-card-title {
+        font-size: 15px;
+    }
+
+    .resumebuilder-transaction-card-meta {
+        font-size: 11px;
+        gap: 4px;
+    }
+
+    .resumebuilder-transaction-card-right {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .resumebuilder-transaction-amount {
+        font-size: 16px;
+    }
+
+    .resumebuilder-transaction-status-badge {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    .resumebuilder-transaction-empty-state {
+        padding: 40px 20px;
+    }
+
+    .resumebuilder-transaction-empty-icon {
+        font-size: 48px;
+    }
+
+    .resumebuilder-transaction-empty-title {
+        font-size: 18px;
+    }
+
+    .resumebuilder-transaction-empty-description {
+        font-size: 13px;
+    }
+
+    .resumebuilder-transaction-empty-btn {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    .resumebuilder-transaction-error-content {
+        padding: 24px 16px;
+        margin: 12px;
+    }
+
+    .resumebuilder-transaction-error-icon-wrapper {
+        width: 56px;
+        height: 56px;
+    }
+
+    .resumebuilder-transaction-error-icon {
+        font-size: 28px;
+    }
+
+    .resumebuilder-transaction-error-title {
+        font-size: 16px;
+    }
+
+    .resumebuilder-transaction-error-description {
+        font-size: 13px;
+    }
+
+    /* Touch-friendly improvements */
+    .resumebuilder-transaction-list {
+        gap: 12px;
+    }
+
+    .resumebuilder-transaction-card {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e7eb;
+        margin-bottom: 0;
+    }
+
+    .resumebuilder-transaction-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        background: #f3f4f6;
+    }
+
+    .resumebuilder-transaction-back-btn:active,
+    .resumebuilder-transaction-filter-toggle:active,
+    .resumebuilder-transaction-filter-option:active,
+    .resumebuilder-transaction-error-btn:active {
+        transform: scale(0.97);
+    }
+}
+
+/* Loading State */
+.resumebuilder-transaction-loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    min-height: 400px;
+    gap: 20px;
+}
+
+.resumebuilder-transaction-loading-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .resumebuilder-transaction-loading-state {
+        padding: 60px 20px;
+        min-height: 300px;
+    }
+
+    .resumebuilder-transaction-loading-text {
+        font-size: 14px;
+    }
+}
+

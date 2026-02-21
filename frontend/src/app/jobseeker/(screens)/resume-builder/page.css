@@ -1,0 +1,1111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.resumebuilder-dashboard-container {
+    margin: 0 auto;
+    font-family: "Roboto Flex", "Inter", "Segoe UI", Arial, sans-serif;
+    color: #162335;
+    background: #f7fbff;
+    min-height: 92vh;
+    box-sizing: border-box;
+    padding: 24px;
+}
+
+.resumebuilder-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* DASHBOARD HEADER */
+.resumebuilder-dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.resumebuilder-dashboard-header-left {
+    flex: 1;
+}
+
+.resumebuilder-dashboard-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.resumebuilder-dashboard-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+}
+
+.resumebuilder-dashboard-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.resumebuilder-dashboard-primary-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+    text-decoration: none;
+}
+
+.resumebuilder-dashboard-primary-action-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+.resumebuilder-dashboard-primary-action-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.resumebuilder-dashboard-primary-action-btn svg {
+    font-size: 16px;
+}
+
+/* STATS GRID */
+.resumebuilder-dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 8px;
+}
+
+.resumebuilder-dashboard-stat-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.resumebuilder-dashboard-stat-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.resumebuilder-dashboard-stat-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.resumebuilder-dashboard-stat-primary .resumebuilder-dashboard-stat-card-icon {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+}
+
+.resumebuilder-dashboard-stat-secondary .resumebuilder-dashboard-stat-card-icon {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+}
+
+.resumebuilder-dashboard-stat-tertiary .resumebuilder-dashboard-stat-card-icon {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+}
+
+.resumebuilder-dashboard-stat-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.resumebuilder-dashboard-stat-card-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resumebuilder-dashboard-stat-card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2563eb;
+    line-height: 1;
+}
+
+.resumebuilder-dashboard-stat-secondary .resumebuilder-dashboard-stat-card-value {
+    color: #10b981;
+}
+
+.resumebuilder-dashboard-stat-tertiary .resumebuilder-dashboard-stat-card-value {
+    color: #f59e0b;
+}
+
+/* CONTENT MAIN */
+.resumebuilder-dashboard-content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.resumebuilder-dashboard-top-section {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 24px;
+    align-items: start;
+}
+
+/* SECTION CARDS */
+.resumebuilder-dashboard-section-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.resumebuilder-dashboard-section-card:not(.resumebuilder-dashboard-plan-details-card) {
+    overflow: hidden;
+}
+
+.resumebuilder-dashboard-plan-details-card {
+    position: sticky !important;
+    top: 80px !important;
+    max-height: calc(100vh - 96px);
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    align-self: start !important;
+    box-sizing: border-box;
+}
+
+.resumebuilder-dashboard-plan-details-card .resumebuilder-dashboard-section-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.resumebuilder-dashboard-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    background: #fafbfc;
+}
+
+.resumebuilder-dashboard-section-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.resumebuilder-dashboard-section-icon {
+    font-size: 20px;
+    color: #2563eb;
+}
+
+.resumebuilder-dashboard-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 0;
+}
+
+.resumebuilder-dashboard-view-transactions-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #ffffff;
+    border: 1px solid #2563eb;
+    border-radius: 8px;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.resumebuilder-dashboard-view-transactions-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.resumebuilder-dashboard-view-transactions-btn svg {
+    font-size: 14px;
+}
+
+.resumebuilder-dashboard-view-transactions-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #ffffff;
+    border: 1px solid #2563eb;
+    border-radius: 8px;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.resumebuilder-dashboard-view-transactions-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.resumebuilder-dashboard-view-transactions-btn svg {
+    font-size: 14px;
+}
+
+.resumebuilder-dashboard-section-body {
+    padding: 24px;
+    flex: 1;
+}
+
+/* PLAN DETAILS */
+.resumebuilder-dashboard-plan-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resumebuilder-dashboard-plan-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.resumebuilder-dashboard-plan-detail-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.resumebuilder-dashboard-plan-detail-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.resumebuilder-dashboard-plan-badge-large {
+    padding: 6px 16px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border-radius: 6px;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.resumebuilder-dashboard-plan-count {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.resumebuilder-dashboard-plan-upgrade-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.resumebuilder-dashboard-analyze-resume-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.resumebuilder-dashboard-analyze-resume-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.resumebuilder-dashboard-analyze-resume-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.resumebuilder-dashboard-analyze-resume-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.resumebuilder-dashboard-analyze-resume-btn svg {
+    font-size: 14px;
+}
+
+.resumebuilder-dashboard-upgrade-plan-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+    box-sizing: border-box;
+}
+
+.resumebuilder-dashboard-upgrade-plan-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.resumebuilder-dashboard-upgrade-plan-btn:active {
+    transform: translateY(0);
+}
+
+.resumebuilder-dashboard-upgrade-plan-btn svg {
+    font-size: 14px;
+}
+
+/* NO PLAN SCREEN */
+.resumebuilder-dashboard-no-plan-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 40px 24px;
+}
+
+.resumebuilder-dashboard-no-plan-content {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.resumebuilder-dashboard-no-plan-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+}
+
+.resumebuilder-dashboard-no-plan-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+}
+
+.resumebuilder-dashboard-no-plan-description {
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.7;
+    margin: 0 0 32px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resumebuilder-dashboard-no-plan-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resumebuilder-dashboard-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f7fbff;
+    border-radius: 8px;
+    border: 1px solid #e0f2fe;
+}
+
+.resumebuilder-dashboard-feature-item svg {
+    color: #10b981;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.resumebuilder-dashboard-feature-item span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.resumebuilder-dashboard-no-plan-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.resumebuilder-dashboard-upgrade-btn {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resumebuilder-dashboard-upgrade-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.resumebuilder-dashboard-upgrade-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* HISTORY SECTION */
+.resumebuilder-dashboard-history-section {
+    margin-top: 0;
+}
+
+.resumebuilder-dashboard-history-main {
+    flex: 1;
+}
+
+.resumebuilder-dashboard-history-section .resumebuilder-dashboard-section-body {
+    padding: 16px;
+}
+
+.resumebuilder-dashboard-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resumebuilder-dashboard-history-item {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resumebuilder-dashboard-history-item:hover {
+    border-color: #2563eb;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    transform: translateY(-1px);
+}
+
+.resumebuilder-dashboard-history-item-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.resumebuilder-dashboard-history-item-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.resumebuilder-dashboard-history-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.resumebuilder-dashboard-history-item-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resumebuilder-dashboard-history-item-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 4px 0;
+}
+
+.resumebuilder-dashboard-history-item-meta {
+    font-size: 13px;
+    color: #9ca3af;
+    margin: 0;
+}
+
+.resumebuilder-dashboard-history-item-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.resumebuilder-dashboard-history-item-date {
+    font-size: 13px;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+.resumebuilder-dashboard-history-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 40px 24px;
+}
+
+.resumebuilder-dashboard-placeholder-content {
+    text-align: center;
+    max-width: 400px;
+}
+
+.resumebuilder-dashboard-placeholder-icon {
+    font-size: 64px;
+    color: #d1d5db;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.resumebuilder-dashboard-placeholder-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 12px 0;
+}
+
+.resumebuilder-dashboard-placeholder-description {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+}
+
+.resumebuilder-dashboard-placeholder-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.resumebuilder-dashboard-placeholder-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+.resumebuilder-dashboard-placeholder-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* LOADER */
+.resumebuilder-dashboard-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 20px;
+    color: #6b7280;
+    font-family: "Roboto Flex", "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .resumebuilder-dashboard-container {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .resumebuilder-dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .resumebuilder-dashboard-title {
+        font-size: 24px;
+    }
+
+    .resumebuilder-dashboard-subtitle {
+        font-size: 13px;
+    }
+
+    .resumebuilder-dashboard-primary-action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .resumebuilder-dashboard-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .resumebuilder-dashboard-stat-card {
+        padding: 20px;
+    }
+
+    .resumebuilder-dashboard-stat-card-value {
+        font-size: 28px;
+    }
+
+    .resumebuilder-dashboard-section-header {
+        padding: 16px 20px;
+    }
+
+    .resumebuilder-dashboard-section-body {
+        padding: 20px;
+    }
+
+    .resumebuilder-dashboard-plan-detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .resumebuilder-dashboard-content-main {
+        gap: 20px;
+    }
+
+    .resumebuilder-dashboard-top-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .resumebuilder-dashboard-plan-details-card {
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+
+    .resumebuilder-dashboard-view-transactions-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 12px;
+    }
+
+    .resumebuilder-dashboard-no-plan-features {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .resumebuilder-dashboard-no-plan-actions {
+        flex-direction: column;
+    }
+
+    .resumebuilder-dashboard-upgrade-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .resumebuilder-dashboard-title {
+        font-size: 20px;
+    }
+
+    .resumebuilder-dashboard-section-title {
+        font-size: 16px;
+    }
+
+    .resumebuilder-dashboard-stat-card {
+        padding: 16px;
+    }
+
+    .resumebuilder-dashboard-stat-card-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+
+    .resumebuilder-dashboard-stat-card-value {
+        font-size: 24px;
+    }
+
+    .resumebuilder-dashboard-no-plan-content {
+        padding: 32px 24px;
+    }
+
+    .resumebuilder-dashboard-no-plan-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+    }
+
+    .resumebuilder-dashboard-no-plan-title {
+        font-size: 24px;
+    }
+
+    .resumebuilder-dashboard-no-plan-description {
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   PRICING SECTION STYLES
+   ============================================ */
+
+.resumebuilder-page {
+    background-color: #f0f8ff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.resumebuilder-loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.resumebuilder-pricing-section {
+    background: linear-gradient(135deg, #f8fbff 0%, #f0f8ff 100%);
+    padding: 92px 18px 60px 18px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Reduce top padding when back button is present */
+.resumebuilder-pricing-section:has(.resumebuilder-pricing-back-btn-container) {
+    padding-top: 40px;
+}
+
+.resumebuilder-pricing-back-btn-container {
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.resumebuilder-pricing-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #2563eb;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.resumebuilder-pricing-back-btn:hover {
+    background: #f8fafc;
+    border-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+}
+
+.resumebuilder-pricing-back-btn svg {
+    font-size: 14px;
+}
+
+.resumebuilder-pricing-header {
+    margin-bottom: 53px;
+}
+
+.resumebuilder-pricing-title {
+    font-size: 38px;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 14px;
+}
+
+.resumebuilder-pricing-subtitle {
+    color: #6085ad;
+    font-size: 18px;
+}
+
+.resumebuilder-pricing-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 41px;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.resumebuilder-pricing-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 32px rgba(49, 112, 247, 0.12);
+    padding: 48px 36px 36px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #eef2fa;
+    position: relative;
+    transition: box-shadow 0.22s, border-color 0.22s, transform 0.18s;
+}
+
+.resumebuilder-pricing-card:hover {
+    box-shadow: 0 16px 50px rgba(49, 112, 247, 0.13);
+    border-color: #3170f7;
+    transform: translateY(-3px);
+}
+
+.resumebuilder-plan-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3170f7;
+    margin-bottom: 16px;
+}
+
+.resumebuilder-plan-price {
+    font-size: 46px;
+    font-weight: 800;
+    color: #23be7d;
+    margin-bottom: 14px;
+}
+
+.resumebuilder-price-currency {
+    font-size: 28px;
+    font-weight: 600;
+    color: #23be7d;
+}
+
+.resumebuilder-plan-frequency {
+    font-size: 15px;
+    color: #a9bbdd;
+}
+
+.resumebuilder-plan-features {
+    color: #586786;
+    font-size: 16px;
+    margin: 31px 0 24px 0;
+    text-align: left;
+    padding-left: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.resumebuilder-plan-features li {
+    padding-left: 30px;
+    margin-bottom: 16px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.resumebuilder-plan-feature-item-no-icon:before {
+    display: none !important;
+}
+
+.resumebuilder-plan-features li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28be6f;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.resumebuilder-plan-select-btn {
+    background: linear-gradient(90deg, #3170f7 60%, #5b8fff 100%);
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 0;
+    width: 100%;
+    margin-top: 16px;
+    box-shadow: 0 2px 10px rgba(49, 112, 247, 0.10);
+    cursor: pointer;
+    transition: all .18s;
+}
+
+.resumebuilder-plan-select-btn:hover,
+.resumebuilder-plan-select-btn-popular {
+    background: linear-gradient(95deg, #28be6f 67%, #36d7b6 100%);
+}
+
+.resumebuilder-pricing-card-popular {
+    border: 2.5px solid #28be6f;
+    box-shadow: 0 10px 50px #36d7b62a;
+    z-index: 3;
+    transform: scale(1.03);
+}
+
+.resumebuilder-popular-tag {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #28be6f 60%, #36d7b6 100%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 7px;
+    padding: 6px 22px;
+    box-shadow: 0 2px 9px #32be9855;
+}
+
+/* Responsive styles for pricing section */
+@media (max-width: 768px) {
+    .resumebuilder-pricing-section {
+        padding: 60px 18px 40px 18px;
+    }
+
+    .resumebuilder-pricing-section:has(.resumebuilder-pricing-back-btn-container) {
+        padding-top: 30px;
+    }
+
+    .resumebuilder-pricing-title {
+        font-size: 28px;
+    }
+
+    .resumebuilder-pricing-subtitle {
+        font-size: 16px;
+    }
+
+    .resumebuilder-pricing-card-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 16px;
+    }
+
+    .resumebuilder-pricing-card {
+        padding: 36px 24px 28px 24px;
+    }
+
+    .resumebuilder-pricing-card-popular {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .resumebuilder-pricing-section {
+        padding: 40px 12px 30px 12px;
+    }
+
+    .resumebuilder-pricing-title {
+        font-size: 24px;
+    }
+
+    .resumebuilder-pricing-subtitle {
+        font-size: 14px;
+    }
+
+    .resumebuilder-pricing-card {
+        padding: 28px 20px 24px 20px;
+    }
+
+    .resumebuilder-plan-price {
+        font-size: 36px;
+    }
+}

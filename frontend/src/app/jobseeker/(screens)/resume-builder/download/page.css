@@ -1,0 +1,169 @@
+.resumebuilder-download-container {
+    display: flex;
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px;
+    min-height: 80vh;
+    font-family: 'Roboto', 'Inter', 'Segoe UI', Arial, sans-serif;
+    overflow: visible;
+}
+
+/* Apply Roboto font to all elements */
+.resumebuilder-download-container,
+.resumebuilder-download-container * {
+    font-family: 'Roboto', 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.resumebuilder-download-loading,
+.resumebuilder-download-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 16px;
+    color: #6b7280;
+}
+
+.resumebuilder-download-back-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+.resumebuilder-download-back-link:hover {
+    text-decoration: underline;
+}
+
+.resumebuilder-download-left {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: -webkit-sticky; /* Safari support */
+    position: sticky;
+    top: 89px; /* 64px navbar height + 20px gap + 5px extra */
+    align-self: flex-start;
+    max-height: calc(100vh - 114px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    z-index: 10;
+    will-change: transform;
+}
+
+/* Custom scrollbar for left section */
+.resumebuilder-download-left::-webkit-scrollbar {
+    width: 6px;
+}
+
+.resumebuilder-download-left::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.resumebuilder-download-left::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.resumebuilder-download-left::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.resumebuilder-download-plan-info {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.resumebuilder-download-count {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0160a4;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.resumebuilder-download-downloads-remaining {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.resumebuilder-download-ats-section {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.resumebuilder-download-ats-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 16px;
+}
+
+.resumebuilder-download-ats-card {
+    text-align: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 12px;
+}
+
+.resumebuilder-download-ats-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: #0160a4;
+    margin-bottom: 8px;
+}
+
+.resumebuilder-download-ats-label-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e40af;
+}
+
+.resumebuilder-download-generated-text {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.resumebuilder-download-generated-text h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.resumebuilder-download-generated-text p {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.resumebuilder-download-right {
+    flex: 1;
+}
+
+@media (max-width: 968px) {
+    .resumebuilder-download-container {
+        flex-direction: column;
+    }
+
+    .resumebuilder-download-left {
+        width: 100%;
+        position: static;
+        max-height: none;
+        overflow: visible;
+    }
+}
+

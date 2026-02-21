@@ -1,0 +1,225 @@
+.resumebuilder-templates-section {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    color: #333;
+    background: #f9fafc;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.resumebuilder-templates-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0160a4;
+    margin-bottom: 24px;
+}
+
+.resumebuilder-templates-category {
+    margin-bottom: 40px;
+}
+
+.resumebuilder-templates-category-title {
+    font-size: 18px;
+    color: #0160a4;
+    margin-bottom: 16px;
+    border-left: 4px solid #0160a4;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.resumebuilder-templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.resumebuilder-templates-card {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.resumebuilder-templates-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+}
+
+.resumebuilder-templates-img-wrapper {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.resumebuilder-templates-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.resumebuilder-templates-img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
+    overflow: hidden;
+}
+
+.resumebuilder-templates-img {
+    object-fit: contain;
+    border-radius: 10px 10px 0 0;
+}
+
+.resumebuilder-templates-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: rgba(1, 96, 164, 0.312);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    border-radius: 10px;
+    padding-bottom: 16px;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.resumebuilder-templates-card:hover .resumebuilder-templates-overlay {
+    opacity: 1;
+}
+
+.resumebuilder-templates-card .resumebuilder-templates-overlay.template4-always-visible {
+    opacity: 1;
+    background: transparent;
+    backdrop-filter: none;
+}
+
+.resumebuilder-templates-download-button {
+    background: #fff;
+    color: #0160a4;
+    border: none;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+}
+
+.resumebuilder-templates-download-button:hover:not(:disabled) {
+    background: #0160a4;
+    color: #fff;
+}
+
+.resumebuilder-templates-download-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.resumebuilder-templates-locked-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 96, 164, 0.312);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 3;
+    border-radius: 10px;
+}
+
+.resumebuilder-templates-lock-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.resumebuilder-templates-locked-text {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.resumebuilder-templates-locked-caption {
+    font-size: 12px;
+    margin-top: 4px;
+    opacity: 0.9;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.resumebuilder-templates-name {
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    background: #f3f7fb;
+    color: #0160a4;
+    border-top: 1px solid #e2e8f0;
+    border-radius: 0 0 10px 10px;
+}
+
+.resumebuilder-templates-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.resumebuilder-templates-modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.resumebuilder-templates-modal-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0160a4;
+    margin-bottom: 16px;
+}
+
+.resumebuilder-templates-modal-content p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.resumebuilder-templates-modal-content button {
+    padding: 10px 24px;
+    background: #0160a4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.resumebuilder-templates-modal-content button:hover {
+    background: #01487c;
+}
+
+@media (max-width: 768px) {
+    .resumebuilder-templates-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+

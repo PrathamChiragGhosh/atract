@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.promotional-banner {
+    margin: 32px 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.promotional-banner-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border-radius: 16px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.promotional-banner-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.promotional-banner-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.promotional-banner-content:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(102, 126, 234, 0.5);
+}
+
+.promotional-icon-container {
+    position: relative;
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.promotional-icon {
+    font-size: 48px;
+    color: white;
+    z-index: 3;
+    position: relative;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.promotional-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 2s ease-in-out infinite;
+    filter: blur(20px);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.3);
+    }
+}
+
+.promotional-text {
+    flex: 1;
+    z-index: 2;
+    position: relative;
+}
+
+.promotional-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: white;
+    margin: 0 0 12px 0;
+    font-family: "Roboto Flex", sans-serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    line-height: 1.3;
+}
+
+.promotional-description {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+    font-family: "Roboto Flex", sans-serif;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.promotional-features {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.promotional-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.promotional-feature:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pb-feature-icon {
+    font-size: 16px;
+    color: white;
+}
+
+.promotional-cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+}
+
+.promotional-cta:hover {
+    background: #f0f0f0;
+    transform: translateX(4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.promotional-cta:active {
+    transform: translateX(2px);
+}
+
+.cta-arrow {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.promotional-cta:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .promotional-banner {
+        margin: 24px 0;
+    }
+
+    .promotional-banner-content {
+        flex-direction: column;
+        padding: 24px 20px;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .promotional-icon-container {
+        width: 60px;
+        height: 60px;
+    }
+
+    .promotional-icon {
+        font-size: 36px;
+    }
+
+    .promotional-glow {
+        font-size: 80px;
+    }
+
+    .promotional-title {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .promotional-description {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .promotional-features {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .promotional-feature {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .promotional-cta {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .promotional-banner-content {
+        padding: 20px 16px;
+        gap: 16px;
+    }
+
+    .promotional-icon-container {
+        width: 50px;
+        height: 50px;
+    }
+
+    .promotional-icon {
+        font-size: 32px;
+    }
+
+    .promotional-glow {
+        font-size: 70px;
+    }
+
+    .promotional-title {
+        font-size: 20px;
+    }
+
+    .promotional-description {
+        font-size: 13px;
+    }
+
+    .promotional-features {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .promotional-feature {
+        width: 100%;
+        justify-content: center;
+    }
+}

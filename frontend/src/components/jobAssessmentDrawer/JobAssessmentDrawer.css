@@ -1,0 +1,739 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+body.jobAssessmentDrawer-noScroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+.jobAssessmentDrawer-panel,
+.jobAssessmentDrawer-panel * {
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.jobAssessmentDrawer-backdrop {
+    background: rgba(15, 23, 42, 0.55) !important;
+    backdrop-filter: blur(2px);
+}
+
+.jobAssessmentDrawer-paper {
+    width: min(520px, 100vw) !important;
+    max-width: 520px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -8px 0 24px rgba(15, 23, 42, 0.16);
+    animation: jobAssessmentDrawer-slide 0.28s ease forwards;
+}
+
+.jobAssessmentDrawer-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@keyframes jobAssessmentDrawer-slide {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.jobAssessmentDrawer-header {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eef1f6;
+}
+
+.jobAssessmentDrawer-header p {
+    margin: 0;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-header small {
+    color: #64748b;
+}
+
+.jobAssessmentDrawer-icon-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    color: #475569;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.jobAssessmentDrawer-icon-btn:hover {
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.jobAssessmentDrawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.jobAssessmentDrawer-footer {
+    border-top: 1px solid #eef1f6;
+    padding: 14px 24px;
+    font-size: 13px;
+    color: #64748b;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.jobAssessmentDrawer-footer svg {
+    color: #22c55e;
+}
+
+.jobAssessmentDrawer-state {
+    flex: 1;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    color: #475569;
+}
+
+.jobAssessmentDrawer-state.loading {
+    color: #2563eb;
+}
+
+.jobAssessmentDrawer-primary-btn,
+.jobAssessmentDrawer-secondary-btn,
+.jobAssessmentDrawer-stage-tabs button {
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.jobAssessmentDrawer-primary-btn {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #fff;
+    padding: 12px 18px;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.jobAssessmentDrawer-primary-btn.ghost {
+    background: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+    box-shadow: none;
+}
+
+.jobAssessmentDrawer-primary-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.jobAssessmentDrawer-secondary-btn {
+    background: #f8fafc;
+    color: #0f172a;
+    padding: 11px 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.jobAssessmentDrawer-primary-btn:hover:not(:disabled),
+.jobAssessmentDrawer-secondary-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.jobAssessmentDrawer-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.15);
+    color: #4338ca;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.jobAssessmentDrawer-badge.muted {
+    background: rgba(15, 23, 42, 0.08);
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.08);
+    color: #0f172a;
+    font-size: 12px;
+    margin-right: 6px;
+    text-transform: capitalize;
+}
+
+.jobAssessmentDrawer-tag.warning {
+    background: rgba(234, 179, 8, 0.15);
+    color: #b45309;
+}
+
+.jobAssessmentDrawer-tag.muted {
+    background: rgba(100, 116, 139, 0.1);
+    color: #475569;
+}
+
+.jobAssessmentDrawer-intro-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.jobAssessmentDrawer-intro-card h2 {
+    margin: 4px 0;
+    font-size: 20px;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-intro-card p {
+    margin: 0;
+    color: #475569;
+}
+
+.jobAssessmentDrawer-intro-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+    color: #475569;
+}
+
+.jobAssessmentDrawer-intro-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.jobAssessmentDrawer-alert {
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    border: 1px solid;
+}
+
+.jobAssessmentDrawer-alert.warning {
+    border-color: rgba(234, 179, 8, 0.4);
+    background: rgba(251, 191, 36, 0.1);
+    color: #a16207;
+}
+
+.jobAssessmentDrawer-alert.success {
+    border-color: rgba(34, 197, 94, 0.4);
+    background: rgba(34, 197, 94, 0.08);
+    color: #15803d;
+}
+
+.jobAssessmentDrawer-progress {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.jobAssessmentDrawer-progress div {
+    display: flex;
+    flex-direction: column;
+}
+
+.jobAssessmentDrawer-progress span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.jobAssessmentDrawer-progress strong {
+    font-size: 18px;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-stage-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.jobAssessmentDrawer-stage-tabs button {
+    flex: 1;
+    padding: 10px;
+    background: #f8fafc;
+    border: 1px solid transparent;
+    color: #475569;
+}
+
+.jobAssessmentDrawer-stage-tabs button.is-active {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: #6366f1;
+    color: #312e81;
+}
+
+.jobAssessmentDrawer-stage-tabs button span {
+    font-size: 12px;
+    color: inherit;
+    margin-left: 6px;
+}
+
+.jobAssessmentDrawer-basic-stage,
+.jobAssessmentDrawer-mcq-stage {
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.jobAssessmentDrawer-basic-stage.is-locked,
+.jobAssessmentDrawer-mcq-stage.is-locked {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.jobAssessmentDrawer-basic-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.jobAssessmentDrawer-basic-thread {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 12px;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.jobAssessmentDrawer-basic-thread.is-active {
+    border-color: #6366f1;
+    background: #eef2ff;
+}
+
+.jobAssessmentDrawer-basic-question p {
+    margin: 6px 0;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-basic-question small {
+    color: #64748b;
+}
+
+.jobAssessmentDrawer-basic-answer {
+    margin-top: 8px;
+    align-self: flex-end;
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 10px;
+    border-radius: 12px 12px 4px 12px;
+    font-size: 14px;
+}
+
+.jobAssessmentDrawer-basic-answer.placeholder {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px dashed #cbd5f5;
+}
+
+.jobAssessmentDrawer-basic-input textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #cbd5f5;
+    padding: 10px;
+    resize: none;
+    font-size: 14px;
+    margin: 8px 0 12px;
+}
+
+.jobAssessmentDrawer-mcq-header h3 {
+    margin: 6px 0;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-mcq-summary {
+    margin: 0;
+    color: #475569;
+}
+
+.jobAssessmentDrawer-mcq-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.jobAssessmentDrawer-option-card {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.jobAssessmentDrawer-option-card.selected {
+    border-color: #2563eb;
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.jobAssessmentDrawer-option-card input {
+    margin-top: 4px;
+}
+
+.jobAssessmentDrawer-mcq-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.jobAssessmentDrawer-mcq-pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.jobAssessmentDrawer-mcq-pager button {
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-mcq-pager .jobAssessmentDrawer-primary-btn {
+    flex: 1;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+}
+
+.jobAssessmentDrawer-mcq-navigator {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
+    gap: 6px;
+}
+
+.jobAssessmentDrawer-mcq-node {
+    border: 1px solid #cbd5f5;
+    border-radius: 8px;
+    padding: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #fff;
+    position: relative;
+}
+
+.jobAssessmentDrawer-mcq-node.is-current {
+    border-color: #2563eb;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(124, 58, 237, 0.22));
+    color: #1e1b4b;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.jobAssessmentDrawer-mcq-node.is-current::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    box-shadow: 0 2px 6px rgba(124, 58, 237, 0.35);
+}
+
+.jobAssessmentDrawer-mcq-node.is-answered {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.6);
+}
+
+.jobAssessmentDrawer-mcq-node.is-marked {
+    border-color: #f97316;
+    position: relative;
+}
+
+.jobAssessmentDrawer-mcq-node.is-marked::after {
+    content: "★";
+    color: #f97316;
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    font-size: 12px;
+}
+
+.jobAssessmentDrawer-history {
+    border: 1px dashed #cbd5f5;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.jobAssessmentDrawer-history h4 {
+    margin: 0 0 10px;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-history ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.jobAssessmentDrawer-history li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #475569;
+}
+
+.jobAssessmentDrawer-status {
+    text-transform: capitalize;
+}
+
+.jobAssessmentDrawer-status.passed {
+    color: #15803d;
+}
+
+.jobAssessmentDrawer-status.failed {
+    color: #b91c1c;
+}
+
+.jobAssessmentDrawer-stage-empty {
+    text-align: center;
+    padding: 24px;
+    color: #94a3b8;
+}
+
+.jobAssessmentDrawer-result-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.jobAssessmentDrawer-result-banner {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.jobAssessmentDrawer-result-banner.passed {
+    background: rgba(34, 197, 94, 0.12);
+    color: #15803d;
+}
+
+.jobAssessmentDrawer-result-banner.failed {
+    background: rgba(248, 113, 113, 0.12);
+    color: #b91c1c;
+}
+
+.jobAssessmentDrawer-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.jobAssessmentDrawer-result-grid label {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.jobAssessmentDrawer-result-grid strong {
+    font-size: 20px;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.jobAssessmentDrawer-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1300;
+    padding: 20px;
+}
+
+.jobAssessmentDrawer-confirm-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+}
+
+.jobAssessmentDrawer-confirm-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #b45309;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.jobAssessmentDrawer-confirm-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.jobAssessmentDrawer-confirm-btn {
+    flex: 1;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.jobAssessmentDrawer-confirm-btn.secondary {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.jobAssessmentDrawer-confirm-btn.primary {
+    background: #dc2626;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .jobAssessmentDrawer-paper {
+        width: 100% !important;
+    }
+
+    .jobAssessmentDrawer-body {
+        padding: 20px 18px 100px;
+    }
+
+    .jobAssessmentDrawer-progress {
+        grid-template-columns: 1fr;
+    }
+
+    .jobAssessmentDrawer-result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jobAssessmentDrawer-intro-meta {
+        flex-direction: column;
+    }
+}
+
+/* Payment Banner Styles */
+.jobAssessmentDrawer-payment-banner {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.jobAssessmentDrawer-payment-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.jobAssessmentDrawer-payment-header h4 {
+    color: #92400e;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.jobAssessmentDrawer-payment-header svg {
+    color: #f59e0b;
+    font-size: 20px;
+}
+
+.jobAssessmentDrawer-payment-banner p {
+    color: #78350f;
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.jobAssessmentDrawer-payment-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.jobAssessmentDrawer-payment-actions button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.jobAssessmentDrawer-payment-actions .jobAssessmentDrawer-primary-btn {
+    background: #f59e0b;
+    color: #92400e;
+    border: 1px solid #f59e0b;
+}
+
+.jobAssessmentDrawer-payment-actions .jobAssessmentDrawer-primary-btn:hover:not(:disabled) {
+    background: #d97706;
+    border-color: #d97706;
+}
+
+.jobAssessmentDrawer-payment-actions .jobAssessmentDrawer-secondary-btn {
+    background: white;
+    color: #92400e;
+    border: 1px solid #d97706;
+}
+
+.jobAssessmentDrawer-payment-actions .jobAssessmentDrawer-secondary-btn:hover:not(:disabled) {
+    background: #fef3c7;
+}

@@ -1,0 +1,768 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+/* Apply Roboto Flex to all elements */
+.page-emp-profile-container,
+.page-emp-profile-container * {
+    font-family: "Roboto Flex", sans-serif !important;
+}
+
+.page-emp-profile-container {
+    min-height: calc(100vh - 65px);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    padding: 30px 30px 100px;
+    box-sizing: border-box;
+}
+
+.page-emp-profile-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.page-emp-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.page-emp-profile-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1f2937;
+    margin: 0;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.page-emp-profile-last-updated {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Error/Success Messages */
+.page-emp-profile-error {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #dc2626;
+    font-size: 14px;
+}
+
+.page-emp-profile-success {
+    background: #d1fae5;
+    color: #059669;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #059669;
+    font-size: 14px;
+}
+
+/* Loading */
+.page-emp-profile-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 20px;
+    color: #6b7280;
+}
+
+/* Form */
+.page-emp-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Section */
+.page-emp-profile-section {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.page-emp-section-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.page-emp-section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.page-emp-section-icon {
+    color: #2563eb;
+    font-size: 24px;
+}
+
+/* Profile Picture Section */
+.page-emp-profile-picture-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.page-emp-profile-picture-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: visible;
+    border: 4px solid #e5e7eb;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-emp-profile-picture-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.page-emp-profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.page-emp-profile-picture-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.page-emp-profile-initials {
+    color: white;
+    font-size: 56px;
+    font-weight: 700;
+    font-family: "Roboto Flex", sans-serif;
+    text-transform: uppercase;
+}
+
+.page-emp-profile-picture-upload {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #2563eb;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 3px solid white;
+    transition: all 0.3s ease;
+    z-index: 20;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transform: translate(20%, 20%);
+}
+
+.page-emp-profile-picture-upload:hover {
+    background: #1d4ed8;
+    transform: translate(20%, 20%) scale(1.05);
+}
+
+.page-emp-upload-icon {
+    font-size: 14px;
+}
+
+/* Remove buttons */
+.page-emp-profile-picture-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #dc2626;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 3px solid white;
+    transition: all 0.3s ease;
+    z-index: 25;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transform: translate(-20%, 20%);
+}
+
+.page-emp-profile-picture-remove:hover {
+    background: #b91c1c;
+    transform: translate(-20%, 20%) scale(1.05);
+}
+
+.page-emp-company-logo-remove {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #dc2626;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    z-index: 25;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.page-emp-company-logo-remove:hover {
+    background: #b91c1c;
+    transform: scale(1.1);
+}
+
+.page-emp-remove-icon {
+    font-size: 12px;
+}
+
+/* Company Logo Section */
+.page-emp-company-logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    gap: 12px;
+}
+
+.page-emp-company-logo-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid #e5e7eb;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-emp-company-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-emp-company-logo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 64px;
+}
+
+.page-emp-company-logo-upload {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: #2563eb;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.page-emp-company-logo-upload:hover {
+    background: #1d4ed8;
+    transform: scale(1.1);
+}
+
+.page-emp-logo-hint {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Form Grid */
+.page-emp-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.page-emp-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-emp-form-group-full {
+    grid-column: 1 / -1;
+}
+
+.page-emp-form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.page-required {
+    color: #dc2626;
+}
+
+.page-emp-form-input,
+.page-emp-form-select,
+.page-emp-form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Roboto Flex", sans-serif;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    background: white;
+    position: relative;
+    z-index: 1;
+}
+
+.page-emp-form-input:focus,
+.page-emp-form-select:focus,
+.page-emp-form-textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.page-emp-form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.page-emp-form-error {
+    font-size: 12px;
+    color: #dc2626;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.page-emp-form-hint {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+/* Custom Dropdown */
+.page-emp-custom-dropdown-wrapper {
+    position: relative;
+    z-index: auto;
+}
+
+.page-emp-custom-dropdown-wrapper.page-dropdown-open {
+    z-index: 902; /* Above normal form group but below footer (1000) and navbar (1010) */
+    position: relative;
+}
+
+.page-emp-custom-dropdown {
+    position: relative;
+    width: 100%;
+    isolation: isolate;
+    z-index: 2;
+}
+
+.page-emp-custom-dropdown.page-dropdown-open {
+    z-index: 903; /* Above normal dropdown but below footer (1000) and navbar (1010) */
+}
+
+.page-emp-custom-dropdown-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Roboto Flex", sans-serif;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.page-emp-custom-dropdown-select:hover {
+    border-color: #cbd5e1;
+}
+
+.page-emp-custom-dropdown-select.page-open {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.page-emp-dropdown-icon {
+    color: #6b7280;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.page-emp-dropdown-icon.page-open {
+    transform: rotate(180deg);
+}
+
+.page-emp-custom-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 900; /* Above inputs (1) but below footer (1000) and navbar (1010) */
+    margin-top: 4px;
+}
+
+.page-emp-custom-dropdown-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s ease;
+    font-size: 15px;
+    color: #374151;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.page-emp-custom-dropdown-item:hover {
+    background: #f3f4f6;
+}
+
+.page-emp-check-icon {
+    color: #2563eb;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Fixed Footer */
+.page-emp-profile-footer {
+    position: fixed;
+    bottom: 0;
+    left: 260px; /* Account for sidebar width */
+    right: 0;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000 !important; /* Always on top, above dropdowns (950) */
+    box-sizing: border-box;
+}
+
+.page-emp-profile-completion {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-emp-completion-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+.page-emp-completion-percentage {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+    min-width: 50px;
+    white-space: nowrap;
+}
+
+.page-emp-footer-save-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Roboto Flex", sans-serif;
+    box-sizing: border-box;
+}
+
+.page-emp-footer-save-btn:hover:not(:disabled) {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.page-emp-footer-save-btn:disabled {
+    background: #93c5fd;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Tablet and Mobile - when sidebar is hidden */
+@media (max-width: 1024px) {
+    .page-emp-profile-footer {
+        left: 0; /* Full width when sidebar is hidden */
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .page-emp-profile-container {
+        padding: 20px 16px 130px;
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+        overflow-y: visible;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .page-emp-profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .page-emp-profile-title {
+        font-size: 24px;
+    }
+
+    .page-emp-profile-section {
+        padding: 24px 20px;
+    }
+
+    .page-emp-section-title {
+        font-size: 20px;
+    }
+
+    .page-emp-form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .page-emp-profile-picture-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .page-emp-company-logo-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .page-emp-profile-footer {
+        left: 0;
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .page-emp-profile-completion {
+        justify-content: center;
+    }
+
+    .page-emp-footer-save-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .page-emp-custom-dropdown-menu {
+        max-height: 200px;
+    }
+
+    /* Fix horizontal scroll on mobile */
+    .page-emp-profile-container,
+    .page-emp-profile-wrapper,
+    .page-emp-profile-form,
+    .page-emp-profile-section,
+    .page-emp-form-grid,
+    .page-emp-form-group {
+        box-sizing: border-box;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    textarea,
+    .page-emp-custom-dropdown-select {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Mobile dropdown positioning - ensure dropdowns appear above everything */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+        position: relative;
+        z-index: 1 !important;
+    }
+
+    .page-emp-custom-dropdown {
+        position: relative;
+        z-index: 900;
+        isolation: isolate;
+    }
+
+    .page-emp-custom-dropdown-select {
+        position: relative;
+        z-index: 901;
+    }
+
+    .page-emp-custom-dropdown-menu {
+        max-height: 250px;
+        z-index: 900 !important; /* Above inputs (1) but below footer (1000) and navbar (1010) */
+        position: fixed !important; /* Fixed on mobile to appear outside parent containers */
+        overflow-y: auto !important; /* Enable scrolling */
+        overflow-x: hidden !important;
+        box-sizing: border-box;
+    }
+
+    .page-emp-form-group.page-dropdown-open {
+        z-index: 902 !important; /* Above normal form group */
+        position: relative;
+        overflow: visible !important; /* Allow dropdown to show outside */
+    }
+
+    .page-emp-custom-dropdown-wrapper.page-dropdown-open {
+        z-index: 902 !important; /* Above normal form group */
+        position: relative;
+        overflow: visible !important; /* Allow dropdown to show outside */
+    }
+
+    .page-emp-custom-dropdown.page-dropdown-open {
+        z-index: 903 !important; /* Above normal dropdown */
+    }
+
+    .page-emp-form-group {
+        overflow: visible;
+        position: relative;
+    }
+
+    .page-emp-profile-section {
+        overflow: visible !important; /* Allow dropdowns to show outside */
+        position: relative;
+    }
+
+    .page-emp-profile-form {
+        overflow: visible !important; /* Allow dropdowns to show outside */
+        position: relative;
+    }
+
+    .page-emp-profile-container {
+        overflow-y: visible;
+        overflow-x: hidden; /* Keep horizontal scroll hidden */
+    }
+
+    .page-emp-form-grid {
+        overflow: visible !important; /* Allow dropdowns to show outside */
+    }
+
+    .page-emp-profile-footer {
+        z-index: 1000 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-emp-profile-container {
+        padding: 16px 12px 130px;
+    }
+
+    .page-emp-profile-section {
+        padding: 20px 16px;
+    }
+
+    .page-emp-profile-title {
+        font-size: 22px;
+    }
+
+    .page-emp-section-title {
+        font-size: 18px;
+    }
+}
+
+/* Scrollbar Styling for Dropdown */
+.page-emp-custom-dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.page-emp-custom-dropdown-menu::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.page-emp-custom-dropdown-menu::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.page-emp-custom-dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+

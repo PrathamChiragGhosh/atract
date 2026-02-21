@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.js-sidebar {
+    width: 260px;
+    height: calc(100vh - 65px);
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    font-family: "Roboto Flex", sans-serif;
+    position: sticky;
+    top: 65px;
+    align-self: flex-start;
+    z-index: 100;
+    box-shadow: 1px 0 20px rgba(0, 0, 0, 0.02);
+}
+
+.js-sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    padding-top: 8px;
+}
+
+/* Custom scrollbar */
+.js-sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.js-sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.js-sidebar-nav::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
+}
+
+.js-sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+.js-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 6px;
+    overflow: hidden;
+}
+
+.js-nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+    border-radius: 0 4px 4px 0;
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.js-nav-item:hover {
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.05) 100%);
+    color: #2563eb;
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+}
+
+.js-nav-item.active {
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0.08) 100%);
+    color: #2563eb;
+    font-weight: 600;
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.15);
+}
+
+.js-nav-item.active::before {
+    transform: scaleY(1);
+}
+
+.js-nav-item.active:hover {
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0.1) 100%);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
+}
+
+.js-nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    min-width: 24px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.js-nav-item:hover .js-nav-icon {
+    transform: scale(1.1);
+}
+
+.js-nav-item.active .js-nav-icon {
+    transform: scale(1.05);
+}
+
+.js-loader {
+    position: absolute;
+    right: 16px;
+    color: #2563eb;
+}
+
+/* ====== Footer ====== */
+
+.js-sidebar-footer {
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 8px;
+}
+
+.js-logout-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    border: 1px solid rgba(220, 38, 38, 0.1);
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.js-logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(220, 38, 38, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.js-logout-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.js-logout-btn:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.25);
+    border-color: transparent;
+}
+
+.js-logout-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+}
+
+.js-logout-icon {
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.js-logout-btn:hover .js-logout-icon {
+    transform: translateX(2px);
+}
+
+.js-logout-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+
+@media (max-width: 1024px) {
+    .js-sidebar {
+        display: none;
+    }
+}

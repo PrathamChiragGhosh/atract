@@ -1,0 +1,2693 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.employee-applications-container,
+.employee-applications-container * {
+    font-family: "Roboto Flex", sans-serif !important;
+}
+
+.employee-applications-container {
+    min-height: calc(100vh - 65px);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    padding: 30px 20px;
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.employee-applications-wrapper {
+    width: 100%;
+}
+
+/* Header */
+.employee-applications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.employee-applications-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+}
+
+.employee-applications-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.employee-applications-summary {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.employee-applications-summary-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    min-width: 180px;
+}
+
+.employee-applications-summary-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.employee-applications-summary-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+/* Toolbar */
+.employee-applications-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.employee-applications-search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.employee-applications-search-icon {
+    position: absolute;
+    left: 16px;
+    color: #9ca3af;
+    font-size: 18px;
+    z-index: 1;
+}
+
+input.employee-applications-search-input {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 16px 12px 48px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.4;
+    min-height: 46px;
+    background: #ffffff;
+    color: #1f2937;
+    font-family: "Roboto Flex", sans-serif;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+input.employee-applications-search-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+input.employee-applications-search-input::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.employee-applications-actions-row {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+/* Filter Button - Mobile */
+button.employee-applications-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Roboto Flex", sans-serif;
+    position: relative;
+}
+
+button.employee-applications-filter-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #f0f5ff;
+}
+
+.employee-applications-filter-badge {
+    background: #2563eb;
+    color: white;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Sort */
+.employee-applications-sort {
+    position: relative;
+}
+
+button.employee-applications-sort-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Roboto Flex", sans-serif;
+    box-sizing: border-box;
+}
+
+button.employee-applications-sort-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #f0f5ff;
+}
+
+.employee-applications-sort-arrow {
+    transition: transform 0.3s ease;
+    font-size: 18px;
+}
+
+.employee-applications-sort-arrow.open {
+    transform: rotate(180deg);
+}
+
+.employee-applications-sort-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+button.employee-applications-sort-option {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+button.employee-applications-sort-option:hover {
+    background: #f9fafb;
+}
+
+button.employee-applications-sort-option.active {
+    background: #f0f5ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* Filters */
+.employee-applications-filters {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.employee-applications-filters.desktop-only {
+    margin-bottom: 0;
+}
+
+.employee-applications-filter-group {
+    position: relative;
+}
+
+button.employee-applications-filter-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Roboto Flex", sans-serif;
+    min-width: 180px;
+    box-sizing: border-box;
+}
+
+button.employee-applications-filter-toggle:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #f0f5ff;
+}
+
+button.employee-applications-filter-toggle.open {
+    border-color: #2563eb;
+    background: #f0f5ff;
+}
+
+.employee-applications-filter-toggle-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.employee-applications-filter-label {
+    font-size: 11px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.employee-applications-filter-value {
+    font-size: 14px;
+    color: #1f2937;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.employee-applications-filter-arrow {
+    transition: transform 0.3s ease;
+    font-size: 18px;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.employee-applications-filter-arrow.open {
+    transform: rotate(180deg);
+}
+
+.employee-applications-filter-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+button.employee-applications-filter-option {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: "Roboto Flex", sans-serif;
+    text-transform: capitalize;
+}
+
+button.employee-applications-filter-option:hover {
+    background: #f9fafb;
+}
+
+button.employee-applications-filter-option.active {
+    background: #f0f5ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* Mobile Filter Drawer */
+.employee-applications-mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.employee-applications-mobile-drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    z-index: 3001;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.employee-applications-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.employee-applications-drawer-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+button.employee-applications-drawer-close-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+button.employee-applications-drawer-close-btn:hover {
+    color: #1f2937;
+}
+
+.employee-applications-drawer-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.employee-applications-filters-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.employee-applications-filters-mobile .employee-applications-filter-group {
+    width: 100%;
+}
+
+.employee-applications-filters-mobile button.employee-applications-filter-toggle {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.employee-applications-filters-mobile .employee-applications-filter-menu {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-top: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.employee-applications-filters-mobile .employee-applications-filter-option {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Clear Filters Button */
+.employee-applications-clear-filters-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: 2px solid #ef4444;
+    border-radius: 10px;
+    background: white;
+    color: #ef4444;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Roboto Flex", sans-serif;
+    white-space: nowrap;
+}
+
+.employee-applications-clear-filters-btn:hover {
+    background: #fee2e2;
+    border-color: #dc2626;
+    color: #dc2626;
+}
+
+.employee-applications-clear-filters-btn svg {
+    font-size: 16px;
+}
+
+.employee-applications-clear-filters-btn-mobile {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+/* Applications List */
+.employee-applications-content {
+    width: 100%;
+}
+
+.employee-applications-loading,
+.employee-applications-error,
+.employee-applications-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.employee-applications-loading p,
+.employee-applications-error p {
+    margin-top: 16px;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+button.employee-applications-error-retry-btn {
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+button.employee-applications-error-retry-btn:hover {
+    background: #1d4ed8;
+}
+
+.employee-applications-empty-icon {
+    font-size: 64px;
+    color: #d1d5db;
+    margin-bottom: 16px;
+}
+
+.employee-applications-empty h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+}
+
+.employee-applications-empty p {
+    font-size: 15px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.employee-applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Application Card */
+.employee-applications-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.employee-applications-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Job Details Section */
+.employee-applications-card-job-section {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+}
+
+.employee-applications-card-job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.employee-applications-card-job-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 4px 0;
+}
+
+.employee-applications-card-job-company {
+    font-size: 15px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.employee-applications-status-badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    flex-shrink: 0;
+}
+
+.employee-applications-status-pending {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.employee-applications-status-reviewed {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.employee-applications-status-shortlisted {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.employee-applications-status-rejected {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.employee-applications-card-job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.employee-applications-card-job-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.employee-applications-meta-icon {
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* Candidate Details Section */
+.employee-applications-card-candidate-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.employee-applications-card-candidate-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.employee-applications-card-candidate-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.employee-applications-card-candidate-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.employee-applications-card-candidate-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+}
+
+.employee-applications-card-candidate-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.employee-applications-card-candidate-details span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.employee-applications-detail-icon {
+    font-size: 14px;
+    color: #9ca3af;
+    flex-shrink: 0;
+}
+
+.employee-applications-card-candidate-skills {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: #f9fafb;
+    border-radius: 10px;
+}
+
+.employee-applications-skills-icon {
+    font-size: 18px;
+    color: #6b7280;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.employee-applications-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex: 1;
+}
+
+.employee-applications-skill-tag {
+    padding: 6px 12px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.employee-applications-skill-tag-more {
+    background: #f3f4f6;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.employee-applications-card-candidate-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.employee-applications-card-candidate-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.employee-applications-card-date,
+.employee-applications-card-submission {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.employee-applications-date-icon {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+button.employee-applications-resume-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+button.employee-applications-resume-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Pagination */
+.employee-applications-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding: 20px 0;
+}
+
+button.employee-applications-pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+button.employee-applications-pagination-btn:hover:not(:disabled) {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #f0f5ff;
+}
+
+button.employee-applications-pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.employee-applications-pagination-info {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .employee-applications-container {
+        padding: 20px 16px;
+    }
+
+    .employee-applications-header {
+        flex-direction: column;
+    }
+
+    .employee-applications-title {
+        font-size: 24px;
+    }
+
+    .employee-applications-summary {
+        width: 100%;
+    }
+
+    .employee-applications-summary-card {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .employee-applications-toolbar {
+        gap: 12px;
+    }
+
+    .employee-applications-actions-row {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .employee-applications-filter-btn,
+    .employee-applications-sort-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    /* Hide desktop filters on mobile */
+    .employee-applications-filters.desktop-only {
+        display: none !important;
+    }
+
+    /* Show mobile filters when inside drawer */
+    .employee-applications-filters-mobile {
+        display: flex !important;
+    }
+
+    .employee-applications-card {
+        padding: 20px;
+    }
+
+    .employee-applications-card-job-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .employee-applications-card-candidate-header {
+        flex-direction: column;
+    }
+
+    .employee-applications-card-candidate-avatar {
+        align-self: flex-start;
+    }
+
+    .employee-applications-card-candidate-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .employee-applications-resume-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .employee-applications-pagination {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .employee-applications-pagination-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none !important;
+    }
+
+    /* Match sort button height to filter toggle buttons on desktop */
+    button.employee-applications-sort-btn {
+        height: 54px;
+        min-height: 54px;
+    }
+
+    button.employee-applications-filter-toggle {
+        height: 54px;
+        min-height: 54px;
+    }
+}
+
+/* Status Update Modal */
+.employee-applications-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.employee-applications-status-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 3001;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.employee-applications-status-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.employee-applications-status-modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.employee-applications-status-modal-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.employee-applications-status-modal-close-btn:hover:not(:disabled) {
+    color: #0f172a;
+}
+
+.employee-applications-status-modal-close-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.employee-applications-status-modal-body {
+    padding: 24px;
+}
+
+.employee-applications-status-modal-info {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.employee-applications-status-modal-info p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+.employee-applications-status-modal-info p:first-child {
+    margin-top: 0;
+}
+
+.employee-applications-status-modal-info p:last-child {
+    margin-bottom: 0;
+}
+
+.employee-applications-status-modal-info strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.employee-applications-status-modal-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.employee-applications-status-options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.employee-applications-status-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.employee-applications-status-option:hover:not(:disabled) {
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.employee-applications-status-option.selected {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.employee-applications-status-option:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.employee-applications-status-option-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.employee-applications-status-option span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.employee-applications-status-email-option {
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.employee-applications-status-email-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #374151;
+}
+
+.employee-applications-status-email-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #2563eb;
+}
+
+.employee-applications-status-email-checkbox input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.employee-applications-status-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 24px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.employee-applications-status-modal-cancel-btn {
+    padding: 10px 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-status-modal-cancel-btn:hover:not(:disabled) {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.employee-applications-status-modal-cancel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.employee-applications-status-modal-update-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.employee-applications-status-modal-update-btn:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.employee-applications-status-modal-update-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Update Status Button in Card */
+.employee-applications-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.employee-applications-update-status-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid #2563eb;
+    border-radius: 8px;
+    background: white;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-update-status-btn:hover {
+    background: #eff6ff;
+    border-color: #1d4ed8;
+    color: #1d4ed8;
+}
+
+.employee-applications-update-status-btn svg {
+    font-size: 14px;
+}
+
+/* Close Confirmation Modal */
+.employee-applications-close-confirmation-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 480px;
+    z-index: 3003;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.employee-applications-close-confirmation-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.employee-applications-close-confirmation-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.employee-applications-close-confirmation-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.employee-applications-close-confirmation-close-btn:hover {
+    color: #0f172a;
+}
+
+.employee-applications-close-confirmation-body {
+    padding: 24px;
+}
+
+.employee-applications-close-confirmation-text {
+    margin: 0 0 24px 0;
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+.employee-applications-close-confirmation-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.employee-applications-close-confirmation-btn-secondary {
+    padding: 10px 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-close-confirmation-btn-secondary:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.employee-applications-close-confirmation-btn-primary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #ef4444;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-close-confirmation-btn-primary:hover {
+    background: #dc2626;
+}
+
+/* Backward Status Change Confirmation Modal */
+.employee-applications-backward-status-confirmation-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 480px;
+    z-index: 3003;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.employee-applications-backward-status-confirmation-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.employee-applications-backward-status-confirmation-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.employee-applications-backward-status-confirmation-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.employee-applications-backward-status-confirmation-close-btn:hover {
+    color: #0f172a;
+}
+
+.employee-applications-backward-status-confirmation-body {
+    padding: 24px;
+}
+
+.employee-applications-backward-status-confirmation-text {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+.employee-applications-backward-status-confirmation-text:last-of-type {
+    margin-bottom: 24px;
+}
+
+.employee-applications-backward-status-confirmation-text strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.employee-applications-backward-status-confirmation-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.employee-applications-backward-status-confirmation-btn-secondary {
+    padding: 10px 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-backward-status-confirmation-btn-secondary:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.employee-applications-backward-status-confirmation-btn-primary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #f59e0b;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-backward-status-confirmation-btn-primary:hover {
+    background: #d97706;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .employee-applications-status-modal {
+        width: 95%;
+        max-height: 85vh;
+    }
+
+    .employee-applications-status-options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-applications-card-actions {
+        width: 100%;
+    }
+
+    .employee-applications-update-status-btn,
+    .employee-applications-resume-btn,
+    .employee-applications-summary-btn {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .employee-applications-close-confirmation-modal {
+        width: 95%;
+    }
+
+    .employee-applications-close-confirmation-actions {
+        flex-direction: column;
+    }
+
+    .employee-applications-close-confirmation-btn-secondary,
+    .employee-applications-close-confirmation-btn-primary {
+        width: 100%;
+    }
+
+    .employee-applications-backward-status-confirmation-modal {
+        width: 95%;
+    }
+
+    .employee-applications-backward-status-confirmation-actions {
+        flex-direction: column;
+    }
+
+    .employee-applications-backward-status-confirmation-btn-secondary,
+    .employee-applications-backward-status-confirmation-btn-primary {
+        width: 100%;
+    }
+}
+
+/* Job Filter Drawer */
+.employee-applications-job-filter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3000;
+    animation: fadeIn 0.2s ease;
+}
+
+.employee-applications-job-filter-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 90%;
+    max-width: 500px;
+    background: white;
+    z-index: 3001;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.employee-applications-job-filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.employee-applications-job-filter-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.employee-applications-job-filter-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.employee-applications-job-filter-close-btn:hover {
+    color: #0f172a;
+}
+
+.employee-applications-job-filter-search {
+    position: relative;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.employee-applications-job-filter-search-icon {
+    position: absolute;
+    left: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.employee-applications-job-filter-search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Roboto Flex", sans-serif;
+    color: #0f172a;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.employee-applications-job-filter-search-input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.employee-applications-job-filter-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 24px;
+}
+
+.employee-applications-job-filter-loading,
+.employee-applications-job-filter-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #6b7280;
+}
+
+.employee-applications-job-filter-empty svg {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.employee-applications-job-filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.employee-applications-job-filter-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.employee-applications-job-filter-item:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+}
+
+.employee-applications-job-filter-item.selected {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.employee-applications-job-filter-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #2563eb;
+    flex-shrink: 0;
+}
+
+.employee-applications-job-filter-item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.employee-applications-job-filter-item-title {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0f172a;
+    line-height: 1.4;
+}
+
+.employee-applications-job-filter-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.employee-applications-job-filter-item-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.employee-applications-job-filter-meta-icon {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.employee-applications-job-filter-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    margin-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.employee-applications-job-filter-pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-job-filter-pagination-btn:hover:not(:disabled) {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.employee-applications-job-filter-pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.employee-applications-job-filter-pagination-info {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.employee-applications-job-filter-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    border-top: 1px solid #e5e7eb;
+    background: #f8fafc;
+}
+
+.employee-applications-job-filter-discard-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-job-filter-discard-btn:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.employee-applications-job-filter-apply-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.employee-applications-job-filter-apply-btn:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+    .employee-applications-job-filter-drawer {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Test Summary Button */
+button.employee-applications-summary-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+button.employee-applications-summary-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Test Summary Modal */
+.employee-applications-test-summary-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    z-index: 3001;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.employee-applications-test-summary-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+.employee-applications-test-summary-modal-header h3 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+}
+
+.employee-applications-test-summary-modal-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+}
+
+.employee-applications-test-summary-modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.employee-applications-test-summary-modal-body {
+    padding: 32px;
+    overflow-y: auto;
+    flex: 1;
+    background: #ffffff;
+}
+
+.employee-applications-test-summary-modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.employee-applications-test-summary-modal-body::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.employee-applications-test-summary-modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+}
+
+.employee-applications-test-summary-modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+}
+
+.employee-applications-test-summary-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 16px;
+}
+
+.employee-applications-test-summary-loading p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.employee-applications-test-summary-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+}
+
+/* Candidate Info */
+.employee-applications-test-summary-candidate {
+    display: flex;
+    gap: 20px;
+    padding: 28px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 20px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.employee-applications-test-summary-candidate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(102, 126, 234, 0.2);
+}
+
+.employee-applications-test-summary-candidate-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-candidate-avatar::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.employee-applications-test-summary-candidate-info {
+    flex: 1;
+}
+
+.employee-applications-test-summary-candidate-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.employee-applications-test-summary-candidate-info > p {
+    margin: 0 0 8px 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.employee-applications-test-summary-candidate-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.employee-applications-test-summary-candidate-meta span {
+    font-size: 13px;
+    color: #475569;
+    background: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+/* Job Info */
+.employee-applications-test-summary-job {
+    padding: 24px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 16px;
+    margin-bottom: 32px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-job::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+}
+
+.employee-applications-test-summary-job h4 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.employee-applications-test-summary-job p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* Section */
+.employee-applications-test-summary-section {
+    margin-bottom: 32px;
+    padding: 32px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.employee-applications-test-summary-section:hover::before {
+    transform: scaleX(1);
+}
+
+.employee-applications-test-summary-section:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.employee-applications-test-summary-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.employee-applications-test-summary-section-header h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1f2937;
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-left: 16px;
+}
+
+.employee-applications-test-summary-section-header h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.employee-applications-test-summary-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.employee-applications-test-summary-badge:hover::before {
+    left: 100%;
+}
+
+.employee-applications-test-summary-badge.passed {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.employee-applications-test-summary-badge.failed {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Score Card */
+.employee-applications-test-summary-score-card {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding: 32px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 20px;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-score-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.employee-applications-test-summary-score-donut {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #10b981 0% var(--correct-pct, 0%),
+        #dc2626 var(--correct-pct, 0%) var(--incorrect-pct, 0%),
+        #94a3b8 var(--incorrect-pct, 0%) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 2px 8px rgba(255, 255, 255, 0.5);
+    animation: donutRotate 2s ease-out;
+}
+
+@keyframes donutRotate {
+    from {
+        transform: rotate(-90deg) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.employee-applications-test-summary-score-donut::before {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-applications-test-summary-score-value {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #1f2937;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.employee-applications-test-summary-score-value span {
+    font-size: 16px;
+    color: #6b7280;
+    font-weight: 600;
+    display: block;
+    margin-top: 4px;
+    opacity: 0.8;
+}
+
+.employee-applications-test-summary-score-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.employee-applications-test-summary-score-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #475569;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.employee-applications-test-summary-score-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.employee-applications-test-summary-score-indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.employee-applications-test-summary-score-indicator.correct {
+    background: #10b981;
+}
+
+.employee-applications-test-summary-score-indicator.incorrect {
+    background: #dc2626;
+}
+
+.employee-applications-test-summary-score-indicator.unanswered {
+    background: #94a3b8;
+}
+
+/* Review Section */
+.employee-applications-test-summary-review {
+    padding: 28px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border-radius: 18px;
+    margin-bottom: 24px;
+    border-left: 5px solid #3b82f6;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-review::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+}
+
+.employee-applications-test-summary-review h4 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.employee-applications-test-summary-review-summary {
+    margin: 0 0 16px 0;
+    color: #475569;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.employee-applications-test-summary-review-verdict {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #1e40af;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.employee-applications-test-summary-review-section {
+    margin-bottom: 16px;
+}
+
+.employee-applications-test-summary-review-section:last-child {
+    margin-bottom: 0;
+}
+
+.employee-applications-test-summary-review-section h5 {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.employee-applications-test-summary-review-section ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.employee-applications-test-summary-review-section li {
+    margin-bottom: 6px;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.employee-applications-test-summary-risk-score {
+    padding: 12px;
+    background: #fef3c7;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #92400e;
+}
+
+/* Readiness Responses */
+.employee-applications-test-summary-readiness {
+    padding: 28px;
+    background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+    border-radius: 18px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-readiness::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+}
+
+.employee-applications-test-summary-readiness h4 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.employee-applications-test-summary-readiness ol {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.employee-applications-test-summary-readiness li {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    border-left: 3px solid #f59e0b;
+    transition: all 0.2s ease;
+}
+
+.employee-applications-test-summary-readiness li:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.employee-applications-test-summary-readiness li:last-child {
+    margin-bottom: 0;
+}
+
+.employee-applications-test-summary-readiness li strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #1f2937;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.employee-applications-test-summary-readiness li p {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: 0;
+    font-style: italic;
+}
+
+/* Attempt History */
+.employee-applications-test-summary-attempts {
+    padding: 28px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.employee-applications-test-summary-attempts h4 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.employee-applications-test-summary-attempts-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.employee-applications-test-summary-attempt-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.employee-applications-test-summary-attempt-item:last-child {
+    margin-bottom: 0;
+}
+
+.employee-applications-test-summary-attempt-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.employee-applications-test-summary-attempt-bar {
+    width: 250px;
+    height: 32px;
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.employee-applications-test-summary-attempt-bar-fill {
+    height: 100%;
+    border-radius: 16px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.employee-applications-test-summary-attempt-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.employee-applications-test-summary-attempt-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: #475569;
+}
+
+.employee-applications-test-summary-attempt-info strong {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.employee-applications-test-summary-attempt-status {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.employee-applications-test-summary-attempt-status.passed {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.employee-applications-test-summary-attempt-status.failed {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* Video Section */
+.employee-applications-test-summary-video {
+    padding: 28px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border-radius: 18px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+}
+
+.employee-applications-test-summary-video h4 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.employee-applications-test-summary-video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-applications-test-summary-video-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.employee-applications-test-summary-video-link:hover::before {
+    left: 100%;
+}
+
+.employee-applications-test-summary-video-link:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.5);
+}
+
+.employee-applications-test-summary-video-link:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+/* Modal Footer */
+.employee-applications-test-summary-modal-footer {
+    padding: 24px 32px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: flex-end;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.employee-applications-test-summary-modal-close-footer-btn {
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+    letter-spacing: 0.3px;
+}
+
+.employee-applications-test-summary-modal-close-footer-btn:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+}
+
+.employee-applications-test-summary-modal-close-footer-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .employee-applications-test-summary-modal {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .employee-applications-test-summary-modal-header {
+        padding: 16px;
+    }
+
+    .employee-applications-test-summary-modal-header h3 {
+        font-size: 20px;
+    }
+
+    .employee-applications-test-summary-modal-body {
+        padding: 16px;
+    }
+
+    .employee-applications-test-summary-candidate {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .employee-applications-test-summary-score-card {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .employee-applications-test-summary-attempt-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .employee-applications-test-summary-attempt-bar {
+        width: 100%;
+    }
+
+    button.employee-applications-summary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+

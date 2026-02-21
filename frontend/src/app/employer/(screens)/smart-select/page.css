@@ -1,0 +1,1186 @@
+* {
+    box-sizing: border-box;
+}
+
+.smart-select-page {
+    background-color: #f0f8ff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Hero / Banner --- */
+.smart-select-hero {
+    min-height: 80vh;
+    position: relative;
+    padding: 60px 30px 40px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.smart-select-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+}
+
+.smart-select-hero-inner {
+    position: relative;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    z-index: 2;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.smart-select-hero-text {
+    flex: 1 1 520px;
+    max-width: 600px;
+    text-align: left;
+    color: #1f2937;
+}
+
+@media (max-width: 950px) {
+    .smart-select-hero-text {
+        text-align: center;
+    }
+}
+
+.smart-select-hero-pretitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3170f7;
+    background-color: #e0e9ff;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 20px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+.smart-select-hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.15;
+    color: #232323;
+}
+
+.smart-select-hero-title span {
+    color: #3170f7;
+}
+
+.smart-select-hero-desc {
+    font-size: 19px;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 490px;
+    line-height: 1.6;
+}
+
+.smart-select-hero-actions {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.smart-select-hero-btn {
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 36px;
+    border: 2px solid #3170f7;
+    background: #3170f7;
+    color: white;
+    transition: all 0.3s ease;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.smart-select-hero-btn:hover {
+    background-color: #1e4ed8;
+    box-shadow: 0 6px 20px rgba(49, 112, 247, 0.38);
+    transform: translateY(-3px);
+}
+
+.smart-select-hero-btn-alt {
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 36px;
+    border: 2px solid #3170f7;
+    background: transparent;
+    color: #3170f7;
+    transition: all 0.3s ease;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .smart-select-hero-actions {
+        justify-content: center;
+        margin-bottom: 40px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .smart-select-hero-btn,
+    .smart-select-hero-btn-alt {
+        width: 100%;
+    }
+}
+
+.smart-select-hero-btn-alt:hover {
+    background-color: #e0e9ff;
+    border-color: #1e4ed8;
+    color: #1e4ed8;
+    transform: translateY(-3px);
+}
+
+.smart-select-hero-stats {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 490px;
+}
+
+.smart-select-hero-stat {
+    flex: 1 1 100px;
+    text-align: center;
+}
+
+.smart-select-hero-stat-num {
+    font-size: 40px;
+    font-weight: 900;
+    color: #3170f7;
+}
+
+.smart-select-hero-stat-label {
+    font-size: 15px;
+    color: gray;
+    margin-top: 4px;
+    user-select: none;
+}
+
+.smart-select-hero-stat-divider {
+    width: 1px;
+    background-color: #e0e7f7;
+    height: 50px;
+    align-self: center;
+}
+
+.smart-select-hero-image {
+    flex: 1 1 420px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.smart-select-hero-icon-wrapper {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #3170f7 0%, #5b8fff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 10px 40px rgba(49, 112, 247, 0.3);
+}
+
+/* --- Features Section --- */
+.smart-select-features-section {
+    padding: 82px 20px;
+    background: linear-gradient(135deg, #f8fbff 0%, #f0f8ff 100%);
+}
+
+.smart-select-features-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.smart-select-features-title {
+    font-size: 41px;
+    font-weight: bold;
+    color: #232323;
+    margin-bottom: 21px;
+    line-height: 1.15;
+}
+
+.smart-select-features-subtitle {
+    font-size: 18px;
+    color: gray;
+    line-height: 1.7;
+    max-width: 730px;
+    margin: 0 auto;
+}
+
+/* Features Grid */
+.smart-select-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(322px, 1fr));
+    gap: 30px;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.smart-select-feature-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 34px 26px;
+    box-shadow: 0 4px 20px rgba(49, 112, 247, 0.08);
+    border: 1px solid rgba(49, 112, 247, 0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.smart-select-feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(49, 112, 247, 0.18);
+    border-color: #3170f7;
+}
+
+.smart-select-feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #3170f7 0%, #5b8fff 100%);
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 18px rgba(49, 112, 247, 0.18);
+    transition: all 0.25s;
+}
+
+.smart-select-feature-card:hover .smart-select-feature-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(49, 112, 247, 0.30);
+}
+
+.smart-select-feature-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #232323;
+    margin-bottom: 11px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.smart-select-feature-desc {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* --- Workflow Section --- */
+.smart-select-workflow-section {
+    padding: 100px 20px;
+    background: #fff;
+}
+
+.smart-select-workflow-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 52px;
+}
+
+.smart-select-workflow-header h2 {
+    font-size: 39px;
+    font-weight: bold;
+    color: #232323;
+    margin-bottom: 13px;
+}
+
+.smart-select-workflow-header p {
+    font-size: 17px;
+    color: #646464;
+    margin-bottom: 0;
+}
+
+.smart-select-workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 34px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 48px;
+}
+
+.smart-select-workflow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 19px;
+    padding: 34px 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f8fbff 0%, #e8f4ff 100%);
+    border: 2px solid rgba(49, 112, 247, 0.12);
+    box-shadow: 0 3px 14px rgba(49, 112, 247, 0.02);
+    transition: all 0.3s;
+}
+
+.smart-select-workflow-step:hover {
+    border-color: #3170f7;
+    box-shadow: 0 7px 24px rgba(49, 112, 247, 0.12);
+    transform: translateY(-3px);
+}
+
+.smart-select-workflow-step .step-icon {
+    background: linear-gradient(135deg, #3170f7 0%, #5b8fff 100%);
+    color: white;
+    min-width: 38px;
+    min-height: 38px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+    box-shadow: 0 2px 7px rgba(49, 112, 247, 0.15);
+}
+
+.smart-select-workflow-step h4 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #3170f7;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.smart-select-workflow-step p {
+    font-size: 15px;
+    color: #555;
+    margin: 0;
+}
+
+/* --- Why Use Section --- */
+.smart-select-why-section {
+    padding: 92px 15px 80px 15px;
+    background: linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%);
+}
+
+.smart-select-why-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 35px;
+}
+
+.smart-select-why-header h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #232323;
+    margin-bottom: 11px;
+}
+
+.smart-select-why-header p {
+    font-size: 17px;
+    color: #646464;
+}
+
+.smart-select-why-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 26px;
+    max-width: 1200px;
+    margin: 38px auto 0 auto;
+}
+
+.smart-select-why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+    background: #fff;
+    padding: 24px 24px;
+    border-radius: 13px;
+    border: 1.2px solid #d9e7f8;
+    box-shadow: 0 2px 10px rgba(49, 112, 247, 0.04);
+    transition: all 0.3s;
+}
+
+.smart-select-why-item:hover {
+    transform: translateY(-3px);
+    border-color: #3170f7;
+    box-shadow: 0 7px 21px rgba(49, 112, 247, 0.10);
+}
+
+.smart-select-why-icon {
+    color: #28be6f;
+    background: #ebf9f0;
+    font-size: 23px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.smart-select-why-item h4 {
+    font-size: 16px;
+    color: #232323;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.smart-select-why-item p {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+/* --- Pricing --- */
+.smart-select-pricing-section {
+    background: linear-gradient(135deg, #f8fbff 0%, #f0f8ff 100%);
+    padding: 92px 18px 60px 18px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Reduce top padding when back button is present */
+.smart-select-pricing-section:has(.smart-select-pricing-back-btn-container) {
+    padding-top: 40px;
+}
+
+.smart-select-pricing-back-btn-container {
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.smart-select-pricing-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #2563eb;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.smart-select-pricing-back-btn:hover {
+    background: #f8fafc;
+    border-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+}
+
+.smart-select-pricing-back-btn svg {
+    font-size: 14px;
+}
+
+.smart-select-pricing-header {
+    margin-bottom: 53px;
+}
+
+.smart-select-pricing-title {
+    font-size: 38px;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 14px;
+}
+
+.smart-select-pricing-subtitle {
+    color: #6085ad;
+    font-size: 18px;
+}
+
+.smart-select-pricing-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 41px;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.smart-select-pricing-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 32px rgba(49, 112, 247, 0.12);
+    padding: 48px 36px 36px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #eef2fa;
+    position: relative;
+    transition: box-shadow 0.22s, border-color 0.22s, transform 0.18s;
+}
+
+.smart-select-pricing-card:hover {
+    box-shadow: 0 16px 50px rgba(49, 112, 247, 0.13);
+    border-color: #3170f7;
+    transform: translateY(-3px);
+}
+
+.smart-select-plan-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3170f7;
+    margin-bottom: 16px;
+}
+
+.smart-select-plan-price {
+    font-size: 46px;
+    font-weight: 800;
+    color: #23be7d;
+    margin-bottom: 14px;
+}
+
+.smart-select-price-currency {
+    font-size: 28px;
+    font-weight: 600;
+    color: #23be7d;
+}
+
+.smart-select-plan-frequency {
+    font-size: 15px;
+    color: #a9bbdd;
+}
+
+.smart-select-plan-features {
+    color: #586786;
+    font-size: 16px;
+    margin: 31px 0 24px 0;
+    text-align: left;
+    padding-left: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.smart-select-plan-features li {
+    padding-left: 30px;
+    margin-bottom: 16px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.smart-select-plan-feature-item-no-icon:before {
+    display: none !important;
+}
+
+.smart-select-plan-features li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28be6f;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.smart-select-plan-select-btn {
+    background: linear-gradient(90deg, #3170f7 60%, #5b8fff 100%);
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 0;
+    width: 100%;
+    margin-top: 16px;
+    box-shadow: 0 2px 10px rgba(49, 112, 247, 0.10);
+    cursor: pointer;
+    transition: all .18s;
+}
+
+.smart-select-plan-select-btn:hover,
+.smart-select-plan-select-btn-popular {
+    background: linear-gradient(95deg, #28be6f 67%, #36d7b6 100%);
+}
+
+.smart-select-pricing-card-popular {
+    border: 2.5px solid #28be6f;
+    box-shadow: 0 10px 50px #36d7b62a;
+    z-index: 3;
+    transform: scale(1.03);
+}
+
+.smart-select-popular-tag {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #28be6f 60%, #36d7b6 100%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 7px;
+    padding: 6px 22px;
+    box-shadow: 0 2px 9px #32be9855;
+}
+
+/* --- FAQ Section --- */
+.smart-select-faq-section {
+    background: #fff;
+    padding: 92px 18px 80px 18px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.smart-select-faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.smart-select-faq-title {
+    font-size: 38px;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 14px;
+}
+
+.smart-select-faq-subtitle {
+    color: #6085ad;
+    font-size: 18px;
+}
+
+.smart-select-faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.smart-select-faq-item {
+    background: #fff;
+    border: 2px solid #eef2fa;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(49, 112, 247, 0.08);
+}
+
+.smart-select-faq-item:hover {
+    border-color: #3170f7;
+    box-shadow: 0 4px 16px rgba(49, 112, 247, 0.12);
+}
+
+.smart-select-faq-item-open {
+    border-color: #3170f7;
+    box-shadow: 0 6px 20px rgba(49, 112, 247, 0.15);
+}
+
+.smart-select-faq-question {
+    padding: 24px 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #f8fbff 0%, #f0f8ff 100%);
+    transition: background 0.3s ease;
+    user-select: none;
+}
+
+.smart-select-faq-item-open .smart-select-faq-question {
+    background: linear-gradient(135deg, #e8f4ff 0%, #dae9fc 100%);
+}
+
+.smart-select-faq-question span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    flex: 1;
+    padding-right: 20px;
+    line-height: 1.5;
+}
+
+.smart-select-faq-icon {
+    font-size: 24px;
+    color: #3170f7;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.smart-select-faq-icon-open {
+    transform: rotate(180deg);
+}
+
+.smart-select-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 28px;
+}
+
+.smart-select-faq-answer-open {
+    max-height: 500px;
+    padding: 20px 28px 28px 28px;
+}
+
+.smart-select-faq-answer p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Responsive Styles */
+/* Tablet and below */
+@media (max-width: 950px) {
+    .smart-select-hero {
+        min-height: auto;
+        padding: 40px 20px 30px 20px;
+    }
+
+    .smart-select-hero-inner {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .smart-select-hero-text {
+        max-width: 100%;
+        flex: unset;
+        text-align: center;
+    }
+
+    .smart-select-hero-title {
+        font-size: 36px;
+    }
+
+    .smart-select-hero-desc {
+        max-width: 100%;
+        font-size: 17px;
+    }
+
+    .smart-select-hero-stats {
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    .smart-select-hero-stat-divider {
+        display: none;
+    }
+
+    .smart-select-hero-image {
+        max-width: 100%;
+        flex: unset;
+    }
+
+    .smart-select-hero-icon-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .smart-select-hero-icon-wrapper svg {
+        width: 80px;
+        height: 80px;
+    }
+
+    .smart-select-pricing-section {
+        padding: 60px 15px 40px 15px;
+    }
+
+    .smart-select-pricing-section:has(.smart-select-pricing-back-btn-container) {
+        padding-top: 30px;
+    }
+
+    .smart-select-pricing-title {
+        font-size: 32px;
+    }
+
+    .smart-select-pricing-card-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 10px;
+    }
+
+    .smart-select-faq-section {
+        padding: 60px 15px 50px 15px;
+    }
+
+    .smart-select-faq-title {
+        font-size: 32px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .smart-select-hero {
+        padding: 30px 15px 20px 15px;
+    }
+
+    .smart-select-hero-pretitle {
+        font-size: 14px;
+        padding: 5px 16px;
+    }
+
+    .smart-select-hero-title {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .smart-select-hero-desc {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .smart-select-hero-btn {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+
+    .smart-select-hero-stats {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .smart-select-hero-stat {
+        flex: unset;
+    }
+
+    .smart-select-hero-stat-num {
+        font-size: 32px;
+    }
+
+    .smart-select-hero-stat-label {
+        font-size: 13px;
+    }
+
+    .smart-select-hero-icon-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .smart-select-hero-icon-wrapper svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .smart-select-pricing-section {
+        padding: 50px 12px 30px 12px;
+    }
+
+    .smart-select-pricing-section:has(.smart-select-pricing-back-btn-container) {
+        padding-top: 24px;
+    }
+
+    .smart-select-pricing-header {
+        margin-bottom: 40px;
+    }
+
+    .smart-select-pricing-title {
+        font-size: 26px;
+    }
+
+    .smart-select-pricing-subtitle {
+        font-size: 16px;
+    }
+
+    .smart-select-pricing-card-grid {
+        gap: 25px;
+        padding: 0;
+    }
+
+    .smart-select-pricing-card {
+        padding: 30px 20px 25px 20px;
+    }
+
+    .smart-select-plan-name {
+        font-size: 20px;
+    }
+
+    .smart-select-plan-price {
+        font-size: 38px;
+    }
+
+    .smart-select-price-currency {
+        font-size: 24px;
+    }
+
+    .smart-select-plan-features {
+        font-size: 15px;
+        margin: 25px 0 20px 0;
+    }
+
+    .smart-select-plan-features li {
+        padding-left: 25px;
+        margin-bottom: 12px;
+    }
+
+    .smart-select-plan-select-btn {
+        font-size: 16px;
+        padding: 14px 0;
+    }
+
+    .smart-select-popular-tag {
+        font-size: 12px;
+        padding: 5px 18px;
+    }
+
+    .smart-select-faq-section {
+        padding: 50px 12px 40px 12px;
+    }
+
+    .smart-select-faq-header {
+        margin-bottom: 40px;
+    }
+
+    .smart-select-faq-title {
+        font-size: 26px;
+    }
+
+    .smart-select-faq-subtitle {
+        font-size: 16px;
+    }
+
+    .smart-select-faq-container {
+        gap: 15px;
+    }
+
+    .smart-select-faq-question {
+        padding: 18px 20px;
+    }
+
+    .smart-select-faq-question span {
+        font-size: 16px;
+        padding-right: 15px;
+    }
+
+    .smart-select-faq-icon {
+        font-size: 20px;
+    }
+
+    .smart-select-faq-answer {
+        padding: 0 20px;
+    }
+
+    .smart-select-faq-answer-open {
+        padding: 15px 20px 20px 20px;
+    }
+
+    .smart-select-faq-answer p {
+        font-size: 15px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .smart-select-hero {
+        padding: 25px 12px 15px 12px;
+    }
+
+    .smart-select-hero-pretitle {
+        font-size: 12px;
+        padding: 4px 12px;
+        margin-bottom: 15px;
+    }
+
+    .smart-select-hero-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .smart-select-hero-desc {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+
+    .smart-select-hero-actions {
+        margin-bottom: 40px;
+    }
+
+    .smart-select-hero-btn {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+
+    .smart-select-hero-stat-num {
+        font-size: 28px;
+    }
+
+    .smart-select-hero-stat-label {
+        font-size: 12px;
+    }
+
+    .smart-select-hero-icon-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .smart-select-hero-icon-wrapper svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .smart-select-pricing-section {
+        padding: 40px 10px 25px 10px;
+    }
+
+    .smart-select-pricing-title {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .smart-select-pricing-subtitle {
+        font-size: 14px;
+    }
+
+    .smart-select-pricing-card {
+        padding: 25px 15px 20px 15px;
+    }
+
+    .smart-select-plan-name {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .smart-select-plan-price {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .smart-select-price-currency {
+        font-size: 20px;
+    }
+
+    .smart-select-plan-frequency {
+        font-size: 13px;
+    }
+
+    .smart-select-plan-features {
+        font-size: 14px;
+        margin: 20px 0 18px 0;
+    }
+
+    .smart-select-plan-features li {
+        padding-left: 22px;
+        margin-bottom: 10px;
+    }
+
+    .smart-select-plan-select-btn {
+        font-size: 15px;
+        padding: 12px 0;
+    }
+
+    .smart-select-popular-tag {
+        font-size: 11px;
+        padding: 4px 15px;
+        top: -12px;
+    }
+
+    .smart-select-faq-section {
+        padding: 40px 10px 30px 10px;
+    }
+
+    .smart-select-faq-title {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .smart-select-faq-subtitle {
+        font-size: 14px;
+    }
+
+    .smart-select-faq-container {
+        gap: 12px;
+    }
+
+    .smart-select-faq-item {
+        border-radius: 12px;
+    }
+
+    .smart-select-faq-question {
+        padding: 16px 15px;
+    }
+
+    .smart-select-faq-question span {
+        font-size: 15px;
+        padding-right: 12px;
+    }
+
+    .smart-select-faq-icon {
+        font-size: 18px;
+    }
+
+    .smart-select-faq-answer {
+        padding: 0 15px;
+    }
+
+    .smart-select-faq-answer-open {
+        padding: 12px 15px 16px 15px;
+    }
+
+    .smart-select-faq-answer p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .smart-select-hero-title {
+        font-size: 20px;
+    }
+
+    .smart-select-hero-desc {
+        font-size: 14px;
+    }
+
+    .smart-select-pricing-title {
+        font-size: 20px;
+    }
+
+    .smart-select-faq-title {
+        font-size: 20px;
+    }
+
+    .smart-select-plan-price {
+        font-size: 28px;
+    }
+}
+
+.smart-select-loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+

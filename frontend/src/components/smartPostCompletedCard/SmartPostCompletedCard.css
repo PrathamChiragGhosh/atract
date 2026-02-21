@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.smart-post-completed-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    font-family: "Roboto Flex", sans-serif;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Success Overlay Animation */
+.smart-post-success-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 16px;
+    animation: successFadeIn 0.3s ease-in;
+    opacity: 1;
+}
+
+.smart-post-success-tick {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    animation: successScale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.smart-post-success-icon {
+    color: #ffffff;
+    font-size: 48px;
+    animation: successCheckmark 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+@keyframes successFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes successFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+/* Fade out animation class for JavaScript control */
+.smart-post-success-overlay.fade-out {
+    animation: successFadeOut 0.5s ease-out forwards;
+}
+
+@keyframes successScale {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes successCheckmark {
+    0% {
+        transform: scale(0) rotate(-45deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.smart-post-completed-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.smart-post-completed-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: rgba(37, 99, 235, 0.25);
+    transform: translateY(-2px);
+}
+
+.smart-post-completed-card:hover::before {
+    transform: scaleX(1);
+}
+
+.smart-post-completed-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.smart-post-completed-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(52, 211, 153, 0.12));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.smart-post-completed-icon {
+    color: #10b981;
+    font-size: 24px;
+}
+
+.smart-post-completed-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.smart-post-completed-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.4;
+}
+
+.smart-post-completed-title-icon {
+    color: #2563eb;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.smart-post-completed-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.smart-post-completed-company,
+.smart-post-completed-location {
+    font-size: 14px;
+    color: #4b5563;
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.smart-post-completed-detail-icon {
+    color: #6b7280;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.smart-post-completed-source {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #f0f5ff 0%, #e8f0ff 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    margin-top: 14px;
+    font-size: 13px;
+    color: #374151;
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.1);
+}
+
+.smart-post-completed-source-icon {
+    color: #2563eb;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.smart-post-completed-source-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.smart-post-completed-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.smart-post-verify-btn {
+    background: linear-gradient(135deg, #2563eb 0%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Roboto Flex", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.smart-post-verify-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+    background: linear-gradient(135deg, #1d4ed8 0%, #6b21a8 100%);
+}
+
+.smart-post-verify-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.smart-post-verify-btn-icon {
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .smart-post-completed-card {
+        padding: 20px;
+    }
+
+    .smart-post-completed-title {
+        font-size: 16px;
+    }
+
+    .smart-post-completed-details {
+        gap: 6px;
+    }
+
+    .smart-post-completed-company,
+    .smart-post-completed-location {
+        font-size: 13px;
+    }
+
+    .smart-post-verify-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+

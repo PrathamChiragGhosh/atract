@@ -1,0 +1,739 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&display=swap');
+
+.employee-homescreen-page,
+.employee-homescreen-page * {
+    font-family: "Roboto Flex", sans-serif;
+    box-sizing: border-box;
+}
+
+.employee-homescreen-page {
+    padding: 32px;
+    background: #f8fafc;
+    min-height: calc(100vh - 65px);
+}
+
+.employee-homescreen-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Welcome Section */
+.employee-homescreen-welcome {
+    margin-bottom: 32px;
+}
+
+.employee-homescreen-security-banner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.06));
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    margin-bottom: 20px;
+}
+
+.employee-homescreen-security-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(37, 99, 235, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #1d4ed8;
+    font-size: 20px;
+}
+
+.employee-homescreen-security-text h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    color: #0f172a;
+}
+
+.employee-homescreen-security-text p {
+    margin: 0;
+    color: #334155;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.employee-homescreen-security-btn {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.employee-homescreen-security-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+}
+
+@media (max-width: 768px) {
+    .employee-homescreen-security-banner {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .employee-homescreen-security-btn {
+        width: 100%;
+    }
+}
+
+.employee-homescreen-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+}
+
+.employee-homescreen-subtitle {
+    font-size: 16px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Loading */
+.employee-homescreen-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    gap: 16px;
+}
+
+.employee-homescreen-loading p {
+    color: #64748b;
+    font-size: 15px;
+    margin: 0;
+}
+
+/* Stats Cards */
+.employee-homescreen-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.employee-homescreen-stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.employee-homescreen-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.employee-homescreen-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.employee-homescreen-stat-icon-primary {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.employee-homescreen-stat-icon-warning {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.employee-homescreen-stat-icon-success {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.employee-homescreen-stat-icon-info {
+    background: #e0e7ff;
+    color: #6366f1;
+}
+
+.employee-homescreen-stat-icon-danger {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.employee-homescreen-stat-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.employee-homescreen-stat-label {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 4px 0;
+    font-weight: 500;
+}
+
+.employee-homescreen-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+/* Quick Actions */
+.employee-homescreen-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.employee-homescreen-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.employee-homescreen-action-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.employee-homescreen-action-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.employee-homescreen-action-secondary {
+    background: white;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+}
+
+.employee-homescreen-action-secondary:hover {
+    background: #eff6ff;
+    transform: translateY(-1px);
+}
+
+/* Cards */
+.employee-homescreen-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.employee-homescreen-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.employee-homescreen-card-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.employee-homescreen-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.employee-homescreen-card-link:hover {
+    color: #1d4ed8;
+    gap: 8px;
+}
+
+/* Applications List */
+.employee-homescreen-applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.employee-homescreen-application-item {
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.2s;
+    background: #fafbfc;
+    cursor: pointer;
+}
+
+.employee-homescreen-application-item:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+.employee-homescreen-application-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.employee-homescreen-application-candidate {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.employee-homescreen-candidate-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.employee-homescreen-application-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.employee-homescreen-application-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.employee-homescreen-application-email {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.employee-homescreen-application-status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.employee-homescreen-status-pending {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.employee-homescreen-status-reviewed {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.employee-homescreen-status-shortlisted {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.employee-homescreen-status-rejected {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.employee-homescreen-application-job {
+    margin-bottom: 12px;
+}
+
+.employee-homescreen-job-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+}
+
+.employee-homescreen-job-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.employee-homescreen-job-location,
+.employee-homescreen-job-type {
+    font-size: 12px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.employee-homescreen-application-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.employee-homescreen-application-date,
+.employee-homescreen-application-type,
+.employee-homescreen-application-update {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Jobs List */
+.employee-homescreen-jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.employee-homescreen-job-item {
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.2s;
+    background: #fafbfc;
+    cursor: pointer;
+}
+
+.employee-homescreen-job-item:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+.employee-homescreen-job-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.employee-homescreen-job-info-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.employee-homescreen-job-item-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+}
+
+.employee-homescreen-job-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.employee-homescreen-job-item-location,
+.employee-homescreen-job-item-type {
+    font-size: 12px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.employee-homescreen-job-item-status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.employee-homescreen-job-status-active {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.employee-homescreen-job-status-draft {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.employee-homescreen-job-status-closed {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.employee-homescreen-job-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.employee-homescreen-job-item-date,
+.employee-homescreen-job-item-applications {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Activity Card */
+.employee-homescreen-activity-card {
+    background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+    border: 1px solid #c7d2fe;
+}
+
+.employee-homescreen-activity-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.employee-homescreen-activity-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.employee-homescreen-activity-stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.employee-homescreen-activity-icon {
+    font-size: 32px;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.employee-homescreen-activity-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+}
+
+.employee-homescreen-activity-label {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+.employee-homescreen-activity-text {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.employee-homescreen-activity-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    align-self: flex-start;
+}
+
+.employee-homescreen-activity-link:hover {
+    color: #1d4ed8;
+    gap: 10px;
+}
+
+/* Empty State */
+.employee-homescreen-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.employee-homescreen-empty-icon {
+    font-size: 64px;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+
+.employee-homescreen-empty h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 12px 0;
+}
+
+.employee-homescreen-empty p {
+    font-size: 15px;
+    color: #64748b;
+    margin: 0 0 24px 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.employee-homescreen-empty-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #2563eb;
+    color: white;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.employee-homescreen-empty-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .employee-homescreen-page {
+        padding: 20px 16px;
+    }
+
+    .employee-homescreen-title {
+        font-size: 24px;
+    }
+
+    .employee-homescreen-subtitle {
+        font-size: 14px;
+    }
+
+    .employee-homescreen-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .employee-homescreen-stat-card {
+        padding: 16px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .employee-homescreen-stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .employee-homescreen-stat-value {
+        font-size: 20px;
+    }
+
+    .employee-homescreen-actions {
+        flex-direction: column;
+    }
+
+    .employee-homescreen-action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .employee-homescreen-card {
+        padding: 20px;
+    }
+
+    .employee-homescreen-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .employee-homescreen-application-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .employee-homescreen-application-status {
+        align-self: flex-start;
+    }
+
+    .employee-homescreen-application-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .employee-homescreen-activity-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-homescreen-activity-stat {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .employee-homescreen-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-homescreen-title {
+        font-size: 20px;
+    }
+}
+
