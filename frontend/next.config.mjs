@@ -13,18 +13,10 @@ const nextConfig = {
       },
     ],
   },
-  // Reverse-proxy /store to Lovable Store; proxy /api/blogs and /job to backend
+  // Reverse-proxy /api/blogs to backend
   async rewrites() {
-    const apiBackend = process.env.BLOG_BACKEND_URL || "http://localhost:5001";
+    const apiBackend = process.env.BLOG_BACKEND_URL || "http://localhost:5002";
     return [
-      {
-        source: "/store",
-        destination: "http://localhost:8080/store/"
-      },
-      {
-        source: "/store/:path*",
-        destination: "http://localhost:8080/store/:path*"
-      },
       {
         source: "/api/blogs",
         destination: `${apiBackend}/api/blogs`
@@ -33,7 +25,6 @@ const nextConfig = {
         source: "/api/blogs/:path*",
         destination: `${apiBackend}/api/blogs/:path*`
       },
-    
     ];
   },
 };

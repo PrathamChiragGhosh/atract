@@ -1,11 +1,12 @@
 /**
  * AI Provider Abstraction Layer
- * Supports multiple AI providers: Gemini, OpenAI, Together AI
+ * Supports multiple AI providers: Gemini, OpenAI, Together AI, Groq
  * To switch providers, just change the AI_PROVIDER env variable and add the corresponding API key
  */
 
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const OpenAI = require('openai');
+const { generateAIResponse, generateJobDescription } = require('../services/ai/aiService.js');
 
 class AIProvider {
     constructor() {
@@ -19,12 +20,18 @@ class AIProvider {
             return;
         }
 
-        this.provider = process.env.AI_PROVIDER || 'gemini'; // 'gemini', 'openai', 'together'
+        this.provider = process.env.AI_PROVIDER || 'gemini'; 
         this.initializeProvider();
         this.initialized = true;
     }
 
     initializeProvider() {
+        // Check if Groq should be used first
+        if (process.env.GROQ_API_KEY) {
+            this.provider = 'groq';
+            return;
+        }
+        
         switch (this.provider.toLowerCase()) {
             case 'gemini':
                 if (!process.env.GEMINI_API_KEY) {
@@ -52,6 +59,10 @@ class AIProvider {
                 });
                 break;
 
+            case 'groq':
+                // Groq uses central aiService
+                return;
+
             default:
                 throw new Error(`Unsupported AI provider: ${this.provider}`);
         }
@@ -65,6 +76,16 @@ class AIProvider {
     async generateJobDescription(jobData) {
         // Lazy initialization - only initialize when first used
         this.ensureInitialized();
+
+        // If using Groq, use the central aiService
+        if (this.provider === 'groq') {
+            try {
+                return await generateJobDescription(jobData);
+            } catch (error) {
+                console.error('Groq JD Generation Error:', error);
+                throw new Error(`Failed to generate job description: ${error.message}`);
+            }
+        }
 
         const prompt = this.buildPrompt(jobData);
 

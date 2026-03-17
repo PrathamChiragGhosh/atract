@@ -1,39 +1,37 @@
-const app = require("./src/app.js");
-const dotenv = require("dotenv");
+// Load environment variables
+require("dotenv").config();
 const path = require("path");
+
+// Load .env from backend directory
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
+
+const app = require("./src/app.js");
 const http = require("http");
-const { initializeSocket } = require("./src/socket/socketServer.js");
 
-// Load .env file from backend directory
-const envPath = path.resolve(__dirname, '.env');
-dotenv.config({ path: envPath });
-
-// Debug: Log if Stripe key is loaded
-if (process.env.STRIPE_SECRET_KEY) {
-  console.log('✅ STRIPE_SECRET_KEY loaded from .env');
-} else {
-  console.warn('⚠️  STRIPE_SECRET_KEY not found in environment variables');
-}
-
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 const HOST = process.env.HOST || "0.0.0.0";
 
 // Create HTTP server
 const server = http.createServer(app);
 
-// Initialize Socket.io
-const corsOptions = {
+// Initialize Socket.io (optional - only if socketServer exists)
+try {
+  const { initializeSocket } = require("./src/socket/socketServer.js");
+  const corsOptions = {
     origin: [process.env.CORS_1, process.env.CORS_2, process.env.CORS_3].filter(Boolean),
     credentials: true,
-};
-initializeSocket(server, corsOptions);
+  };
+  initializeSocket(server, corsOptions);
+  console.log("✅ Socket.io server initialized");
+} catch (err) {
+  console.log("⚠️  Socket.io not initialized (module may not exist):", err.message);
+}
 
-// Enhanced server listening with error handling
+// Start server
 server.listen(PORT, HOST, () => {
   console.log(`✅ Server running on http://${HOST}:${PORT}`);
   console.log(`✅ Server accessible at http://localhost:${PORT}`);
-  console.log(`✅ Socket.io server initialized`);
-  console.log(`📡 Ready to accept connections`);
+  console.log(`📡 Ready to accept connections from frontend`);
 }).on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
     console.error(`❌ Port ${PORT} is already in use`);

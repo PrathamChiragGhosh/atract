@@ -19,11 +19,22 @@ const {
     getFeatureDefinitions
 } = require('../config/smartSelectPlanConfig');
 
-// Initialize Razorpay
-const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET
-});
+// Initialize Razorpay lazily (only when needed)
+let razorpayInstance = null;
+
+function getRazorpay() {
+    if (!razorpayInstance) {
+        if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+            console.log('⚠️ Razorpay not configured - payment features will be disabled');
+            return null;
+        }
+        razorpayInstance = new Razorpay({
+            key_id: process.env.RAZORPAY_KEY_ID,
+            key_secret: process.env.RAZORPAY_KEY_SECRET
+        });
+    }
+    return razorpayInstance;
+}
 
 // Use plan prices from config
 const plans = planPrices;
@@ -127,7 +138,7 @@ const createCheckoutSession = async (req, res) => {
             }
         };
 
-        const order = await razorpay.orders.create(options);
+        const order = await getRazorpay().orders.create(options);
 
         // Store order in Payment table with pending status
         const paymentData = {
@@ -228,7 +239,7 @@ const verifyCheckoutSession = async (req, res) => {
 
             // Fetch payment details from Razorpay
             console.log('🔍 About to call razorpay.payments.fetch with ID:', razorpay_payment_id);
-            const razorpayPayment = await razorpay.payments.fetch(razorpay_payment_id);
+            const razorpayPayment = await getRazorpay().payments.fetch(razorpay_payment_id);
             console.log('✅ Razorpay payment details:', {
                 id: razorpayPayment.id,
                 status: razorpayPayment.status,
@@ -305,7 +316,7 @@ const verifyCheckoutSession = async (req, res) => {
         }
 
         // Fetch payment details from Razorpay
-        const razorpayPayment = await razorpay.payments.fetch(razorpay_payment_id);
+        const razorpayPayment = await getRazorpay().payments.fetch(razorpay_payment_id);
         
         // Find existing payment record by orderId
         const existingPayment = await Payment.findOne({ orderId: razorpay_order_id });
@@ -353,7 +364,7 @@ const verifyCheckoutSession = async (req, res) => {
             }
         } else {
             // No existing payment - create new one
-            const order = await razorpay.orders.fetch(razorpay_order_id);
+            const order = await getRazorpay().orders.fetch(razorpay_order_id);
             payment = new Payment({
                 employerId: order.notes?.employerId,
                 planType: order.notes?.planType || 'basic',

@@ -8,7 +8,7 @@ const Employer = require('../src/models/employer.js');
 
 // Safety guard: Only run in development
 if (process.env.NODE_ENV === 'production') {
-    console.error('❌ ERROR: This seed script cannot be run in production!');
+    console.error(' ERROR: This seed script cannot be run in production!');
     console.error('   This script is only for development/testing purposes.');
     process.exit(1);
 }

@@ -3,6 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path");
 const fs = require("fs");
+const morgan = require("morgan");
 const connectDB = require("./config/db.js");
 const errorHandler = require("./middleware/errorMiddleware.js");
 
@@ -48,6 +49,9 @@ connectDB().then(() => {
 });
 
 const app = express();
+
+// ---------------- MORGAN LOGGING ----------------
+app.use(morgan("dev"));
 
 // ---------------- CORS CONFIG ----------------
 const corsOptions = {
@@ -112,6 +116,9 @@ app.use('/api/prompt-consultation', promptConsultationRoutes);
 app.use("/api/pdf", pdfRoutes);
 app.use("/api/subscription", pdfSubscriptionRoutes);
 app.use("/api/user", pdfUserRoutes);
+// ---------------- AI ROUTES (Groq) ----------------
+const aiRoutes = require("./routes/aiRoutes.js");
+app.use("/api/ai", aiRoutes);
 // ---------------- CANDIDATE FILTER ROUTES ----------------
 const candidateFilterRoutes = require("./routes/candidateFilterRoutes.js");
 app.use("/api/candidates", candidateFilterRoutes);
