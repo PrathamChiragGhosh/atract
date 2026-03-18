@@ -154,6 +154,25 @@ jobApplicationSchema.index({ job: 1 }, { unique: true });
 jobApplicationSchema.index({ employer: 1 });
 jobApplicationSchema.index({ 'applicants.jobSeeker': 1 });
 
+// Additional Performance Indexes
+// Index for applicant status queries
+jobApplicationSchema.index({ 'applicants.status': 1 });
+
+// Compound index for employer + applicant status
+jobApplicationSchema.index({ employer: 1, 'applicants.status': 1 });
+
+// Index for job + applicant status
+jobApplicationSchema.index({ job: 1, 'applicants.status': 1 });
+
+// Index for applicant timeline queries
+jobApplicationSchema.index({ 'applicants.appliedAt': -1 });
+
+// Index for last status update queries
+jobApplicationSchema.index({ 'applicants.lastStatusUpdatedAt': -1 });
+
+// Index for employer engagement tracking
+jobApplicationSchema.index({ 'applicants.employerEngagement.viewedAt': 1 });
+
 const JobApplication = mongoose.model('JobApplication', jobApplicationSchema);
 
 module.exports = JobApplication;

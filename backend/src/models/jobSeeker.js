@@ -151,8 +151,33 @@ const jobSeekerSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-// index for email lookup
-// removed duplicate email index (field is already unique)
+// ==================== INDEXES ====================
+
+// Index for email lookup (already unique)
+jobSeekerSchema.index({ email: 1 }, { unique: true });
+
+// Index for job alerts - location + skills search
+jobSeekerSchema.index({ currentLocation: 1, skills: 1 });
+
+// Index for candidate filtering - experience + qualification
+jobSeekerSchema.index({ experienceInYears: 1, highestQualification: 1 });
+
+// Index for CTC-based searches
+jobSeekerSchema.index({ currentCTC: 1, expectedCTC: 1 });
+
+// Index for skills array search (for text search)
+jobSeekerSchema.index({ skills: 1 });
+
+// Index for date-based queries
+jobSeekerSchema.index({ createdAt: -1 });
+jobSeekerSchema.index({ updatedAt: -1 });
+
+// Compound index for job matching
+jobSeekerSchema.index({ 
+    currentLocation: 1, 
+    experienceInYears: 1, 
+    highestQualification: 1 
+});
 
 const JobSeeker = mongoose.model('JobSeeker', jobSeekerSchema);
 

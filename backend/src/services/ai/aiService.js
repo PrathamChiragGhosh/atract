@@ -8,10 +8,11 @@
  */
 
 const Groq = require('groq');
+const modelSelector = require('./modelSelector.js');
 
 // Get Groq configuration from environment
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
-const GROQ_MODEL = process.env.GROQ_MODEL || 'llama3-70b-8192';
+const GROQ_MODEL = process.env.GROQ_MODEL || 'mixtral-8x7b-32768'; // Default to Mixtral for speed
 
 // Default timeout for API calls (in ms)
 const DEFAULT_TIMEOUT = 60000; // 60 seconds
@@ -38,16 +39,35 @@ function getGroqClient() {
  * @param {string} prompt - The prompt to send to the AI
  * @param {Object} options - Optional configuration
  * @param {string} options.model - Model to use (default: GROQ_MODEL)
+ * @param {string} options.taskType - Task type for automatic model selection (e.g., 'jd-generation', 'candidate-screening')
  * @param {number} options.temperature - Temperature for generation (default: 0.7)
  * @param {number} options.max_tokens - Max tokens to generate (default: 4096)
  * @param {number} options.timeout - Timeout in ms (default: 60000)
  * @returns {Promise<string>} AI response text
  */
 async function generateAIResponse(prompt, options = {}) {
+    // Use model selector if taskType is provided
+    let modelConfig;
+    if (options.taskType) {
+        modelConfig = modelSelector.getModelForTask(options.taskType, options);
+    } else if (options.model) {
+        modelConfig = {
+            id: options.model,
+            maxTokens: options.max_tokens || 4096,
+            temperature: options.temperature || 0.7
+        };
+    } else {
+        modelConfig = {
+            id: GROQ_MODEL,
+            maxTokens: options.max_tokens || 4096,
+            temperature: options.temperature || 0.7
+        };
+    }
+
     const {
-        model = GROQ_MODEL,
-        temperature = 0.7,
-        max_tokens = 4096,
+        model = modelConfig.id,
+        temperature = modelConfig.temperature,
+        max_tokens = modelConfig.maxTokens,
         timeout = DEFAULT_TIMEOUT
     } = options;
 
@@ -106,13 +126,32 @@ async function generateAIResponse(prompt, options = {}) {
  * @param {string} systemPrompt - System prompt to set context
  * @param {string} userPrompt - User prompt
  * @param {Object} options - Optional configuration
+ * @param {string} options.taskType - Task type for automatic model selection
  * @returns {Promise<string>} AI response text
  */
 async function generateAIResponseWithSystem(systemPrompt, userPrompt, options = {}) {
+    // Use model selector if taskType is provided
+    let modelConfig;
+    if (options.taskType) {
+        modelConfig = modelSelector.getModelForTask(options.taskType, options);
+    } else if (options.model) {
+        modelConfig = {
+            id: options.model,
+            maxTokens: options.max_tokens || 2048,
+            temperature: options.temperature || 0.7
+        };
+    } else {
+        modelConfig = {
+            id: GROQ_MODEL,
+            maxTokens: options.max_tokens || 4096,
+            temperature: options.temperature || 0.7
+        };
+    }
+
     const {
-        model = GROQ_MODEL,
-        temperature = 0.7,
-        max_tokens = 4096,
+        model = modelConfig.id,
+        temperature = modelConfig.temperature,
+        max_tokens = modelConfig.maxTokens,
         timeout = DEFAULT_TIMEOUT
     } = options;
 
@@ -248,6 +287,7 @@ Only output valid JSON, no additional text.`;
 
     try {
         const response = await generateAIResponse(prompt, {
+            taskType: 'jd-generation',
             temperature: 0.7,
             max_tokens: 4096
         });
@@ -306,6 +346,7 @@ Only output valid JSON, no additional text.`;
 
     try {
         const response = await generateAIResponse(prompt, {
+            taskType: 'candidate-screening',
             temperature: 0.5,
             max_tokens: 2048
         });
@@ -363,16 +404,19 @@ Be helpful, professional, and concise in your responses.`;
 
     const client = getGroqClient();
 
+    // Use task-based model selection for chat
+    const modelConfig = modelSelector.getModelForTask('chat');
+
     try {
         const timeoutPromise = new Promise((_, reject) => {
             setTimeout(() => reject(new Error('Groq API timeout')), DEFAULT_TIMEOUT);
         });
 
         const apiPromise = client.chat.completions.create({
-            model: GROQ_MODEL,
+            model: modelConfig.id,
             messages: messages,
-            temperature: 0.7,
-            max_tokens: 2048,
+            temperature: modelConfig.temperature,
+            max_tokens: modelConfig.maxTokens,
         });
 
         const result = await Promise.race([apiPromise, timeoutPromise]);
@@ -397,5 +441,6 @@ module.exports = {
     generateChatResponse,
     getGroqClient,
     GROQ_MODEL,
-    GROQ_API_KEY
+    GROQ_API_KEY,
+    modelSelector
 };

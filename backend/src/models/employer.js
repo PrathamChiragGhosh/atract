@@ -107,7 +107,25 @@ const employerSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-// removed duplicate email index (field is already unique)
+// ==================== INDEXES ====================
+
+// Index for email lookup (already unique)
+employerSchema.index({ email: 1 }, { unique: true });
+
+// Index for company name search
+employerSchema.index({ companyName: 1 });
+
+// Index for industry type queries
+employerSchema.index({ industryType: 1 });
+
+// Index for company size queries
+employerSchema.index({ companySize: 1 });
+
+// Index for date-based queries
+employerSchema.index({ createdAt: -1 });
+
+// Compound index for company search
+employerSchema.index({ companyName: 1, industryType: 1 });
 
 const Employer = mongoose.model('Employer', employerSchema);
 

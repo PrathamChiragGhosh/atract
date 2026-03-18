@@ -184,6 +184,39 @@ jobSchema.index({ createdAt: -1 });
 // Compound index for job alert queries (status + applicationClosingDate)
 jobSchema.index({ status: 1, applicationClosingDate: 1 });
 
+// Additional Performance Indexes
+// Index for job search by location
+jobSchema.index({ location: 1, status: 1 });
+
+// Index for skills-based job matching
+jobSchema.index({ skills: 1 });
+
+// Index for workMode filtering
+jobSchema.index({ workMode: 1, status: 1 });
+
+// Index for jobType filtering
+jobSchema.index({ jobType: 1, status: 1 });
+
+// Compound index for salary range queries
+jobSchema.index({ minSalary: 1, maxSalary: 1, status: 1 });
+
+// Index for shortId lookups (public job access)
+jobSchema.index({ shortId: 1 }, { unique: true, sparse: true });
+
+// Index for department-based queries
+jobSchema.index({ department: 1, status: 1 });
+
+// Text index for job title search
+jobSchema.index({ jobTitle: 'text', companyName: 'text' });
+
+// Compound index for job matching algorithm
+jobSchema.index({ 
+    status: 1, 
+    applicationClosingDate: 1, 
+    location: 1,
+    workMode: 1 
+});
+
 const Job = mongoose.model('Job', jobSchema);
 
 module.exports = Job;
